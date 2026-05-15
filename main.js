@@ -1,4 +1,5 @@
 import Reveal from 'reveal.js'
+import Notes from 'reveal.js/plugin/notes'
 import 'reveal.js/reset.css'
 import 'reveal.js/reveal.css'
 import './css/theme.css'
@@ -6,6 +7,7 @@ import { initParticles } from './js/particles.js'
 import { initCharts } from './js/charts.js'
 
 const deck = new Reveal({
+  plugins: [ Notes ],
   hash: true,
   transition: 'fade',
   transitionSpeed: 'slow',
