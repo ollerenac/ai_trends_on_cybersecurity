@@ -112,7 +112,7 @@
 }
 
 #logo-overlay img {
-  height: 48px;
+  height: 96px;
   width: auto;
   opacity: 0.85;
   filter: drop-shadow(0 0 8px rgba(0,0,0,0.8));
