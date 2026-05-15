@@ -24,7 +24,104 @@
         <aside class="notes">Introducción al escenario actual de ciberseguridad. Contextualiza la magnitud del problema antes de presentar soluciones.</aside>
       </section>
 
-      <!-- Slides ACT I (6 slides) — se agregan en Task 6 -->
+      <!-- ACT I: Slide 1 — Hook -->
+      <section>
+        <h2>El costo de un ataque ya no es abstracto</h2>
+        <p>
+          <span class="big-stat">$4.88M</span>
+          <span class="big-stat-label">Costo promedio por brecha de datos — IBM 2024</span>
+        </p>
+        <p class="fragment muted">Cada 39 segundos ocurre un ciberataque en el mundo</p>
+        <aside class="notes">
+          Abre con el número. Deja que impacte. Pausa 3 segundos antes de continuar.
+          Fuente: IBM Cost of a Data Breach Report 2024.
+        </aside>
+      </section>
+
+      <!-- ACT I: Slide 2 — Superficie de ataque -->
+      <section>
+        <h2>La superficie de ataque se expande</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1em; margin-top:0.8em;">
+          <div class="card">
+            <h3>IoT</h3>
+            <p class="muted" style="font-size:0.7em;">+15B dispositivos conectados en 2024</p>
+          </div>
+          <div class="card">
+            <h3>Cloud</h3>
+            <p class="muted" style="font-size:0.7em;">94% de empresas usan servicios cloud</p>
+          </div>
+          <div class="card">
+            <h3>Remoto</h3>
+            <p class="muted" style="font-size:0.7em;">Trabajo híbrido = nuevos vectores</p>
+          </div>
+        </div>
+        <p class="fragment" style="margin-top:0.8em;">Más dispositivos → <span class="danger">más puntos de entrada</span></p>
+        <aside class="notes">
+          El problema no es solo que hay más ataques, es que hay más superficie expuesta.
+          IoT: cámaras, sensores industriales, wearables — la mayoría sin seguridad adecuada.
+        </aside>
+      </section>
+
+      <!-- ACT I: Slide 3 — Velocidad de las amenazas -->
+      <section>
+        <h2>Las amenazas evolucionan más rápido que los defensores</h2>
+        <ul>
+          <li class="fragment">Tiempo promedio para detectar una brecha: <span class="danger">194 días</span></li>
+          <li class="fragment">Tiempo para contenerla: <span class="danger">64 días adicionales</span></li>
+          <li class="fragment">Un atacante puede moverse lateralmente en <span class="danger">minutos</span></li>
+        </ul>
+        <aside class="notes">
+          IBM 2024. Esto es el gap que los atacantes explotan.
+          Cuando el equipo de seguridad detecta algo, ya lleva 6 meses dentro.
+        </aside>
+      </section>
+
+      <!-- ACT I: Slide 4 — Falla de métodos tradicionales -->
+      <section>
+        <h2>¿Por qué fallan los métodos tradicionales?</h2>
+        <div class="card fragment">
+          <h3>Basados en firmas</h3>
+          <p class="muted" style="font-size:0.7em;">Solo detectan amenazas <em>conocidas</em>. Un zero-day los ciega por completo.</p>
+        </div>
+        <div class="card fragment">
+          <h3>Reglas estáticas</h3>
+          <p class="muted" style="font-size:0.7em;">No se adaptan. Los atacantes aprenden las reglas y las evaden.</p>
+        </div>
+        <div class="card fragment">
+          <h3>Volumen de datos</h3>
+          <p class="muted" style="font-size:0.7em;">Un SIEM genera millones de alertas/día. Los analistas se ahogan.</p>
+        </div>
+        <aside class="notes">
+          Estos son los tres problemas fundamentales. Preparar el terreno para la solución AI.
+        </aside>
+      </section>
+
+      <!-- ACT I: Slide 5 — El límite humano -->
+      <section>
+        <h2>El problema escala más rápido que los equipos humanos</h2>
+        <p>
+          <span class="big-stat danger">3.5M</span>
+          <span class="big-stat-label">Posiciones de ciberseguridad sin cubrir en el mundo — 2025</span>
+        </p>
+        <p class="fragment muted" style="font-size:0.75em;">No es solo un problema de herramientas. Es un problema de escala.</p>
+        <aside class="notes">
+          Cybersecurity Ventures 2025. No podemos contratar suficientes personas.
+          Necesitamos sistemas que aprendan, se adapten y escalen solos.
+        </aside>
+      </section>
+
+      <!-- ACT I: Slide 6 — Transición dramática -->
+      <section>
+        <h2 style="color: var(--text-muted); font-weight:300;">Necesitamos algo que</h2>
+        <h1 style="font-size:2.8em;">aprenda.</h1>
+        <p class="fragment" style="margin-top:0.8em; font-size:0.8em; color: var(--primary);">
+          La respuesta es Inteligencia Artificial aplicada a ciberseguridad.
+        </p>
+        <aside class="notes">
+          Pausa dramática. Dejar que la palabra "aprenda" resuene.
+          Este es el pivote de la charla.
+        </aside>
+      </section>
 
       <!-- ==================== ACT II ==================== -->
       <section data-act="2">
