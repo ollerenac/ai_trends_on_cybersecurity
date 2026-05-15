@@ -392,7 +392,28 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
             </div>
 
           </div>
-          <aside class="notes">5 componentes de §4.4. Optimization: R(S) es el objetivo global. Detection: CNN (patrones espaciales en tráfico) + RNN (patrones temporales en secuencias de logs). Severity: CVSS estático vs AI-adjusted según contexto. Prioritization: RL con recursos limitados → el analista recibe una lista corta priorizada, no datos brutos. Automated Remediation: control theory — el sistema calcula el camino de menor costo desde S0 (inseguro) a Sf (seguro). +42% CrowdStrike 2026 cierra el argumento.</aside>
+          <aside class="notes">
+[SLIDE ABIERTO — diagrama compacto visible a la izquierda]
+"Ahora la matemática detrás de cada capa."
+
+── CLICK 1 — ① Optimization Framework ──
+"El objetivo global: R(S) — riesgo total del sistema como suma del riesgo de cada vulnerabilidad dado el estado actual S. Todo lo demás está al servicio de minimizar esta función."
+
+── CLICK 2 — ② Vulnerability Detection ──
+"CNN sobre tráfico de red para capturar patrones espaciales. RNN sobre secuencias de logs para capturar patrones temporales. La función de pérdida L(θ) entrena ambos modelos en paralelo. Detecta lo que no tiene firma — el zero-day todavía sin nombre."
+
+── CLICK 3 — ③ Severity Assessment ──
+"CVSS asigna un score estático entre 0 y 10 sobre la tríada CIA. La AI va más lejos: ajusta esos pesos dinámicamente según el contexto del sistema. Un servidor de producción expuesto a internet no tiene el mismo perfil de riesgo que una workstation interna."
+
+── CLICK 4 — ④ Prioritization ──
+"Reinforcement learning combinado con programación entera binaria. El agente aprende qué parchar primero dado que los recursos del equipo son finitos. El resultado: el analista recibe una lista corta y ordenada — tres CVEs, no quinientas."
+
+── CLICK 5 — ⑤ Automated Remediation ──
+"El componente más poderoso. Control theory puro: J(u) es el costo total de la trayectoria de remediación. El sistema calcula el camino de menor costo para llevar el sistema desde S₀ — el estado inseguro — hasta Sᶠ — el estado seguro — sin intervención humana."
+
+── CLICK 6 — +42% callout ──
+"Y el argumento final: CrowdStrike 2026 reporta un aumento del 42% en zero-days explotados antes de su divulgación pública. Los adversarios no esperan el patch Tuesday. Este ciclo automatizado tampoco."
+          </aside>
         </section>
 
       </section>
