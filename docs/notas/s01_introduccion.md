@@ -88,16 +88,28 @@ El autor menciona que revisiones previas [18–35] han cubierto AI o ciberseguri
 
 ## Verificación de datos — ACT I de la presentación
 
-| Dato en slides | Fuente declarada | Mi verificación (conocimiento hasta ago 2025) | Estado | Acción |
+*Última actualización: contrastado contra CrowdStrike Global Threat Report 2026 (datos 2025)*
+
+| Dato en slides | Fuente declarada | Verificación | Estado | Acción |
 |---|---|---|---|---|
 | **$4.88M** costo promedio de brecha | IBM Cost of Data Breach 2024 | ✅ Correcto. IBM reportó exactamente $4.88M en 2024, subida desde $4.45M en 2023 | ✅ Verificado | Citar: *IBM Cost of a Data Breach Report 2024* |
-| **Cada 39 segundos** ocurre un ciberataque | Ninguna en slide | ⚠️ Dato de 2007 (Univ. Maryland). Profundamente desactualizado. Estimados actuales: 1 ataque cada **2.39 segundos** en 2024 (Cybersecurity Ventures) | ⚠️ Desactualizado | Actualizar o eliminar |
+| **Cada 39 segundos** ocurre un ciberataque | Ninguna en slide | ❌ Dato de 2007 (Univ. Maryland). Profundamente desactualizado. | ❌ Reemplazar | Usar: *"Breakout time promedio: 29 min — CrowdStrike GTR 2026"* |
 | **194 días** para detectar una brecha | IBM 2024 | ✅ Correcto. IBM 2024: 194 días promedio para identificar + 64 días para contener = **258 días totales** | ✅ Verificado | Citar: *IBM CODB Report 2024* |
 | **64 días adicionales** para contener | IBM 2024 | ✅ Correcto — mismo reporte | ✅ Verificado | Citar: *IBM CODB Report 2024* |
 | **3.5M posiciones** sin cubrir | Cybersecurity Ventures | ✅ Correcto. Cybersecurity Ventures mantiene este número desde 2021 y lo reconfirmó en 2023-2024 | ✅ Verificado | Citar: *Cybersecurity Ventures Workforce Report 2024* |
 | **15B dispositivos** IoT en 2024 | Ninguna en slide | ✅ Aproximado. IoT Analytics reportó **15.9B** conexiones activas en 2023; ~17B estimado para 2025 | ✅ Verificado | Citar: *IoT Analytics — State of IoT 2024* |
-| **94% de empresas** usan cloud | Ninguna en slide | ⚠️ Número alto. Flexera 2024: 87% multi-cloud, 72% hybrid. El 94% puede referirse a "algún servicio cloud" (e.g. email). Necesita precisión | ⚠️ Impreciso | Reemplazar con: *87% usa estrategia multi-cloud — Flexera State of the Cloud 2024* |
-| Un atacante se mueve lateralmente en **minutos** | Ninguna en slide | ✅ Confirmado. CrowdStrike 2024: tiempo promedio de breakout (movimiento lateral) = **62 minutos**; el más rápido registrado: **2 minutos 7 segundos** | ✅ Verificado | Añadir dato concreto: *CrowdStrike Global Threat Report 2024* |
+| **94% de empresas** usan cloud | Ninguna en slide | ⚠️ Número alto. Flexera 2024: 87% multi-cloud. CrowdStrike GTR 2026: 35% de incidentes cloud via credenciales válidas (valid account abuse) | ⚠️ Impreciso | Reemplazar con: *87% multi-cloud (Flexera 2024) + 35% de incidentes cloud vía credenciales válidas (CrowdStrike 2026)* |
+| Un atacante se mueve lateralmente en **minutos** | Ninguna en slide | ✅ ACTUALIZADO. CrowdStrike GTR **2026** (datos 2025): breakout promedio = **29 minutos** (↓65% vs 2024); más rápido: **27 segundos**. Dato anterior (62 min, GTR 2024) queda desactualizado. | ✅ Actualizado | Citar: *CrowdStrike Global Threat Report 2026* — mencionar los 27 segundos como dato de impacto |
+
+### Datos nuevos del CrowdStrike 2026 GTR para añadir a slides
+
+| Dato | Valor | Slide sugerido |
+|---|---|---|
+| Ataques por adversarios AI-enabled | **+89% YoY** (2024→2025) | ACT I hook o Slide 7 (AI transformadora) |
+| Detecciones malware-free en 2025 | **82%** (vs 51% en 2020) | Slide 4-5: métodos tradicionales fallan |
+| Reducción del breakout time en 5 años | **70% de reducción** (2021→2025) | Slide 3: velocidad de amenazas |
+| Zero-days explotados antes de divulgación | **+42% YoY** | Slide 12: APTs y zero-days |
+| Adversarios rastreados actualmente | **281** total / **150** activos | Slide de contexto del threat landscape |
 
 ---
 
