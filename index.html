@@ -313,31 +313,31 @@
             <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
               <div style="display:inline-flex; flex-direction:column; gap:0.32em;">
 
-                <div class="fragment" style="border:1px solid rgba(0,212,255,0.25); border-left:3px solid var(--primary); border-radius:4px; padding:0.2em 0.65em; background:rgba(0,212,255,0.04);">
+                <div class="fragment" style="border-left:3px solid var(--primary); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--primary); font-size:0.86em;">① Optimization Framework</div>
                   <code style="display:block; font-size:0.75em; white-space:nowrap; color:rgba(0,212,255,0.8);">R(S) = Σ r(vᵢ, S)</code>
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">Minimizar riesgo total sobre todas las vulnerabilidades</span>
                 </div>
 
-                <div class="fragment" style="border:1px solid rgba(0,212,255,0.25); border-left:3px solid var(--primary); border-radius:4px; padding:0.2em 0.65em; background:rgba(0,212,255,0.04);">
+                <div class="fragment" style="border-left:3px solid var(--primary); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--primary); font-size:0.86em;">② Vulnerability Detection</div>
                   <code style="display:block; font-size:0.75em; white-space:nowrap; color:rgba(0,212,255,0.8);">CNN + RNN → L(θ) = (1/m)Σℓ(f_θ(Xᵢ),Vᵢ)</code>
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">Análisis de tráfico de red y logs en tiempo real</span>
                 </div>
 
-                <div class="fragment" style="border:1px solid rgba(255,165,0,0.25); border-left:3px solid #ffa500; border-radius:4px; padding:0.2em 0.65em; background:rgba(255,165,0,0.04);">
+                <div class="fragment" style="border-left:3px solid #ffa500; padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:#ffa500; font-size:0.86em;">③ Severity Assessment</div>
                   <code style="display:block; font-size:0.75em; white-space:nowrap; color:rgba(255,165,0,0.8);">CVSS: s(vᵢ) ∈ [0,10] — CIA triad</code>
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">AI ajusta pesos dinámicamente según el contexto del sistema</span>
                 </div>
 
-                <div class="fragment" style="border:1px solid rgba(255,165,0,0.25); border-left:3px solid #ffa500; border-radius:4px; padding:0.2em 0.65em; background:rgba(255,165,0,0.04);">
+                <div class="fragment" style="border-left:3px solid #ffa500; padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:#ffa500; font-size:0.86em;">④ Prioritization</div>
                   <code style="display:block; font-size:0.75em; white-space:nowrap; color:rgba(255,165,0,0.8);">RL + binary integer programming</code>
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">Minimizar riesgo con recursos R limitados → analista ve 3 CVEs, no 500</span>
                 </div>
 
-                <div class="fragment" style="border:1px solid rgba(0,255,136,0.25); border-left:3px solid var(--positive); border-radius:4px; padding:0.2em 0.65em; background:rgba(0,255,136,0.04);">
+                <div class="fragment" style="border-left:3px solid var(--positive); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--positive); font-size:0.86em;">⑤ Automated Remediation</div>
                   <code style="display:block; font-size:0.75em; white-space:nowrap; color:rgba(0,255,136,0.8);">J(u) = ∫₀ᵀ L(S(t),u(t))dt  ·  S₀ → Sᶠ</code>
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">Control theory: sistema transita de S₀ inseguro a Sᶠ seguro</span>
