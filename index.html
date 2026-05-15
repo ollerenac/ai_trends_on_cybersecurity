@@ -420,16 +420,88 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 
       <!-- ACT II: IDENTIFY — Predictive Analytics -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
-        <h2>Predictive Analytics: anticipar, no reaccionar</h2>
-        <ul>
-          <li class="fragment"><strong>Bayesian Networks:</strong> modelan P(ataque | señales observadas) combinando feeds históricos y telemetría en tiempo real</li>
-          <li class="fragment"><strong>LSTM:</strong> detecta secuencias temporales de precursores — el comportamiento que antecede al ataque</li>
-          <li class="fragment">La pregunta cambia: de <span class="danger">"¿cuánto tardé en detectar?"</span> a <span class="positive">"¿lo vi venir?"</span></li>
-          <li class="fragment positive">IBM 2024: 194 días promedio para identificar una brecha. Predictive AI reduce esa ventana a horas.</li>
-        </ul>
-        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[147–149]</strong></p>
-        <aside class="notes">IDENTIFY phase 2. La tensión: 194 días de detección promedio vs predicción en tiempo real. El modelo predictivo garantiza que el equipo tiene contexto anticipado antes de que el ataque escale.</aside>
+        <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
+        <h2 style="margin-bottom:0.4em;">Predictive Analytics: anticipar, no reaccionar</h2>
+
+        <div style="display:grid; grid-template-columns:38% 62%; gap:1.6em; align-items:center; font-size:0.69em;">
+
+          <!-- LEFT: problem stat -->
+          <div style="text-align:center; padding:0.8em; border:1px solid rgba(255,51,102,0.25); border-radius:6px; background:rgba(255,51,102,0.05);">
+            <div style="color:var(--accent); font-size:3.2em; font-weight:900; line-height:1;">194</div>
+            <div style="color:var(--accent); font-size:1.1em; font-weight:700; letter-spacing:0.04em;">días</div>
+            <div style="font-size:0.72em; color:var(--text-muted); margin-top:0.3em;">para identificar una brecha</div>
+            <div style="font-size:0.62em; color:var(--text-dim); margin-top:0.15em;">IBM Cost of a Data Breach 2024</div>
+            <div style="margin-top:0.7em; font-size:0.63em; color:var(--text-dim); font-style:italic; line-height:1.4;">detección reactiva:<br>brecha → alerta → análisis → respuesta</div>
+          </div>
+
+          <!-- RIGHT: hierarchy of 4 models -->
+          <div style="display:flex; flex-direction:column; gap:0.28em;">
+
+            <div class="fragment" style="border-left:3px solid var(--primary); padding:0.18em 0.65em;">
+              <div style="font-weight:700; color:var(--primary); font-size:0.86em;">① Logistic Regression</div>
+              <code style="display:block; font-size:0.75em; color:rgba(0,212,255,0.8);">P(y=1|x;θ) = 1 / (1 + exp(−θᵀx))</code>
+              <span style="display:block; font-size:0.71em; color:var(--text-muted);">Clasificación binaria: ¿es este evento una amenaza?</span>
+              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ cuando el dato tiene dimensión temporal…</span>
+            </div>
+
+            <div class="fragment" style="border-left:3px solid var(--primary); padding:0.18em 0.65em;">
+              <div style="font-weight:700; color:var(--primary); font-size:0.86em;">② LSTM</div>
+              <code style="display:block; font-size:0.75em; color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · gates: forget / input / output</code>
+              <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Qué secuencia de comportamiento conduce aquí?</span>
+              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ cuando necesitamos definir qué es "normal"…</span>
+            </div>
+
+            <div class="fragment" style="border-left:3px solid var(--primary); padding:0.18em 0.65em;">
+              <div style="font-weight:700; color:var(--primary); font-size:0.86em;">③ GMM — Gaussian Mixture Model</div>
+              <code style="display:block; font-size:0.75em; color:rgba(0,212,255,0.8);">p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ) · Mahalanobis distance</code>
+              <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Qué tan lejos está este evento de la distribución normal?</span>
+              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ integrando toda la evidencia acumulada…</span>
+            </div>
+
+            <div class="fragment" style="border-left:3px solid var(--positive); padding:0.18em 0.65em;">
+              <div style="font-weight:700; color:var(--positive); font-size:0.86em;">④ Bayesian Network — integrador</div>
+              <code style="display:block; font-size:0.75em; color:rgba(0,255,136,0.8);">P(y|x) = P(x|y) · P(y) / P(x)</code>
+              <span style="display:block; font-size:0.71em; color:var(--text-muted);">Probabilidad condicional de ataque dado todo lo observado. Se actualiza en tiempo real al recibir nueva inteligencia.</span>
+            </div>
+
+            <div class="fragment" style="padding:0.22em 0.65em; background:rgba(0,212,255,0.06); border:1px solid rgba(0,212,255,0.2); border-radius:4px; display:flex; align-items:center; gap:0.5em; flex-wrap:wrap; margin-top:0.1em;">
+              <span style="color:var(--text-muted); font-size:0.72em;">De</span>
+              <span style="color:var(--accent); font-size:0.78em; font-style:italic;">"¿cuánto tardé en detectar?"</span>
+              <span style="color:var(--primary); font-weight:700;">→</span>
+              <span style="color:var(--positive); font-size:0.78em; font-style:italic; font-weight:600;">"¿Lo vi venir?"</span>
+            </div>
+
+          </div>
+        </div>
+
+        <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[147–149]</strong></p>
+
+        <aside class="notes">
+[SLIDE ABIERTO — stat 194 días visible a la izquierda]
+"Ciento noventa y cuatro días. Ese es el tiempo promedio que una organización tarda en detectar que ha sido comprometida. IBM 2024. Casi seis meses de exposición antes de que alguien lo note."
+"La pregunta es: ¿puede la AI reducir esa ventana? Y la respuesta del paper es: sí — pero no con un solo modelo. Con una jerarquía de cuatro."
+
+── CLICK 1 — ① Logistic Regression ──
+"El punto de entrada. Cada evento de red se representa como un vector xᵢ en ℝᵈ. El modelo aprende la función P(y=1|x;θ) — la probabilidad de que ese evento sea una amenaza. Binario: sí o no. Es el filtro más rápido, el más barato computacionalmente."
+"Pero los ataques no son eventos aislados. Son secuencias."
+
+── CLICK 2 — ② LSTM ──
+"Cuando los datos tienen dimensión temporal — una serie de eventos X_{1:T} — entra el LSTM. Tres gates: forget descarta lo irrelevante, input registra lo nuevo, output decide qué pasa al siguiente paso. El estado oculto hₜ acumula la historia del comportamiento."
+"Detecta la secuencia que precede al ataque. No el evento aislado — el patrón de los días anteriores."
+"Pero todavía necesitamos saber qué es 'normal'."
+
+── CLICK 3 — ③ GMM ──
+"El GMM modela la distribución de eventos normales como mezcla de Gaussianas. Cada cluster representa un modo de comportamiento legítimo — tráfico de trabajo, backups nocturnos, sincronizaciones. Lo que cae lejos de todos los clusters — distancia de Mahalanobis alta — es anomalía."
+"No necesita ejemplos etiquetados de ataques. Aprende lo que es normal y detecta cualquier desviación."
+
+── CLICK 4 — ④ Bayesian Network ──
+"Y aquí está el techo del sistema. El Bayesian Network integra todo: el prior P(y) — la probabilidad histórica de ataque en este contexto — con la verosimilitud P(x|y) — qué tan probable es observar estos datos si hay un ataque. El resultado: P(y|x), la probabilidad posterior."
+"Y se actualiza en tiempo real. Cada nueva señal refina la estimación. El sistema no espera — predice."
+
+── CLICK 5 — Pivot callout ──
+"La pregunta cambia. Ya no es '¿cuánto tardé en detectar?' — reactivo, asume que la brecha ya ocurrió. Es '¿lo vi venir?' — proactivo, permite iniciar defensas antes de que el ataque escale."
+"De 194 días a horas. Esa es la promesa del §4.10."
+        </aside>
       </section>
 
       <!-- ACT II: DETECT — Anomaly Detection + Network Traffic -->
