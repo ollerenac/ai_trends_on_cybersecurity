@@ -364,6 +364,107 @@
 
       <!-- Slides ACT III (7 slides) — se agregan en Task 9 -->
 
+      <!-- ACT III: Slide 19 — VIZ 1: Line Chart Threat Landscape -->
+      <section data-chart="threat-growth">
+        <h2>El problema no para de crecer</h2>
+        <p class="muted" style="font-size:0.7em;">Costo promedio de una brecha de datos 2018–2024 (USD millones)</p>
+        <div style="width:750px; height:380px; margin:0 auto;">
+          <canvas id="chart-threat-growth"></canvas>
+        </div>
+        <p class="fragment muted" style="font-size:0.65em;">Fuente: IBM Cost of a Data Breach Report 2024</p>
+        <aside class="notes">IBM 2024. De $3.86M en 2018 a $4.88M en 2024 — +26%. Y la tendencia no se frena.</aside>
+      </section>
+
+      <!-- ACT III: Slide 20 — Adversarial Attacks -->
+      <section>
+        <h2>El lado oscuro: Adversarial Attacks</h2>
+        <p class="fragment muted" style="font-size:0.75em;">Si AI puede defender, también puede ser atacada.</p>
+        <ul>
+          <li class="fragment"><strong>Data poisoning:</strong> contaminar el dataset de entrenamiento</li>
+          <li class="fragment"><strong>Evasion attacks:</strong> inputs diseñados para engañar al modelo</li>
+          <li class="fragment">Fórmula: <code>X' = X + ε</code> (perturbación mínima, máximo daño)</li>
+          <li class="fragment danger">Un modelo de detección de malware puede ser "cegado" con modificaciones de 1 byte</li>
+        </ul>
+        <aside class="notes">Ali et al. 2025 — adversarial attacks section. Esto es lo que el auditorio técnico generalmente no considera. La fórmula es del paper.</aside>
+      </section>
+
+      <!-- ACT III: Slide 21 — Blockchain + AI -->
+      <section>
+        <h2>Blockchain + AI: integridad de datos</h2>
+        <ul>
+          <li class="fragment">Blockchain garantiza <span class="positive">inmutabilidad</span> de los logs de seguridad</li>
+          <li class="fragment">AI sobre blockchain: detección de anomalías con trazabilidad auditada</li>
+          <li class="fragment">Ideal para entornos regulados: banca, salud, gobierno</li>
+          <li class="fragment positive">Resuelve el problema de "¿puede confiar en sus propios logs?"</li>
+        </ul>
+        <aside class="notes">Ali et al. 2025. No es hype — tiene casos de uso concretos donde la cadena de custodia de datos es crítica.</aside>
+      </section>
+
+      <!-- ACT III: Slide 22 — Quantum Computing -->
+      <section>
+        <h2>Computación cuántica: amenaza y oportunidad</h2>
+        <div class="card fragment">
+          <h3 class="danger">La amenaza</h3>
+          <p class="muted" style="font-size:0.65em;">Algoritmo de Shor puede romper RSA-2048 en horas. Toda nuestra infraestructura PKI es vulnerable.</p>
+        </div>
+        <div class="card fragment">
+          <h3 class="positive">La oportunidad</h3>
+          <p class="muted" style="font-size:0.65em;">NIST ya estandarizó algoritmos post-cuánticos (CRYSTALS-Kyber, CRYSTALS-Dilithium).</p>
+        </div>
+        <p class="fragment muted" style="font-size:0.7em; margin-top:0.6em;">El timeline de riesgo: 5-10 años. El tiempo de preparación: ahora.</p>
+        <aside class="notes">Ali et al. 2025. NIST finalizó los estándares PQC en 2024. Hablar con el auditorio técnico sobre migración de PKI.</aside>
+      </section>
+
+      <!-- ACT III: Slide 23 — Ética y Política -->
+      <section>
+        <h2>El triángulo de tensión</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.8em; margin-top:0.8em;">
+          <div class="card fragment">
+            <h3>Seguridad</h3>
+            <p class="muted" style="font-size:0.65em;">AI necesita acceso a datos para ser efectiva</p>
+          </div>
+          <div class="card fragment">
+            <h3>Privacidad</h3>
+            <p class="muted" style="font-size:0.65em;">Monitoreo masivo levanta banderas éticas y legales (GDPR)</p>
+          </div>
+          <div class="card fragment">
+            <h3>Sesgo</h3>
+            <p class="muted" style="font-size:0.65em;">Modelos entrenados con datos históricos heredan sus sesgos</p>
+          </div>
+        </div>
+        <p class="fragment positive" style="margin-top:0.8em; font-size:0.75em;">XAI (Explainable AI) como respuesta: modelos que justifican sus decisiones.</p>
+        <aside class="notes">Ali et al. 2025. Para el auditorio de gestión este slide conecta directamente con compliance y riesgo organizacional.</aside>
+      </section>
+
+      <!-- ACT III: Slide 24 — Self-healing y XAI -->
+      <section>
+        <h2>El futuro: sistemas que se curan solos</h2>
+        <ul>
+          <li class="fragment"><strong>Self-healing systems:</strong> AI que detecta, aísla y repara automáticamente</li>
+          <li class="fragment"><strong>XAI:</strong> "explica por qué bloqueaste esa conexión" — accountability auditada</li>
+          <li class="fragment positive">Convergencia: detección → respuesta → remediación → aprendizaje → prevención</li>
+        </ul>
+        <p class="fragment muted" style="font-size:0.7em; margin-top:0.6em;">
+          No es ciencia ficción. Productos como SentinelOne ya implementan remediación autónoma.
+        </p>
+        <aside class="notes">Ali et al. 2025. El loop completo sin intervención humana para incidentes de bajo-medio riesgo libera a los analistas para trabajo estratégico.</aside>
+      </section>
+
+      <!-- ACT III: Slide 25 — Cierre -->
+      <section>
+        <h2 style="font-size:1.2em; color: var(--text-muted); font-weight:300;">La pregunta no es</h2>
+        <h1 style="font-size:2.2em;">¿deberíamos usar AI en ciberseguridad?</h1>
+        <h2 class="fragment" style="color: var(--primary); margin-top:0.6em;">La pregunta es:</h2>
+        <h1 class="fragment" style="font-size:2em; color: var(--positive);">¿Podemos darnos el lujo de no hacerlo?</h1>
+        <p class="fragment muted" style="font-size:0.65em; margin-top:1em;">
+          Ali et al. — Information Fusion 118 (2025) · IBM Cost of Breach 2024 · NIST PQC 2024
+        </p>
+        <aside class="notes">
+          Cierre poderoso. Pausa larga después de "¿Podemos darnos el lujo de no hacerlo?".
+          Luego agradecer y abrir preguntas.
+        </aside>
+      </section>
+
     </div>
   </div>
 
