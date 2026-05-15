@@ -270,6 +270,91 @@
         <aside class="notes">Ali et al. 2025 — automated response section. El contraste manual vs automatizado es muy visual y resonará con el auditorio técnico.</aside>
       </section>
 
+      <!-- ACT II: Slide 15 — Threat Intelligence -->
+      <section>
+        <h2>Threat Intelligence potenciada por AI</h2>
+        <ul>
+          <li class="fragment">Ingiere millones de IoCs (Indicators of Compromise) de fuentes externas</li>
+          <li class="fragment">Correlaciona alertas internas con inteligencia global</li>
+          <li class="fragment">NLP procesa reportes de amenazas en tiempo real (CVEs, dark web, feeds)</li>
+          <li class="fragment positive">Contexto + velocidad = respuesta proactiva, no reactiva</li>
+        </ul>
+        <aside class="notes">Ali et al. 2025 — threat intelligence section. Muy relevante para los gestores: convierte datos en inteligencia accionable.</aside>
+      </section>
+
+      <!-- ACT II: Slide 16 — VIZ 3: Tabla AI vs Tradicional -->
+      <section>
+        <h2>AI vs Seguridad Tradicional</h2>
+        <table style="font-size:0.55em; width:100%; border-collapse:collapse;">
+          <thead>
+            <tr style="color: var(--primary); border-bottom: 2px solid var(--primary);">
+              <th style="text-align:left; padding:0.4em;">Parámetro</th>
+              <th style="text-align:left; padding:0.4em;">Seguridad Tradicional</th>
+              <th style="text-align:left; padding:0.4em; color: var(--positive);">AI-driven</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+              <td style="padding:0.4em; color:var(--text-muted);">Detección de amenazas</td>
+              <td style="padding:0.4em;">Basada en firmas conocidas</td>
+              <td style="padding:0.4em; color:var(--positive);">Anomaly detection adaptativa</td>
+            </tr>
+            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+              <td style="padding:0.4em; color:var(--text-muted);">Adaptabilidad</td>
+              <td style="padding:0.4em; color:var(--accent);">Requiere actualización manual</td>
+              <td style="padding:0.4em; color:var(--positive);">Aprende continuamente</td>
+            </tr>
+            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+              <td style="padding:0.4em; color:var(--text-muted);">Respuesta</td>
+              <td style="padding:0.4em; color:var(--accent);">Manual (horas/días)</td>
+              <td style="padding:0.4em; color:var(--positive);">Automatizada (segundos)</td>
+            </tr>
+            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+              <td style="padding:0.4em; color:var(--text-muted);">Zero-day</td>
+              <td style="padding:0.4em; color:var(--accent);">Ciego sin firma</td>
+              <td style="padding:0.4em; color:var(--positive);">Detecta por comportamiento</td>
+            </tr>
+            <tr class="fragment">
+              <td style="padding:0.4em; color:var(--text-muted);">Escala</td>
+              <td style="padding:0.4em; color:var(--accent);">Limitada por analistas</td>
+              <td style="padding:0.4em; color:var(--positive);">Escala con la infraestructura</td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="notes">Table 1 del paper — Ali et al. 2025. Habla fila por fila. El auditorio de gestión valora esta comparativa directa.</aside>
+      </section>
+
+      <!-- ACT II: Slide 17 — VIZ 4: MTTR Bar Chart -->
+      <section data-chart="mttr">
+        <h2>Tiempo de respuesta a incidentes</h2>
+        <p class="muted" style="font-size:0.7em;">MTTR — Mean Time to Respond (horas)</p>
+        <div style="width:700px; height:380px; margin:0 auto;">
+          <canvas id="chart-mttr"></canvas>
+        </div>
+        <aside class="notes">
+          Las barras hablan solas. AI reduce el MTTR en todas las fases del ciclo de respuesta.
+          Enfatizar: la detección pasa de 24h a 4h. La contención de 12h a 2h.
+        </aside>
+      </section>
+
+      <!-- ACT II: Slide 18 — Casos de uso concretos -->
+      <section>
+        <h2>AI en producción: casos reales</h2>
+        <div class="card fragment">
+          <h3>Darktrace</h3>
+          <p class="muted" style="font-size:0.65em;">AI detectó ransomware en una red industrial 1 hora antes de que se ejecutara</p>
+        </div>
+        <div class="card fragment">
+          <h3>Google BeyondCorp</h3>
+          <p class="muted" style="font-size:0.65em;">ML reemplazó el modelo de VPN tradicional con análisis continuo de confianza</p>
+        </div>
+        <div class="card fragment">
+          <h3>CrowdStrike Falcon</h3>
+          <p class="muted" style="font-size:0.65em;">DL analiza 6 billones de eventos/día para detectar amenazas en tiempo real</p>
+        </div>
+        <aside class="notes">Ejemplos concretos que el auditorio técnico puede investigar después. Son sistemas de producción real, no demos.</aside>
+      </section>
+
       <!-- ==================== ACT III ==================== -->
       <section data-act="3">
         <h1 class="act-title">ACT III</h1>
