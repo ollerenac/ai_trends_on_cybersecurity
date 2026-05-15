@@ -132,6 +132,144 @@
 
       <!-- Slides ACT II (12 slides) — se agregan en Tasks 7 y 8 -->
 
+      <!-- ACT II: Slide 7 — AI como fuerza transformadora -->
+      <section>
+        <h2>AI: de herramienta a aliado estratégico</h2>
+        <p style="font-size:0.8em; color: var(--text-muted);">
+          Tres capacidades que cambian las reglas del juego:
+        </p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.8em; margin-top:0.6em;">
+          <div class="card fragment">
+            <h3>Aprender</h3>
+            <p class="muted" style="font-size:0.65em;">Detecta patrones en millones de eventos en segundos</p>
+          </div>
+          <div class="card fragment">
+            <h3>Adaptarse</h3>
+            <p class="muted" style="font-size:0.65em;">Se actualiza ante nuevas amenazas sin reglas manuales</p>
+          </div>
+          <div class="card fragment">
+            <h3>Escalar</h3>
+            <p class="muted" style="font-size:0.65em;">Monitorea toda la infraestructura simultáneamente</p>
+          </div>
+        </div>
+        <aside class="notes">Ali et al. 2025 — sección 1. Estas tres capacidades son el núcleo del valor de AI.</aside>
+      </section>
+
+      <!-- ACT II: Slide 8 — Machine Learning -->
+      <section>
+        <h2>Machine Learning en ciberseguridad</h2>
+        <ul>
+          <li class="fragment"><strong>Supervisado:</strong> clasifica tráfico malicioso vs. legítimo con datos etiquetados</li>
+          <li class="fragment"><strong>No supervisado:</strong> detecta anomalías sin ejemplos previos (ideal para zero-day)</li>
+          <li class="fragment">Fórmula de anomalía: <code>D = |X − μ| > σ</code></li>
+          <li class="fragment positive">Efectividad: hasta 99.7% accuracy en detección de intrusiones (datasets benchmark)</li>
+        </ul>
+        <aside class="notes">
+          Ali et al. 2025 — tabla 1. El no supervisado es el más relevante para nuevas amenazas.
+          La fórmula D es del paper original.
+        </aside>
+      </section>
+
+      <!-- ACT II: Slide 9 — Deep Learning -->
+      <section>
+        <h2>Deep Learning: redes neuronales profundas</h2>
+        <ul>
+          <li class="fragment">Reconoce patrones complejos en tráfico de red</li>
+          <li class="fragment">CNNs para análisis de malware como imagen de bytes</li>
+          <li class="fragment">LSTMs para detección de anomalías en series de tiempo</li>
+          <li class="fragment positive">Detecta phishing sofisticado que evade filtros convencionales</li>
+        </ul>
+        <p class="fragment muted" style="font-size:0.7em; margin-top:0.6em;">
+          "DL has proven highly effective for identifying intricate traffic anomalies" — Ali et al. 2025
+        </p>
+        <aside class="notes">Ali et al. 2025 — sección introductoria. Mencionar que también maneja datos no estructurados.</aside>
+      </section>
+
+      <!-- ACT II: Slide 10 — NLP -->
+      <section>
+        <h2>NLP: entendiendo el lenguaje de las amenazas</h2>
+        <div class="card fragment">
+          <h3>Detección de phishing</h3>
+          <p class="muted" style="font-size:0.65em;">Analiza el texto de emails y URLs para identificar ingeniería social</p>
+        </div>
+        <div class="card fragment">
+          <h3>Análisis de logs</h3>
+          <p class="muted" style="font-size:0.65em;">Extrae indicadores de compromiso de millones de líneas de logs</p>
+        </div>
+        <div class="card fragment">
+          <h3>Threat Intelligence</h3>
+          <p class="muted" style="font-size:0.65em;">Procesa reportes de seguridad y feeds externos automáticamente</p>
+        </div>
+        <aside class="notes">Ali et al. 2025. NLP es el puente entre datos no estructurados y detección automatizada.</aside>
+      </section>
+
+      <!-- ACT II: Slide 11 — VIZ 2: Radar Chart -->
+      <section data-chart="radar-techniques">
+        <h2>Comparativa: ML vs Deep Learning vs NLP</h2>
+        <div style="width:560px; height:420px; margin:0 auto;">
+          <canvas id="chart-radar-techniques"></canvas>
+        </div>
+        <aside class="notes">
+          Hover sobre el chart para ver detalles.
+          ML destaca en madurez y costo. DL en precisión y adaptabilidad. NLP es el más balanceado.
+        </aside>
+      </section>
+
+      <!-- ACT II: Slide 12 — APTs y Zero-Day -->
+      <section>
+        <h2>Detectando lo invisible: APTs y Zero-Day</h2>
+        <ul>
+          <li class="fragment"><strong>APT</strong> (Advanced Persistent Threat): atacante que vive dentro de la red por meses</li>
+          <li class="fragment">AI detecta <span class="danger">micro-comportamientos</span> que individualmente parecen normales</li>
+          <li class="fragment"><strong>Zero-day:</strong> vulnerabilidad sin parche conocido</li>
+          <li class="fragment positive">AI identifica comportamiento anómalo sin necesitar firma del exploit</li>
+        </ul>
+        <aside class="notes">Ali et al. 2025 — sección de threat detection. Este es el caso de uso más impactante para el auditorio técnico.</aside>
+      </section>
+
+      <!-- ACT II: Slide 13 — Behavioral Analysis -->
+      <section>
+        <h2>Análisis de comportamiento (UEBA)</h2>
+        <p class="muted" style="font-size:0.75em;">User and Entity Behavior Analytics</p>
+        <ul>
+          <li class="fragment">Construye un baseline del comportamiento normal de cada usuario y sistema</li>
+          <li class="fragment">Detecta desviaciones: acceso inusual a las 3am, descarga masiva de datos</li>
+          <li class="fragment positive">Detecta amenazas internas — el vector más difícil de los métodos tradicionales</li>
+        </ul>
+        <p class="fragment" style="margin-top:0.6em;">
+          Ejemplo: login normal en horario habitual <span class="danger">≠</span> login a las 3am + descarga de 50GB
+        </p>
+        <aside class="notes">Ali et al. 2025 — behavioral analysis section. Los insiders son responsables del 34% de los incidentes (Verizon DBIR).</aside>
+      </section>
+
+      <!-- ACT II: Slide 14 — Respuesta automatizada -->
+      <section>
+        <h2>De la detección a la acción en <span class="positive">segundos</span></h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.6em;">
+          <div>
+            <h3 class="danger">Antes (manual)</h3>
+            <ol class="muted" style="font-size:0.65em;">
+              <li>Alerta en SIEM</li>
+              <li>Analista la revisa (horas)</li>
+              <li>Investiga manualmente</li>
+              <li>Escala al equipo</li>
+              <li>Acción correctiva (días)</li>
+            </ol>
+          </div>
+          <div class="fragment">
+            <h3 class="positive">Con AI</h3>
+            <ol class="muted" style="font-size:0.65em;">
+              <li>Detección en tiempo real</li>
+              <li>Clasificación automática</li>
+              <li>Cuarentena del endpoint</li>
+              <li>Bloqueo de IP</li>
+              <li>Ticket generado (segundos)</li>
+            </ol>
+          </div>
+        </div>
+        <aside class="notes">Ali et al. 2025 — automated response section. El contraste manual vs automatizado es muy visual y resonará con el auditorio técnico.</aside>
+      </section>
+
       <!-- ==================== ACT III ==================== -->
       <section data-act="3">
         <h1 class="act-title">ACT III</h1>
