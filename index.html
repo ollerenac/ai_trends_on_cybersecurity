@@ -126,283 +126,281 @@
       <!-- ==================== ACT II ==================== -->
       <section data-act="2">
         <h1 class="act-title">ACT II</h1>
-        <h2 class="act-subtitle">La Solución — Inteligencia Artificial</h2>
-        <aside class="notes">Pivote hacia las soluciones. Aquí presentamos cómo AI transforma la ciberseguridad.</aside>
+        <h2 class="act-subtitle">AI en Ciberseguridad — NIST Reimaginado</h2>
+        <aside class="notes">El ACT II está organizado en el marco NIST CSF: Identify → Detect → Respond → Recover. Cada fase transformada por AI.</aside>
       </section>
 
-      <!-- Slides ACT II (12 slides) — se agregan en Tasks 7 y 8 -->
-
-      <!-- ACT II: Slide 7 — AI como fuerza transformadora -->
+      <!-- ACT II: NIST Framework intro -->
       <section>
-        <h2>AI: de herramienta a aliado estratégico</h2>
-        <p style="font-size:0.8em; color: var(--text-muted);">
-          Tres capacidades que cambian las reglas del juego:
-        </p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.8em; margin-top:0.6em;">
-          <div class="card fragment">
-            <h3>Aprender</h3>
-            <p class="muted" style="font-size:0.65em;">Detecta patrones en millones de eventos en segundos</p>
+        <h2>El framework que ya conoces — transformado por AI</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.7em; margin-top:0.8em;">
+          <div class="card fragment" style="text-align:center; border-top:3px solid var(--primary);">
+            <h3 style="font-size:0.9em; color:var(--primary);">IDENTIFY</h3>
+            <p class="muted" style="font-size:0.58em;">Conoce tu superficie antes que el atacante</p>
           </div>
-          <div class="card fragment">
-            <h3>Adaptarse</h3>
-            <p class="muted" style="font-size:0.65em;">Se actualiza ante nuevas amenazas sin reglas manuales</p>
+          <div class="card fragment" style="text-align:center; border-top:3px solid var(--positive);">
+            <h3 style="font-size:0.9em; color:var(--positive);">DETECT</h3>
+            <p class="muted" style="font-size:0.58em;">Ve lo que los humanos no pueden ver</p>
           </div>
-          <div class="card fragment">
-            <h3>Escalar</h3>
-            <p class="muted" style="font-size:0.65em;">Monitorea toda la infraestructura simultáneamente</p>
+          <div class="card fragment" style="text-align:center; border-top:3px solid var(--accent);">
+            <h3 style="font-size:0.9em; color:var(--accent);">RESPOND</h3>
+            <p class="muted" style="font-size:0.58em;">Actúa antes de que sea tarde</p>
+          </div>
+          <div class="card fragment" style="text-align:center; border-top:3px solid #a78bfa;">
+            <h3 style="font-size:0.9em; color:#a78bfa;">RECOVER</h3>
+            <p class="muted" style="font-size:0.58em;">Aprende del combate</p>
           </div>
         </div>
-        <aside class="notes">Ali et al. 2025 — sección 1. Estas tres capacidades son el núcleo del valor de AI.</aside>
+        <p class="fragment muted" style="font-size:0.7em; margin-top:0.8em;">NIST Cybersecurity Framework — AI no reemplaza el framework. Lo hace operable a escala.</p>
+        <aside class="notes">El NIST CSF es el marco estándar. La audiencia técnica lo conoce. El argumento del ACT II: cada una de estas 4 fases pasa de proceso humano lento a sistema AI continuo.</aside>
       </section>
 
-      <!-- ACT II: Slide 8 — Machine Learning -->
+      <!-- ACT II: IDENTIFY — Vulnerability Management -->
       <section>
-        <h2>Machine Learning: dos estrategias complementarias</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.5em;">
-          <div class="card fragment">
-            <h3>Supervisado</h3>
-            <p class="muted" style="font-size:0.63em;"><strong>SVM, Random Forest</strong> — aprende de ataques etiquetados conocidos. Alta precisión para amenazas vistas antes.</p>
-          </div>
-          <div class="card fragment">
-            <h3>No supervisado</h3>
-            <p class="muted" style="font-size:0.63em;"><strong>Isolation Forest, DBSCAN</strong> — detecta anomalías sin etiquetas. Clave para zero-days: no necesita conocer el ataque.</p>
-          </div>
-        </div>
-        <p class="fragment" style="margin-top:0.6em; font-size:0.75em; color: var(--text-muted);">
-          En producción: <strong>ambos en capas</strong> — supervisado filtra lo conocido, no supervisado captura lo nuevo.
-        </p>
-        <p class="fragment muted" style="font-size:0.63em;">
-          Ejemplo: AWS SageMaker + Lambda → inferencia en tiempo real sobre tráfico de red <strong>[51–54]</strong>
-        </p>
-        <aside class="notes">Ali et al. 2025 — sección 3.3 y 3.4.1. El punto clave: no son opciones opuestas sino capas complementarias. Supervisado detecta el 80% de lo conocido; no supervisado caza lo nuevo. La arquitectura AWS es producción real, no teoría.</aside>
-      </section>
-
-      <!-- ACT II: Slide 9 — Deep Learning -->
-      <section>
-        <h2>Deep Learning: redes neuronales profundas</h2>
-        <ul>
-          <li class="fragment"><strong>CNN:</strong> analiza tráfico de red y binarios de malware como patrones visuales</li>
-          <li class="fragment"><strong>LSTM:</strong> detecta anomalías en secuencias temporales — logs, flujos de red</li>
-          <li class="fragment"><strong>Transformer / BERT:</strong> comprende el lenguaje de las amenazas — phishing, CVEs, dark web</li>
-          <li class="fragment positive">PhishBERT y UrlBERT superan el 98% de accuracy en detección de phishing</li>
-        </ul>
-        <p class="fragment muted" style="font-size:0.7em; margin-top:0.6em;">
-          "DL has proven highly effective for identifying intricate traffic anomalies" — Ali et al. 2025 <strong>[11]</strong>
-        </p>
-        <aside class="notes">Ali et al. 2025 — sección 3.3. Los Transformers no son solo ChatGPT: son detectores de amenazas basados en lenguaje. BERT fine-tuned para phishing es producción real en 2024–2025. El >98% accuracy es verificado contra benchmarks NSL-KDD / CICIDS.</aside>
-      </section>
-
-      <!-- ACT II: Slide 10 — NLP -->
-      <section>
-        <h2>NLP: entendiendo el lenguaje de las amenazas</h2>
-        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;">Pipeline de detección de phishing — Ali et al. 2025 <strong>[33,34]</strong></p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.5em; margin-bottom:0.6em;">
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1.1em; color: var(--primary);">①</div>
-            <p style="font-size:0.58em; margin:0.3em 0 0;">Análisis de URL<br><span style="color:var(--text-dim);">entropía, TLD, estructura</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1.1em; color: var(--primary);">②</div>
-            <p style="font-size:0.58em; margin:0.3em 0 0;">Tokenización<br><span style="color:var(--text-dim);">BERT embedding</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1.1em; color: var(--primary);">③</div>
-            <p style="font-size:0.58em; margin:0.3em 0 0;">Clasificación NLP<br><span style="color:var(--text-dim);">intención del mensaje</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1.1em; color: var(--primary);">④</div>
-            <p style="font-size:0.58em; margin:0.3em 0 0;">Biometría conductual<br><span style="color:var(--text-dim);">velocidad de clic, ritmo</span></p>
-          </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.63em;">También: procesa CVEs, reportes de amenazas y feeds de dark web automáticamente <strong>[62,63]</strong></p>
-        <aside class="notes">Ali et al. 2025 — sección 3.4.5. El 91% de los ciberataques comienzan con phishing. NLP es la primera línea de defensa para el vector más común. Los 4 pasos son del pipeline documentado en el paper.</aside>
-      </section>
-
-      <!-- ACT II: Slide 11 — VIZ 2: Radar Chart -->
-      <section data-chart="radar-techniques">
-        <h2>Comparativa: ML vs Deep Learning vs NLP</h2>
-        <div style="width:560px; height:420px; margin:0 auto;">
-          <canvas id="chart-radar-techniques"></canvas>
-        </div>
-        <aside class="notes">
-          Hover sobre el chart para ver detalles.
-          ML destaca en madurez y costo. DL en precisión y adaptabilidad. NLP es el más balanceado.
-        </aside>
-      </section>
-
-      <!-- ACT II: Slide 12 — APTs y Zero-Day -->
-      <section>
-        <h2>Detectando lo invisible: APTs y Zero-Day</h2>
-        <ul>
-          <li class="fragment"><strong>APT:</strong> atacante que vive en la red por meses — WARP PANDA: <span class="danger">22 meses</span> sin ser detectado <em>(CrowdStrike 2026)</em></li>
-          <li class="fragment"><strong>Zero-day +42% YoY</strong> en 2025 — China-nexus weaponiza CVEs en <span class="danger">2–6 días</span> post-divulgación</li>
-          <li class="fragment">AI detecta <strong>micro-comportamientos</strong> que individualmente parecen normales</li>
-          <li class="fragment positive">Sin firma, sin etiqueta: unsupervised + RL descubren vectores desconocidos proactivamente <strong>[66–74]</strong></li>
-        </ul>
-        <aside class="notes">Ali et al. 2025 sección 3.4.6 + CrowdStrike GTR 2026. El +42% zero-days es el dato que impacta. WARP PANDA es el ejemplo concreto de APT de 22 meses de persistencia. RL como red-team automático es lo que diferencia este enfoque: el sistema simula al atacante para descubrir vectores antes que él.</aside>
-      </section>
-
-      <!-- ACT II: Slide 13 — Behavioral Analysis -->
-      <section>
-        <h2>Análisis de comportamiento (UEBA)</h2>
-        <p class="muted" style="font-size:0.7em;">User and Entity Behavior Analytics — Ali et al. 2025 <strong>[18–21]</strong></p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.6em; margin-top:0.4em;">
-          <div class="card fragment">
-            <h3 style="font-size:0.82em;">Usuario</h3>
-            <p class="muted" style="font-size:0.6em;">Horarios, archivos consultados, volúmenes de descarga</p>
-          </div>
-          <div class="card fragment">
-            <h3 style="font-size:0.82em;">Dispositivo</h3>
-            <p class="muted" style="font-size:0.6em;">Tráfico por endpoint, protocolos usados, conexiones nuevas</p>
-          </div>
-          <div class="card fragment">
-            <h3 style="font-size:0.82em;">Red</h3>
-            <p class="muted" style="font-size:0.6em;">Lateral movement, C2 communication, shares SMB inusuales</p>
-          </div>
-        </div>
-        <p class="fragment danger" style="font-size:0.73em; margin-top:0.6em;">
-          Breakout time: <strong>29 min promedio</strong> — más rápido: <strong>27 segundos</strong> <em>(CrowdStrike GTR 2026)</em>
-        </p>
-        <p class="fragment positive" style="font-size:0.7em;">UEBA detecta el movimiento lateral antes de que el atacante llegue al objetivo.</p>
-        <aside class="notes">Ali et al. 2025 sección 3.4.2 + CrowdStrike GTR 2026. Los 29 minutos conectan la urgencia del ACT I con la solución. El baseline dinámico es el concepto clave: AI aprende lo "normal" de cada entidad y dispara al detectar desviación estadística.</aside>
-      </section>
-
-      <!-- ACT II: Slide 14 — Respuesta automatizada -->
-      <section>
-        <h2>De la detección a la acción en <span class="positive">segundos</span></h2>
-        <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">
-          Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.
-        </p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
-          <div class="fragment">
-            <h3 class="danger" style="font-size:0.8em;">Respuesta manual</h3>
-            <ol class="muted" style="font-size:0.6em;">
-              <li>Alerta en SIEM (log)</li>
-              <li>Analista la revisa (horas)</li>
-              <li>Investiga manualmente</li>
-              <li>Escala al equipo</li>
-              <li>Acción correctiva (días)</li>
-            </ol>
-          </div>
-          <div class="fragment">
-            <h3 class="positive" style="font-size:0.8em;">Respuesta con AI</h3>
-            <ol class="muted" style="font-size:0.6em;">
-              <li>Detección en tiempo real</li>
-              <li>Cuarentena del endpoint</li>
-              <li>Bloqueo de IP / cuenta</li>
-              <li>Patch automático si disponible</li>
-              <li>Ticket + contexto generado</li>
-            </ol>
-          </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.62em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — reducción de MTTR de horas a minutos</p>
-        <aside class="notes">Ali et al. 2025 sección 3.4.3 + CrowdStrike GTR 2026. Los 27 segundos son el gancho que hace el argumento irrefutable: la automatización no es una mejora de eficiencia, es una necesidad física. Los 3 tipos de respuesta documentados en el paper: cuarentena, bloqueo IP/cuenta, patch management.</aside>
-      </section>
-
-      <!-- ACT II: Slide 15 — Threat Intelligence -->
-      <section>
-        <h2>Threat Intelligence potenciada por AI</h2>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
+        <h2>Gestión de vulnerabilidades: conoce tu superficie</h2>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
           <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">📡 <strong>Fuentes:</strong> dark web, CVEs, feeds comerciales, OSINT, telemetría interna</p>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔗 <strong>STIX + TAXII:</strong> formato estándar e interoperabilidad entre organizaciones</p>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">⚠️ <strong>CVSS [0–10]:</strong> AI evalúa impacto en confidencialidad, integridad y disponibilidad — prioriza según contexto del sistema</p>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔄 <strong>Ciclo:</strong> Detectar → Evaluar → Priorizar → Remediar → Verificar</p>
+            <p class="fragment muted" style="font-size:0.67em;">🤖 <strong>Remediación automática:</strong> patch desplegado sin intervención humana si el score supera umbral</p>
+          </div>
+          <div class="fragment" style="display:flex; align-items:center; justify-content:center;">
+            <div class="card" style="text-align:center; padding:1em;">
+              <p class="danger" style="font-size:1.6em; font-weight:700; margin:0;">+42%</p>
+              <p class="muted" style="font-size:0.6em; margin-top:0.3em;">zero-days explotados <strong>antes</strong> de divulgación pública en 2025</p>
+              <p style="font-size:0.52em; color:var(--text-dim); margin-top:0.2em;">CrowdStrike GTR 2026</p>
+            </div>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[109–115]</strong> — China-nexus weaponiza CVEs en 2–6 días post-divulgación</p>
+        <aside class="notes">IDENTIFY phase 1. Si el atacante tarda 2-6 días en weaponizar una CVE y el ciclo manual de gestión toma semanas, siempre llegamos tarde. AI detecta, prioriza y parchea antes de que el adversario llegue.</aside>
+      </section>
+
+      <!-- ACT II: IDENTIFY — Predictive Analytics -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
+        <h2>Predictive Analytics: anticipar, no reaccionar</h2>
+        <ul>
+          <li class="fragment"><strong>Bayesian Networks:</strong> modelan P(ataque | señales observadas) combinando feeds históricos y telemetría en tiempo real</li>
+          <li class="fragment"><strong>LSTM:</strong> detecta secuencias temporales de precursores — el comportamiento que antecede al ataque</li>
+          <li class="fragment">La pregunta cambia: de <span class="danger">"¿cuánto tardé en detectar?"</span> a <span class="positive">"¿lo vi venir?"</span></li>
+          <li class="fragment positive">IBM 2024: 194 días promedio para identificar una brecha. Predictive AI reduce esa ventana a horas.</li>
+        </ul>
+        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[147–149]</strong></p>
+        <aside class="notes">IDENTIFY phase 2. La tensión: 194 días de detección promedio vs predicción en tiempo real. El modelo predictivo garantiza que el equipo tiene contexto anticipado antes de que el ataque escale.</aside>
+      </section>
+
+      <!-- ACT II: DETECT — Anomaly Detection + Network Traffic -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+        <h2>Anomaly Detection: ve lo que los humanos no pueden ver</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
+          <div>
+            <p class="muted" style="font-size:0.63em; font-weight:600; margin-bottom:0.3em;">Nivel de evento — ¿es este dato anómalo?</p>
+            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• Mahalanobis: anomalía en espacio multivariable</p>
+            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• One-Class SVM: entrenado solo con datos normales</p>
+            <p class="fragment muted" style="font-size:0.62em;">• VAE: error de reconstrucción como score de anomalía</p>
+          </div>
+          <div>
+            <p class="muted" style="font-size:0.63em; font-weight:600; margin-bottom:0.3em;">Nivel de red — ¿es este subgrafo anómalo?</p>
+            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• GCN: red = grafo (nodos=IPs, aristas=conexiones)</p>
+            <p class="fragment positive" style="font-size:0.62em; margin-bottom:0.2em;">• Botnet: <strong>invisible</strong> paquete a paquete</p>
+            <p class="fragment positive" style="font-size:0.62em;">• <strong>Inmediatamente visible</strong> como cluster anómalo</p>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.68em; margin-top:0.5em;">Pipeline (Fig. 7): <strong>ingesta → baseline → comparar stream → alertar → investigar</strong></p>
+        <aside class="notes">DETECT phase 1. El insight del GCN: la unidad de análisis cambia de paquete a subgrafo. Un botnet de 1000 nodos no hace nada inusual a nivel individual — pero su patrón de comunicación es perfectamente visible a nivel de grafo. Ali et al. 2025 [88-100, 134-142].</aside>
+      </section>
+
+      <!-- ACT II: DETECT — Behavioral Biometrics + UEBA -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+        <h2>Behavioral Analysis: identidad no es credencial</h2>
+        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;">Autenticación continua — no un evento puntual sino un flujo permanente</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.6em;">
+          <div class="card fragment">
+            <h3 style="font-size:0.78em;">Biometría conductual</h3>
+            <p class="muted" style="font-size:0.58em;">HMM para keystroke dynamics, velocidad de ratón, patrones de clic</p>
+          </div>
+          <div class="card fragment">
+            <h3 style="font-size:0.78em;">UEBA organizacional</h3>
+            <p class="muted" style="font-size:0.58em;">Baseline dinámico por usuario, dispositivo y red — detecta desviación estadística</p>
+          </div>
+          <div class="card fragment">
+            <h3 style="font-size:0.78em;">Lateral movement</h3>
+            <p class="muted" style="font-size:0.58em;">Nuevas conexiones SMB, escalada de privilegios, hosts nunca visitados</p>
+          </div>
+        </div>
+        <p class="fragment danger" style="font-size:0.73em; margin-top:0.6em;">Breakout promedio: <strong>29 min</strong> — récord: <strong>27 segundos</strong> <em>(CrowdStrike GTR 2026)</em></p>
+        <p class="fragment positive" style="font-size:0.7em;">UEBA detecta el movimiento lateral en ese intervalo — antes de que el atacante llegue al objetivo.</p>
+        <aside class="notes">DETECT phase 2. Autenticación clásica verifica identidad UNA vez. Behavioral biometrics verifica CONTINUAMENTE. Si alguien roba credenciales, el HMM detecta que quien teclea no es el usuario habitual. Ali et al. 2025 [97-102, 18-21].</aside>
+      </section>
+
+      <!-- ACT II: DETECT — NLP Phishing -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+        <h2>NLP: el lenguaje de las amenazas</h2>
+        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;"><strong>91% de los ciberataques comienzan con phishing.</strong> Es el vector más frecuente y más humano.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.5em; margin-bottom:0.5em;">
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">①</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">URL analysis<br><span style="color:var(--text-dim);">entropía, TLD</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">②</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">BERT embedding<br><span style="color:var(--text-dim);">semántica del mensaje</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">③</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">Clasificación NLP<br><span style="color:var(--text-dim);">intención del texto</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">④</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">Biometría conductual<br><span style="color:var(--text-dim);">velocidad de clic</span></p>
+          </div>
+        </div>
+        <p class="fragment positive" style="font-size:0.7em;">PhishBERT y UrlBERT: &gt;98% accuracy — superan ampliamente a filtros de firma <strong>[33,34]</strong></p>
+        <aside class="notes">DETECT phase 3. BERT comprende el contexto semántico completo del mensaje, no solo palabras clave. Los atacantes ya usan LLMs para generar phishing más convincente — esa tensión se desarrolla en ACT III. Ali et al. 2025 sección 3.4.5.</aside>
+      </section>
+
+      <!-- ACT II: RESPOND — Threat Intelligence -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+        <h2>Threat Intelligence: de datos a decisión</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
+          <div>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">📡 <strong>Fusión Bayesiana:</strong> cada feed tiene score de confiabilidad ρᵢ — pondera fuentes según historial de precisión <strong>[103–108]</strong></p>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔗 <strong>STIX + TAXII:</strong> formato e interoperabilidad — la inteligencia compartida multiplica el alcance de cada SOC</p>
             <p class="fragment muted" style="font-size:0.67em;">🗺️ <strong>MITRE ATT&amp;CK:</strong> AI mapea actividad detectada → técnica → grupo adversario → próximo movimiento</p>
           </div>
           <div class="fragment" style="display:flex; align-items:center; justify-content:center;">
             <div class="card" style="text-align:center; padding:1em;">
-              <p class="positive" style="font-size:1.3em; font-weight:700; margin:0;">Predictiva</p>
-              <p class="muted" style="font-size:0.6em; margin-top:0.4em;">AI procesa millones de IoCs para anticipar ataques antes de que ocurran <strong>[62,63]</strong></p>
+              <p class="positive" style="font-size:1.2em; font-weight:700; margin:0;">Predictiva</p>
+              <p class="muted" style="font-size:0.6em; margin-top:0.3em;">Procesa dark web, CVEs y telemetría interna simultáneamente <strong>[62,63]</strong></p>
             </div>
           </div>
         </div>
-        <aside class="notes">Ali et al. 2025 sección 3.4.4. El trío STIX/TAXII/ATT&CK es lo que hace la threat intelligence industrializable. ATT&CK permite que distintas organizaciones hablen el mismo idioma de amenazas. La inteligencia predictiva es el salto cualitativo: de reaccionar a anticipar.</aside>
+        <aside class="notes">RESPOND phase 1. De reactive a predictive: ATT&CK hace esto operacional — "esta actividad es T1078 Valid Accounts del grupo VOLT TYPHOON, próximo movimiento probable: T1021 Remote Services". Ali et al. 2025 sección 3.4.4 + 4.3.</aside>
       </section>
 
-      <!-- ACT II: Slide 16 — VIZ 3: Tabla comparativa 4 enfoques -->
+      <!-- ACT II: RESPOND — Automated Threat Hunting -->
       <section>
-        <h2>Cuatro enfoques: ¿cuál usar?</h2>
-        <p class="muted" style="font-size:0.62em; margin-bottom:0.3em;">Tabla 4 — Ali et al. 2025 — Detección de Zero-Day</p>
-        <table style="font-size:0.5em; width:100%; border-collapse:collapse;">
-          <thead>
-            <tr style="color: var(--primary); border-bottom: 2px solid var(--primary);">
-              <th style="text-align:left; padding:0.4em;">Parámetro</th>
-              <th style="text-align:left; padding:0.4em; color: var(--accent);">Rule-Based</th>
-              <th style="text-align:left; padding:0.4em;">Supervisado</th>
-              <th style="text-align:left; padding:0.4em;">No supervisado</th>
-              <th style="text-align:left; padding:0.4em; color: var(--positive);">Deep Learning</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-              <td style="padding:0.4em; color:var(--text-muted);">Zero-day</td>
-              <td style="padding:0.4em; color:var(--accent);">❌ No</td>
-              <td style="padding:0.4em;">⚠️ Parcial</td>
-              <td style="padding:0.4em; color:var(--positive);">✅ Sí</td>
-              <td style="padding:0.4em; color:var(--positive);">✅ Sí</td>
-            </tr>
-            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-              <td style="padding:0.4em; color:var(--text-muted);">Velocidad</td>
-              <td style="padding:0.4em; color:var(--positive);">✅ Alta</td>
-              <td style="padding:0.4em; color:var(--positive);">✅ Alta</td>
-              <td style="padding:0.4em;">⚠️ Media</td>
-              <td style="padding:0.4em;">⚠️ Media</td>
-            </tr>
-            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-              <td style="padding:0.4em; color:var(--text-muted);">Requiere etiquetas</td>
-              <td style="padding:0.4em; color:var(--positive);">No</td>
-              <td style="padding:0.4em; color:var(--accent);">Sí</td>
-              <td style="padding:0.4em; color:var(--positive);">No</td>
-              <td style="padding:0.4em; color:var(--accent);">Sí (muchas)</td>
-            </tr>
-            <tr class="fragment" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-              <td style="padding:0.4em; color:var(--text-muted);">Interpretabilidad</td>
-              <td style="padding:0.4em; color:var(--positive);">✅ Alta</td>
-              <td style="padding:0.4em;">⚠️ Media</td>
-              <td style="padding:0.4em; color:var(--accent);">❌ Baja</td>
-              <td style="padding:0.4em; color:var(--accent);">❌ Muy baja</td>
-            </tr>
-            <tr class="fragment">
-              <td style="padding:0.4em; color:var(--text-muted);">Adaptabilidad</td>
-              <td style="padding:0.4em; color:var(--accent);">Manual</td>
-              <td style="padding:0.4em; color:var(--accent);">Re-entrenamiento</td>
-              <td style="padding:0.4em; color:var(--positive);">Automática</td>
-              <td style="padding:0.4em; color:var(--positive);">Automática</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="fragment positive" style="font-size:0.62em; margin-top:0.4em;">Estrategia correcta: capas complementarias — cada enfoque cubre las debilidades del otro.</p>
-        <aside class="notes">Tabla 4 del paper — Ali et al. 2025. Leer columna por columna. La conclusión no es "cuál es mejor" sino que se usan en capas: Rule-Based para velocidad en lo conocido, No supervisado + DL para zero-days, XAI para compensar la baja interpretabilidad.</aside>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+        <h2>Automated Threat Hunting: proactivo, no reactivo</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
+          <div>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.5em;"><span class="danger">Detección reactiva:</span> espera la alerta → investiga → actúa. El daño ya ocurrió.</p>
+            <p class="fragment muted" style="font-size:0.67em;"><span class="positive">Threat Hunting:</span> el agente RL recorre activamente el entorno buscando señales de amenaza <em>antes</em> de que disparen alertas.</p>
+          </div>
+          <div class="card fragment" style="padding:0.8em;">
+            <p class="muted" style="font-size:0.6em; font-weight:600; margin-bottom:0.3em;">El agente aprende de cada hunt:</p>
+            <p style="font-family:'JetBrains Mono',monospace; font-size:0.52em; color:var(--primary); line-height:1.6;">Q(s,a) ← Q(s,a) + α[r + γ·maxQ(s',a') − Q(s,a)]</p>
+            <p class="muted" style="font-size:0.56em; margin-top:0.4em;">Cuanto más tiempo desplegado, más refinada su política de caza</p>
+          </div>
+        </div>
+        <p class="fragment positive" style="font-size:0.7em; margin-top:0.5em;">GCN detecta APTs como subgrafos anómalos — WARP PANDA (22 meses) sería visible en semanas. <em>(CrowdStrike GTR 2026)</em></p>
+        <aside class="notes">RESPOND phase 2. El agente RL no espera que algo falle — busca activamente evidencia de compromiso. Bellman captura el aprendizaje acumulativo: cada hunt mejora la política futura. Ali et al. 2025 [126-132].</aside>
       </section>
 
-      <!-- ACT II: Slide 17 — VIZ 4: MTTR Bar Chart -->
+      <!-- ACT II: RESPOND — Security Automation -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+        <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
+        <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
+          <div class="fragment">
+            <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
+            <ol class="muted" style="font-size:0.6em;">
+              <li>Alerta en SIEM</li>
+              <li>Analista la revisa (horas)</li>
+              <li>Investigación manual</li>
+              <li>Escalamiento al equipo</li>
+              <li>Acción correctiva (días)</li>
+            </ol>
+          </div>
+          <div class="fragment">
+            <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
+            <ol class="muted" style="font-size:0.6em;">
+              <li>Detección en tiempo real</li>
+              <li>Cuarentena del endpoint</li>
+              <li>Bloqueo de IP / cuenta</li>
+              <li>Patch automático disponible</li>
+              <li>Ticket + contexto generado</li>
+            </ol>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T_automado / T_total) · 100%</p>
+        <aside class="notes">RESPOND phase 3. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico.</aside>
+      </section>
+
+      <!-- ACT II: RESPOND — VIZ: MTTR -->
       <section data-chart="mttr">
-        <h2>Tiempo de respuesta a incidentes</h2>
-        <p class="muted" style="font-size:0.7em;">MTTR — Mean Time to Respond (horas)</p>
-        <div style="width:700px; height:380px; margin:0 auto;">
+        <div style="margin-bottom:0.4em;">
+          <span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span>
+        </div>
+        <h2>MTTR: el impacto medido</h2>
+        <p class="muted" style="font-size:0.7em;">Mean Time to Respond — horas por fase (sin AI vs con AI)</p>
+        <div style="width:700px; height:340px; margin:0 auto;">
           <canvas id="chart-mttr"></canvas>
         </div>
-        <aside class="notes">
-          Las barras hablan solas. AI reduce el MTTR en todas las fases del ciclo de respuesta.
-          Enfatizar: la detección pasa de 24h a 4h. La contención de 12h a 2h.
-        </aside>
+        <p class="fragment muted" style="font-size:0.6em; margin-top:0.3em;">Ali et al. 2025 <strong>[12,31]</strong> — IBM CODB 2024: detección 194 días → horas con AI continua</p>
+        <aside class="notes">Las barras hablan solas. Respond es la fase donde el tiempo diferencia una brecha de $1M de una de $10M. Detección: de 24h a 4h. Contención: de 12h a 2h. Recuperación: de 72h a 8h. Estos no son números teóricos — vienen del IBM CODB 2024 y benchmarks de SOAR deployments.</aside>
       </section>
 
-      <!-- ACT II: Slide 18 — Casos de uso concretos -->
+      <!-- ACT II: RECOVER — AI-Powered Forensics -->
       <section>
-        <h2>AI en producción: casos reales</h2>
-        <div class="card fragment">
-          <h3>Darktrace</h3>
-          <p class="muted" style="font-size:0.65em;">AI detectó ransomware en una red industrial 1 hora antes de que se ejecutara</p>
+        <div style="margin-bottom:0.4em;">
+          <span style="font-size:0.58em; font-weight:700; color:#a78bfa; background:rgba(167,139,250,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Recover</span>
         </div>
-        <div class="card fragment">
-          <h3>Google BeyondCorp</h3>
-          <p class="muted" style="font-size:0.65em;">ML reemplazó el modelo de VPN tradicional con análisis continuo de confianza</p>
+        <h2>Forensics: reconstruir el ataque</h2>
+        <p class="muted" style="font-size:0.68em; margin-bottom:0.5em;">¿Qué hace la AI <em>después</em> de la brecha? Reconstruye la línea de tiempo automáticamente.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.7em; font-size:0.72em;">
+          <div class="card fragment" style="border-left:3px solid #a78bfa;">
+            <div style="font-size:0.75em; color:#a78bfa; font-weight:700; margin-bottom:0.3em;">CAUSALIDAD TEMPORAL</div>
+            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Causalidad de Granger + RNN/LSTM → secuencia de eventos ordenada en tiempo real</p>
+            <code style="font-size:0.75em; color:#a78bfa; display:block; margin-top:0.4em;">log₁ → log₂ → … → breach</code>
+          </div>
+          <div class="card fragment" style="border-left:3px solid #a78bfa;">
+            <div style="font-size:0.75em; color:#a78bfa; font-weight:700; margin-bottom:0.3em;">CLASIFICACIÓN DE ARTEFACTOS</div>
+            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">PCA + GMM sobre memory dumps y pcaps → clusteriza artefactos sin firma previa</p>
+            <code style="font-size:0.75em; color:#a78bfa; display:block; margin-top:0.4em;">P(artefacto | cluster_k) = GMM</code>
+          </div>
+          <div class="card fragment" style="grid-column:1/-1; border-left:3px solid var(--accent); background:rgba(255,51,102,0.06);">
+            <div style="font-size:0.75em; color:var(--accent); font-weight:700; margin-bottom:0.2em;">GDPR Art. 33 — obligación de negocio</div>
+            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Notificar a autoridades en <strong style="color:var(--accent);">72 horas</strong> tras detectar una brecha. Sin AI forensics: imposible cumplir. Con AI: timeline listo en minutos.</p>
+          </div>
         </div>
-        <div class="card fragment">
-          <h3>CrowdStrike Falcon</h3>
-          <p class="muted" style="font-size:0.65em;">DL analiza 6 billones de eventos/día para detectar amenazas en tiempo real</p>
+        <p class="fragment muted" style="font-size:0.6em; margin-top:0.4em;">Ali et al. 2025 <strong>[112–115]</strong></p>
+        <aside class="notes">RECOVER es la fase que nadie planifica hasta que la necesita. GDPR Art. 33: 72 horas para notificar — no es opción, es multa de hasta 4% de facturación global. La AI forensics convierte lo que antes tomaba semanas (análisis manual de logs) en minutos. Granger causality establece qué causó qué. GMM sobre PCA clusteriza sin necesidad de malware signatures previas.</aside>
+      </section>
+
+      <!-- ACT II: RECOVER — GANs: el loop que nunca para -->
+      <section>
+        <div style="margin-bottom:0.4em;">
+          <span style="font-size:0.58em; font-weight:700; color:#a78bfa; background:rgba(167,139,250,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Recover → ACT III</span>
         </div>
-        <aside class="notes">Ejemplos concretos que el auditorio técnico puede investigar después. Son sistemas de producción real, no demos.</aside>
+        <h2>GANs: el loop que nunca para</h2>
+        <p class="muted" style="font-size:0.68em; margin-bottom:0.5em;">El mismo framework que nos defiende también nos ataca.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9em; font-size:0.72em;">
+          <div class="card fragment" style="border-left:3px solid var(--positive);">
+            <div style="font-size:0.75em; color:var(--positive); font-weight:700; margin-bottom:0.3em;">DEFENSOR — Discriminador D</div>
+            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Entrena con tráfico sintético malicioso generado por G → detecta variantes nunca vistas</p>
+            <code style="font-size:0.73em; color:var(--positive); display:block; margin-top:0.4em;">max D: log D(x) + log(1−D(G(z)))</code>
+          </div>
+          <div class="card fragment" style="border-left:3px solid var(--accent);">
+            <div style="font-size:0.75em; color:var(--accent); font-weight:700; margin-bottom:0.3em;">ATACANTE — Generador G</div>
+            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Genera muestras adversariales que evaden al Discriminador → fuerza al defensor a evolucionar</p>
+            <code style="font-size:0.73em; color:var(--accent); display:block; margin-top:0.4em;">min G: log(1−D(G(z)))</code>
+          </div>
+        </div>
+        <div class="card fragment" style="margin-top:0.6em; font-size:0.72em; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.3); text-align:center;">
+          <span style="color:#a78bfa; font-weight:700;">Equilibrio de Nash:</span>
+          <code style="color:var(--text-muted); margin-left:0.5em;">D*(x) = ½</code>
+          <span style="color:var(--text-muted); margin-left:0.5em; font-size:0.9em;">— ninguno puede mejorar sin que el otro mejore también</span>
+        </div>
+        <p class="fragment" style="font-size:0.68em; color:#a78bfa; margin-top:0.5em; font-style:italic;">Y eso nos lleva directamente al ACT III.</p>
+        <aside class="notes">Este slide es el puente entre ACT II y ACT III. Las GANs son la tecnología que cierra el ciclo NIST: el defensor usa GANs para generar ataques sintéticos con los que entrenarse, pero los atacantes usan el mismo framework para generar ataques reales. El equilibrio de Nash es el punto teórico donde ninguna parte puede mejorar unilateralmente — en la práctica, ese equilibrio nunca se alcanza. Ali et al. 2025 [64-71] — sección 4.6.</aside>
       </section>
 
       <!-- ==================== ACT III ==================== -->
