@@ -1,4 +1,5 @@
 import Reveal from 'reveal.js'
+import 'reveal.js/reset.css'
 import 'reveal.js/reveal.css'
 import './css/theme.css'
 import { initParticles } from './js/particles.js'
