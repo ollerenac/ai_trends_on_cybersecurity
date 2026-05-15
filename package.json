@@ -13,6 +13,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@tabler/icons-webfont": "^3.44.0",
     "chart.js": "^4.5.1",
     "marked": "^18.0.3",
     "reveal.js": "^6.0.1"
