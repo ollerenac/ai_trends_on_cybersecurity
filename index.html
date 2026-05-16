@@ -507,7 +507,9 @@ hₜ es el producto elemento a elemento entre dos vectores: la memoria acumulada
 
 Esa selección no la diseña un humano — la aprende el modelo durante el entrenamiento. Resultado: un evento de hace dos días puede tener más peso en hₜ que lo que ocurrió hace dos segundos, si el modelo aprendió que ese patrón temporal es la firma de un ataque.
 
-Para ciberseguridad: las campañas APT siguen una secuencia — reconocimiento, acceso inicial, escalada de privilegios, movimiento lateral. Cada paso por separado parece benigno. LSTM detecta la secuencia completa como la firma del ataque."
+Para ciberseguridad: las campañas APT siguen una secuencia — reconocimiento, acceso inicial, escalada de privilegios, movimiento lateral. Cada paso por separado parece benigno. LSTM detecta la secuencia completa como la firma del ataque.
+
+Vale la pena mencionar que LSTM está siendo gradualmente reemplazado en implementaciones recientes por arquitecturas basadas en transformers. La razón es simple: LSTM procesa los eventos uno por uno y lo que ocurrió hace días puede diluirse. Los transformers ven toda la secuencia de eventos simultáneamente y pueden conectar directamente un comportamiento de hace una semana con uno de hoy, sin perder fidelidad. Para patrones de ataque que se extienden por largos períodos — como una campaña APT que opera en silencio durante meses — esa capacidad marca diferencia. Hay papers recientes que los aplican específicamente para sistemas de detección de intrusiones, aunque el campo todavía está madurando en cuanto a métricas de performance en producción."
 
 ── CLICK 3 — ③ GMM ──
 "El tercer modelo es el GMM — Gaussian Mixture Model. Y aquí el cambio de paradigma es radical: este modelo no aprende cómo se ve un ataque. Aprende cómo se ve el comportamiento normal.
