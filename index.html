@@ -892,28 +892,299 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
 
       </section>
 
-      <!-- ACT II: DETECT — Behavioral Biometrics + UEBA -->
+      <!-- ACT II: DETECT — Behavioral Biometrics (§4.2) — nested: A=pipeline B=techniques -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-        <h2>Behavioral Analysis: identidad no es credencial</h2>
-        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;">Autenticación continua — no un evento puntual sino un flujo permanente</p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.6em;">
-          <div class="card fragment">
-            <h3 style="font-size:0.78em;">Biometría conductual</h3>
-            <p class="muted" style="font-size:0.58em;">HMM para keystroke dynamics, velocidad de ratón, patrones de clic</p>
+
+        <!-- SLIDE A: animated full-width pipeline -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.35em;">Behavioral Analysis: las credenciales se roban, el comportamiento no</h2>
+
+          <div style="display:grid; grid-template-columns:25% 75%; gap:6px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
+
+            <!-- ORCHESTRATOR (fragment 10) -->
+            <div class="fragment" data-fragment-index="10"
+                 style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:8px; padding:0.4em 1em; gap:0.6em; margin-bottom:4px;">
+              <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
+                <i class="ti ti-fingerprint" style="font-size:2.2em; color:var(--primary);"></i>
+                <i class="ti ti-shield-check" style="font-size:0.85em; color:var(--positive); position:absolute; bottom:-0.15em; right:-0.5em; background:var(--bg); border-radius:50%; padding:0.05em;"></i>
+              </div>
+              <span style="font-weight:700; color:var(--primary); font-size:0.92em; letter-spacing:0.06em; text-transform:uppercase;">Behavioral Biometric Service</span>
+            </div>
+
+            <!-- DATA SOURCES: behavioral signals -->
+            <div></div>
+            <div class="fragment" data-fragment-index="0"
+                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Behavioral Signals</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
+                  <i class="ti ti-keyboard" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Keystroke Dynamics</span>
+                </div>
+                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
+                  <i class="ti ti-mouse" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Mouse & Navigation</span>
+                </div>
+                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
+                  <i class="ti ti-route" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Access Patterns</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW: Signals → AI Engine -->
+            <div></div>
+            <div class="fragment" data-fragment-index="4"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- AI BEHAVIORAL ENGINE -->
+            <div></div>
+            <div class="fragment" data-fragment-index="5"
+                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Behavioral Engine</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
+                  <i class="ti ti-user-check" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">User Profiler</span>
+                </div>
+                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
+                  <i class="ti ti-refresh-alert" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Continuous Authenticator</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW: AI Engine → Response -->
+            <div></div>
+            <div class="fragment" data-fragment-index="8"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- RESPONSE -->
+            <div></div>
+            <div class="fragment" data-fragment-index="9"
+                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-database-plus" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Profile Update</span>
+              </div>
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-shield-x" style="font-size:1.75em; color:var(--accent); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Threat Alert</span>
+              </div>
+            </div>
+
+            <!-- SVG OVERLAY (fragment 11) -->
+            <svg class="fragment" data-fragment-index="11"
+                 style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
+                 viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line x1="12.5" y1="20" x2="12.5" y2="90"
+                    stroke="rgba(0,212,255,0.5)" stroke-width="0.45" vector-effect="non-scaling-stroke"/>
+              <polyline points="12.5,32 25,32"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,30.8 25.5,32 23.5,33.2" fill="rgba(0,212,255,0.85)"/>
+              <polyline points="12.5,62 25,62"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,60.8 25.5,62 23.5,63.2" fill="rgba(0,212,255,0.85)"/>
+              <polyline points="12.5,90 25,90"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,88.8 25.5,90 23.5,91.2" fill="rgba(0,212,255,0.85)"/>
+              <circle cx="12.5" cy="20" r="1" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
+            </svg>
+
           </div>
-          <div class="card fragment">
-            <h3 style="font-size:0.78em;">UEBA organizacional</h3>
-            <p class="muted" style="font-size:0.58em;">Baseline dinámico por usuario, dispositivo y red — detecta desviación estadística</p>
+
+          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[97–102]</strong> — Fig. 8</p>
+          <aside class="notes">
+[SLIDE ABIERTO — diagrama vacío]
+"La autenticación clásica verifica la identidad una sola vez — en el login. Todo lo que ocurre después se asume legítimo. Este sistema invierte ese supuesto: verifica de forma continua, durante toda la sesión."
+
+── CLICK 1 — Behavioral Signals (caja vacía) ──
+"El sistema ingiere tres categorías de señales conductuales de forma continua."
+
+── CLICK 2 — Keystroke Dynamics ──
+"Primero: keystroke dynamics. No qué teclas se presionan, sino cómo — el tiempo entre teclas, la duración de cada pulsación, los patrones de ritmo. Cada persona tiene una firma de tipeo única, tan distintiva como una huella dactilar."
+
+── CLICK 3 — Mouse & Navigation ──
+"Segundo: movimiento del ratón y navegación. Velocidad, aceleración, curvatura de trayectoria, patrones de scroll. El comportamiento motor es difícil de imitar porque es inconsciente."
+
+── CLICK 4 — Access Patterns ──
+"Tercero: patrones de acceso. Qué recursos se consultan, en qué secuencia, desde qué dispositivo, a qué hora. El perfil de actividad de cada usuario en la red."
+
+── CLICK 5 — Flecha: Signals → AI Engine ──
+"Esas señales fluyen continuamente al motor. El sistema no espera al final de la sesión — analiza en tiempo real."
+
+── CLICK 6 — AI Behavioral Engine (caja vacía) ──
+"Dos componentes en el motor."
+
+── CLICK 7 — User Profiler ──
+"El User Profiler construye y mantiene un modelo probabilístico del comportamiento normal de cada usuario. HMM para las secuencias de estados, GMM para la distribución multivariable, LSTM para las dependencias temporales largas. El perfil se actualiza con cada sesión legítima confirmada."
+
+── CLICK 8 — Continuous Authenticator ──
+"El Continuous Authenticator compara el comportamiento en vivo contra el perfil mediante el likelihood ratio: A(X) = P(X|genuino) / P(X|impostor). Si A(X) cae por debajo del umbral τ, la sesión se marca como sospechosa — sin esperar al analista."
+
+── CLICK 9 — Flecha: AI Engine → Response ──
+"El resultado toma uno de dos caminos."
+
+── CLICK 10 — Response ──
+"Si el comportamiento es consistente con el perfil: Profile Update — el modelo aprende la sesión como comportamiento legítimo y refina el baseline. Si es inconsistente: Threat Alert — la sesión se bloquea o se escala al equipo de seguridad."
+
+── CLICK 11 — Behavioral Biometric Service (orquestador) ──
+[PAUSA]
+"Y aquí aparece el coordinador. El Behavioral Biometric Service no es un componente de procesamiento — es el que mantiene la coherencia del ciclo."
+"Gestiona el perfil de cada usuario en la User Profile DB, define qué señales capturar y con qué frecuencia, ajusta los umbrales τ por contexto — una sesión desde una ubicación nueva tiene un umbral más estricto que desde el dispositivo habitual."
+"Y cierra el loop: cada sesión confirmada como legítima entrena el modelo. Cada alerta investigada y validada ajusta el umbral. El sistema se personaliza con el tiempo."
+"Lo importante: según CrowdStrike 2026, el breakout promedio — el tiempo que tarda un atacante en moverse del punto de entrada al objetivo — es de 29 minutos. El récord registrado: 27 segundos. Este sistema opera en milisegundos. Detecta el movimiento lateral antes de que el atacante llegue al objetivo."
+
+── CLICK 12 — Flechas SVG ──
+"Las flechas cyan representan el control del orquestador hacia cada capa. Las verdes, el flujo de señales. Y el loop es continuo: comportamiento legítimo refuerza el perfil, comportamiento anómalo activa la respuesta."
+
+[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.2]
+          </aside>
+        </section>
+
+        <!-- SLIDE B: compact pipeline left + §4.2 techniques right -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.4em;">Modelos de autenticación conductual</h2>
+
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
+
+            <!-- LEFT: compact static pipeline -->
+            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
+
+              <div style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:6px; padding:0.3em 0.6em; gap:0.4em; margin-bottom:3px;">
+                <i class="ti ti-fingerprint" style="font-size:1.4em; color:var(--primary);"></i>
+                <span style="font-weight:700; color:var(--primary); font-size:0.78em; text-transform:uppercase; letter-spacing:0.05em;">Biometric Service</span>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Signals</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-keyboard" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Keystroke</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-mouse" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Mouse</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-route" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Access</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(255,165,0,0.45); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(255,165,0,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">AI Engine</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-user-check" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Profiler</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-refresh-alert" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Auth.</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-database-plus" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Update</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-shield-x" style="font-size:1.3em; color:var(--accent); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
+              </div>
+
+              <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
+                   viewBox="0 0 100 100" preserveAspectRatio="none">
+                <line x1="10" y1="18" x2="10" y2="90" stroke="rgba(0,212,255,0.5)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+                <polyline points="10,30 20,30" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,28.8 20.5,30 18.5,31.2" fill="rgba(0,212,255,0.85)"/>
+                <polyline points="10,62 20,62" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,60.8 20.5,62 18.5,63.2" fill="rgba(0,212,255,0.85)"/>
+                <polyline points="10,90 20,90" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,88.8 20.5,90 18.5,91.2" fill="rgba(0,212,255,0.85)"/>
+                <circle cx="10" cy="18" r="1.2" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+
+            <!-- RIGHT: §4.2 techniques -->
+            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
+              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Hidden Markov Model (HMM)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">P(X) = Σₛ P(X|S) · P(S)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Secuencias de estados conductuales — keystroke, clic, navegación</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Gaussian Mixture Model (GMM)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(X(t)) = Σₖ πₖ 𝒩(X(t); μₖ, Σₖ)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Distribución multivariable del comportamiento por usuario</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ LSTM</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · min −Σ log p(xᵢ|x₁…xᵢ₋₁)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Dependencias temporales largas en la secuencia de comportamiento</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Likelihood Ratio — decisión</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">A(X) = P(X|genuino) / P(X|impostor) ≷ τ</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Si A(X) &gt; τ → sesión legítima · Si A(X) ≤ τ → alerta</span>
+                </div>
+
+                <div class="fragment" style="padding:0.3em 0.75em; background:rgba(255,51,102,0.08); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.75em;">
+                  <span style="color:var(--accent); font-size:1.3em; font-weight:900; white-space:nowrap; line-height:1;">29 min</span>
+                  <span style="display:flex; flex-direction:column; gap:0.15em;">
+                    <span style="font-size:0.7em; color:var(--text); font-weight:600; white-space:nowrap;">breakout time promedio · récord: 27 segundos</span>
+                    <span style="font-size:0.63em; color:var(--text-muted);">este sistema opera en milisegundos · CrowdStrike GTR 2026</span>
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-          <div class="card fragment">
-            <h3 style="font-size:0.78em;">Lateral movement</h3>
-            <p class="muted" style="font-size:0.58em;">Nuevas conexiones SMB, escalada de privilegios, hosts nunca visitados</p>
-          </div>
-        </div>
-        <p class="fragment danger" style="font-size:0.73em; margin-top:0.6em;">Breakout promedio: <strong>29 min</strong> — récord: <strong>27 segundos</strong> <em>(CrowdStrike GTR 2026)</em></p>
-        <p class="fragment positive" style="font-size:0.7em;">UEBA detecta el movimiento lateral en ese intervalo — antes de que el atacante llegue al objetivo.</p>
-        <aside class="notes">DETECT phase 2. Autenticación clásica verifica identidad UNA vez. Behavioral biometrics verifica CONTINUAMENTE. Si alguien roba credenciales, el HMM detecta que quien teclea no es el usuario habitual. Ali et al. 2025 [97-102, 18-21].</aside>
+
+          <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[97–102, 18–21]</strong></p>
+          <aside class="notes">
+[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
+"Los modelos detrás de la autenticación conductual."
+
+── CLICK 1 — ① HMM ──
+"El Hidden Markov Model modela el comportamiento como una secuencia de estados ocultos. Para keystroke dynamics: los estados representan patrones de tipeo — velocidad rápida, pausa, corrección. Las transiciones entre estados y las emisiones de cada estado caracterizan al usuario. Baum-Welch aprende los parámetros, Viterbi decodifica la secuencia más probable."
+
+── CLICK 2 — ② GMM ──
+"El GMM modela la distribución conjunta de las señales conductuales en cada instante de tiempo. Cada componente gaussiana captura un modo de comportamiento distinto — el usuario en modo concentrado vs. el usuario navegando casualmente. El algoritmo EM estima los parámetros."
+
+── CLICK 3 — ③ LSTM ──
+"El LSTM captura dependencias temporales que los modelos anteriores no pueden: si el usuario siempre va de correo a base de datos a reportes, y de repente va directo a base de datos sin pasar por correo, esa secuencia atípica es detectable. La función de pérdida minimiza la log-verosimilitud negativa sobre las secuencias de comportamiento."
+
+── CLICK 4 — ④ Likelihood Ratio ──
+"El likelihood ratio es el mecanismo de decisión. A(X) es la probabilidad de que la secuencia X sea del usuario genuino dividida por la probabilidad de que sea de un impostor. Si cae por debajo del umbral τ, la sesión se marca sospechosa. El umbral es ajustable por contexto: más estricto para cuentas privilegiadas, más tolerante para variaciones conocidas del comportamiento."
+
+── CLICK 5 — 29 min callout ──
+"Y el argumento operacional: CrowdStrike 2026 reporta que el breakout time promedio — el tiempo entre el punto de entrada y el primer movimiento lateral — es de 29 minutos. El récord registrado es 27 segundos. Este sistema opera en milisegundos. Detecta el cambio de comportamiento antes de que el atacante llegue al primer objetivo."
+          </aside>
+        </section>
+
       </section>
 
       <!-- ACT II: DETECT — NLP Phishing -->
