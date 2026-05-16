@@ -687,38 +687,7 @@
 
       <section>
 
-        <!-- SLIDE A: narrative hook -->
-        <section>
-          <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-          <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
-          <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
-            <div class="fragment">
-              <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
-              <ol class="muted" style="font-size:0.6em;">
-                <li>Alerta en SIEM</li>
-                <li>Analista la revisa (horas)</li>
-                <li>Investigación manual</li>
-                <li>Escalamiento al equipo</li>
-                <li>Acción correctiva (días)</li>
-              </ol>
-            </div>
-            <div class="fragment">
-              <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
-              <ol class="muted" style="font-size:0.6em;">
-                <li>Detección en tiempo real</li>
-                <li>Cuarentena del endpoint</li>
-                <li>Bloqueo de IP / cuenta</li>
-                <li>Patch automático disponible</li>
-                <li>Ticket + contexto generado</li>
-              </ol>
-            </div>
-          </div>
-          <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong></p>
-          <aside class="notes">RESPOND phase. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico. Ali et al. 2025 §3.4.3.</aside>
-        </section>
-
-        <!-- SLIDE B: Fig. 4 — Automated Threat Response architecture -->
+        <!-- SLIDE A: Fig. 4 — Automated Threat Response architecture -->
         <section>
           <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
           <h2 style="margin-bottom:0.25em;">Automated Threat Response: arquitectura</h2>
@@ -781,6 +750,37 @@
           </div>
           <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T<sub>automado</sub> / T<sub>total</sub>) · 100%</p>
           <aside class="notes">Fig. 4 §3.4.3: arquitectura completa del sistema de respuesta automatizada. SOAR es el orquestador central — normaliza eventos heterogéneos y ejecuta playbooks preautorizados en milisegundos. Human loop crítico: decisiones de alto impacto requieren validación humana. La fórmula de eficiencia mide qué fracción del tiempo total de respuesta es automatizable.</aside>
+        </section>
+
+        <!-- SLIDE B: Sin AI vs Con AI — contexto y urgencia -->
+        <section>
+          <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+          <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
+          <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
+            <div class="fragment">
+              <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
+              <ol class="muted" style="font-size:0.6em;">
+                <li>Alerta en SIEM</li>
+                <li>Analista la revisa (horas)</li>
+                <li>Investigación manual</li>
+                <li>Escalamiento al equipo</li>
+                <li>Acción correctiva (días)</li>
+              </ol>
+            </div>
+            <div class="fragment">
+              <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
+              <ol class="muted" style="font-size:0.6em;">
+                <li>Detección en tiempo real</li>
+                <li>Cuarentena del endpoint</li>
+                <li>Bloqueo de IP / cuenta</li>
+                <li>Patch automático disponible</li>
+                <li>Ticket + contexto generado</li>
+              </ol>
+            </div>
+          </div>
+          <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T<sub>automado</sub> / T<sub>total</sub>) · 100%</p>
+          <aside class="notes">RESPOND phase. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico. Ali et al. 2025 §3.4.3.</aside>
         </section>
 
       </section>
