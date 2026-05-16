@@ -482,13 +482,32 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 "La pregunta es: ¿puede la AI reducir esa ventana? Y la respuesta del paper es: sí — pero no con un solo modelo. Con una jerarquía de cuatro."
 
 ── CLICK 1 — ① Logistic Regression ──
-"El punto de entrada. Cada evento de red se representa como un vector xᵢ en ℝᵈ. El modelo aprende la función P(y=1|x;θ) — la probabilidad de que ese evento sea una amenaza. Binario: sí o no. Es el filtro más rápido, el más barato computacionalmente."
-"Pero los ataques no son eventos aislados. Son secuencias."
+"El primer modelo es Logistic Regression, entrenado para etiquetar cada observación como amenaza o normal.
+
+Aquí la función clave es P(y=1 | x; θ) — léase: la probabilidad de que este evento sea una amenaza, dado el dato observado x y los parámetros θ del modelo.
+
+x es el vector de features del evento: patrones de login, volumen de tráfico, puertos, timestamps. θ es la matriz de parámetros aprendida durante el entrenamiento — ya está fija cuando el modelo entra en producción.
+
+El sigmoid toma el producto punto θᵀx — un único número que resume qué tan 'amenazante' parece el evento — y lo comprime al rango [0, 1]. Eso es una probabilidad.
+
+Si esa probabilidad supera el umbral → amenaza. Si no → normal.
+
+Por eso LR es el frente inicial de detección: inference es una sola multiplicación matricial más una función sigmoid. Microsegundos por evento. Puede procesar millones de observaciones por segundo."
 
 ── CLICK 2 — ② LSTM ──
-"Cuando los datos tienen dimensión temporal — una serie de eventos X_{1:T} — entra el LSTM. Tres gates: forget descarta lo irrelevante, input registra lo nuevo, output decide qué pasa al siguiente paso. El estado oculto hₜ acumula la historia del comportamiento."
-"Detecta la secuencia que precede al ataque. No el evento aislado — el patrón de los días anteriores."
-"Pero todavía necesitamos saber qué es 'normal'."
+"El segundo modelo es LSTM — Long Short-Term Memory. Y aquí el cambio es fundamental: ya no analizamos eventos aislados. Analizamos secuencias.
+
+La pregunta que LSTM responde es distinta a la de LR. No es '¿este evento es una amenaza?' sino '¿esta secuencia de eventos es la firma de un ataque?'
+
+Un solo login fallido es normal. Cincuenta logins fallidos desde la misma IP en diez minutos es un brute force. LR no puede ver eso — solo ve el evento actual, en aislamiento. LSTM sí — porque mantiene memoria de lo que ocurrió antes.
+
+La clave está en el estado oculto hₜ — el parámetro de la arquitectura que concentra la memoria del modelo en el tiempo t. hₜ no es una acumulación ciega de todos los eventos pasados. Es una memoria selectiva y filtrada: las tres compuertas del LSTM deciden en cada paso qué del pasado merece ser recordado y qué puede descartarse.
+
+hₜ es el producto elemento a elemento entre dos vectores: la memoria acumulada cₜ — normalizada al rango [−1, 1] por la tangente hiperbólica para evitar valores explosivos — y el output gate oₜ, que actúa como una máscara y decide qué partes de esa memoria son relevantes exponer en este momento.
+
+Esa selección no la diseña un humano — la aprende el modelo durante el entrenamiento. Resultado: un evento de hace dos días puede tener más peso en hₜ que lo que ocurrió hace dos segundos, si el modelo aprendió que ese patrón temporal es la firma de un ataque.
+
+Para ciberseguridad: las campañas APT siguen una secuencia — reconocimiento, acceso inicial, escalada de privilegios, movimiento lateral. Cada paso por separado parece benigno. LSTM detecta la secuencia completa como la firma del ataque."
 
 ── CLICK 3 — ③ GMM ──
 "El GMM modela la distribución de eventos normales como mezcla de Gaussianas. Cada cluster representa un modo de comportamiento legítimo — tráfico de trabajo, backups nocturnos, sincronizaciones. Lo que cae lejos de todos los clusters — distancia de Mahalanobis alta — es anomalía."
