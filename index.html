@@ -164,10 +164,10 @@
           <h2 style="margin-bottom:0.35em;">AI como orquestador: gestión continua de vulnerabilidades</h2>
 
           <!-- grid: col 1=25% trunk space, col 2=75% blocks. position:relative for SVG overlay -->
-          <div style="display:grid; grid-template-columns:25% 75%; gap:4px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
+          <div style="display:grid; grid-template-columns:25% 75%; gap:6px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
 
-            <!-- SERVER (fragment 8) — spans full width, invisible until frag 8 but holds space -->
-            <div class="fragment" data-fragment-index="8"
+            <!-- SERVER (fragment 10) — spans full width, invisible until frag 10 but holds space -->
+            <div class="fragment" data-fragment-index="10"
                  style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:8px; padding:0.4em 1em; gap:0.6em; margin-bottom:4px;">
               <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
                 <i class="ti ti-server" style="font-size:2.2em; color:var(--primary);"></i>
@@ -179,7 +179,7 @@
             <!-- DATA SOURCES: empty trunk cell + block -->
             <div></div>
             <div class="fragment" data-fragment-index="0"
-                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden; margin-top:0;">
+                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
               <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Data Sources</div>
               <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
                 <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
@@ -197,63 +197,72 @@
               </div>
             </div>
 
-            <!-- AI ENGINES -->
+            <!-- FLOW ARROW: Data Sources → AI Engines (fragment 4) -->
             <div></div>
             <div class="fragment" data-fragment-index="4"
-                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden; margin-top:4px;">
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- AI ENGINES (fragment 5 — was 4) -->
+            <div></div>
+            <div class="fragment" data-fragment-index="5"
+                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden;">
               <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Engines</div>
               <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
-                <div class="fragment" data-fragment-index="5" style="text-align:center; flex:1;">
+                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
                   <i class="ti ti-chart-line" style="font-size:1.75em; color:#ffa500; display:block;"></i>
                   <span style="font-size:0.72em; color:var(--text-muted);">Predictive Analytic Engine</span>
                 </div>
-                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
+                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
                   <i class="ti ti-robot" style="font-size:1.75em; color:#ffa500; display:block;"></i>
                   <span style="font-size:0.72em; color:var(--text-muted);">Automated Recommendation Engine</span>
                 </div>
               </div>
             </div>
 
-            <!-- SECURITY TEAM DASHBOARD -->
+            <!-- FLOW ARROW: AI Engines → Dashboard (fragment 8) -->
             <div></div>
-            <div class="fragment" data-fragment-index="7"
-                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; margin-top:4px; display:flex; align-items:center; justify-content:center; gap:0.5em;">
+            <div class="fragment" data-fragment-index="8"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- SECURITY TEAM DASHBOARD (fragment 9 — was 7) -->
+            <div></div>
+            <div class="fragment" data-fragment-index="9"
+                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; align-items:center; justify-content:center; gap:0.5em;">
               <i class="ti ti-layout-dashboard" style="font-size:1.75em; color:var(--positive);"></i>
               <span style="font-weight:700; color:var(--positive); font-size:0.88em; letter-spacing:0.04em;">Security Team Dashboard</span>
             </div>
 
-            <!-- SVG OVERLAY: trunk + orthogonal branches (fragment 9) -->
-            <!-- viewBox 0 0 100 100, preserveAspectRatio none → x=% of width, y=% of height -->
-            <!-- trunk at x=12.5 (center of 25% col). blocks left edge at x=25. -->
-            <!-- y coords tuned to block centers: DS≈36, AIE≈63, Dash≈85 -->
-            <svg class="fragment" data-fragment-index="9"
+            <!-- SVG OVERLAY: trunk + orthogonal branches (fragment 11 — was 9) -->
+            <svg class="fragment" data-fragment-index="11"
                  style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
                  viewBox="0 0 100 100" preserveAspectRatio="none">
               <!-- vertical trunk -->
-              <line x1="12.5" y1="20" x2="12.5" y2="86"
+              <line x1="12.5" y1="20" x2="12.5" y2="90"
                     stroke="rgba(0,212,255,0.5)" stroke-width="0.45" vector-effect="non-scaling-stroke"/>
               <!-- branch → Data Sources -->
-              <polyline points="12.5,36 25,36"
+              <polyline points="12.5,32 25,32"
                         stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,34.8 25.5,36 23.5,37.2" fill="rgba(0,212,255,0.85)"/>
+              <polygon points="23.5,30.8 25.5,32 23.5,33.2" fill="rgba(0,212,255,0.85)"/>
               <!-- branch → AI Engines -->
-              <polyline points="12.5,63 25,63"
+              <polyline points="12.5,62 25,62"
                         stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,61.8 25.5,63 23.5,64.2" fill="rgba(0,212,255,0.85)"/>
+              <polygon points="23.5,60.8 25.5,62 23.5,63.2" fill="rgba(0,212,255,0.85)"/>
               <!-- branch → Dashboard -->
-              <polyline points="12.5,86 25,86"
+              <polyline points="12.5,90 25,90"
                         stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,84.8 25.5,86 23.5,87.2" fill="rgba(0,212,255,0.85)"/>
+              <polygon points="23.5,88.8 25.5,90 23.5,91.2" fill="rgba(0,212,255,0.85)"/>
               <!-- exit dot from server -->
               <circle cx="12.5" cy="20" r="1" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
-              <!-- data flow: Data Sources → AI Engines (green, downward, x≈75) -->
-              <line x1="75" y1="51" x2="75" y2="54"
-                    stroke="rgba(0,255,136,0.55)" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
-              <polygon points="73.8,53 75,55.5 76.2,53" fill="rgba(0,255,136,0.7)"/>
-              <!-- data flow: AI Engines → Dashboard (green, downward, x≈75) -->
-              <line x1="75" y1="74" x2="75" y2="77"
-                    stroke="rgba(0,255,136,0.55)" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
-              <polygon points="73.8,76.5 75,79 76.2,76.5" fill="rgba(0,255,136,0.7)"/>
             </svg>
 
           </div>
@@ -275,19 +284,25 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 ── CLICK 4 — Historical Vulnerability Data ──
 "Tercero: historial de vulnerabilidades. Todas las CVEs previas, los patrones de explotación conocidos, las rutas de ataque que los adversarios ya han usado. La memoria institucional del sistema."
 
-── CLICK 5 — AI Engines (caja vacía) ──
+── CLICK 5 — Flecha: Data Sources → AI Engines ──
+"Los datos fluyen hacia los motores. Este canal no es una transferencia pasiva — el orquestador decide qué datos pasan, en qué momento, y con qué prioridad. Nada llega a los engines sin que el AI VM Tool lo haya autorizado."
+
+── CLICK 6 — AI Engines (caja vacía) ──
 "Con esas tres fuentes activas, entran los motores de AI. Aquí es donde los datos se convierten en inteligencia."
 
-── CLICK 6 — Predictive Analytic Engine ──
+── CLICK 7 — Predictive Analytic Engine ──
 "El motor predictivo combina CNN sobre el tráfico — para detectar patrones espaciales — con RNN sobre secuencias de logs — para detectar patrones temporales. Encuentra lo que no tiene firma previa. Lo que aún no tiene nombre."
 
-── CLICK 7 — Automated Recommendation Engine ──
+── CLICK 8 — Automated Recommendation Engine ──
 "El motor de recomendación toma el output del predictivo y lo convierte en acción. Usa reinforcement learning para decidir qué vulnerabilidad remediar primero, dado que los recursos del equipo son limitados. No es una lista de 500 CVEs. Es: 'parchea esto hoy, esto mañana, esto puede esperar.'"
 
-── CLICK 8 — Security Team Dashboard ──
+── CLICK 9 — Flecha: AI Engines → Security Team Dashboard ──
+"Los outputs de los motores llegan al dashboard. Pero no como datos brutos — el orquestador ya los procesó, priorizó, y tradujo en decisiones accionables. Lo que recibe el analista es inteligencia lista para ejecutar."
+
+── CLICK 10 — Security Team Dashboard ──
 "Y todo llega aquí: al analista. No datos brutos. No alertas sin contexto. Decisiones priorizadas, con evidencia, listas para ejecutar. El analista actúa. No analiza."
 
-── CLICK 9 — AI VULNERABILITY MANAGEMENT TOOL (servidor) ──
+── CLICK 11 — AI VULNERABILITY MANAGEMENT TOOL (servidor) ──
 [PAUSA — dejar que la audiencia lo vea aparecer]
 "Y ahora aparece algo interesante. Este componente no es el punto de partida — es el controlador del ciclo completo. Es un agente orquestador."
 
@@ -297,7 +312,7 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 
 "Con respecto al Security Team Dashboard: aquí es donde ocurre la acción a tiempo de máquina. Algunas acciones — cambio de regla de firewall, cuarentena de un host — pueden ejecutarse sin intervención humana. El analista ve el resultado y la evidencia, no el proceso. Actúa sobre decisiones ya priorizadas."
 
-── CLICK 10 — Flechas SVG ──
+── CLICK 12 — Flechas SVG ──
 "Las flechas cyan representan el control del orquestador — del servidor hacia cada capa. Las flechas verdes representan el flujo de datos: de Data Sources hacia AI Engines, y de los outputs de los engines hacia el Dashboard. No es un pipeline lineal — es un lazo de retroalimentación continua donde el agente aprende de cada ciclo."
 "Y esto importa porque: según CrowdStrike 2026, los adversarios de China-nexus weaponizan una CVE en promedio 2 a 6 días después de su divulgación pública. El ciclo manual de gestión de vulnerabilidades toma semanas. Este sistema cierra esa brecha."
 
