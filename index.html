@@ -425,13 +425,36 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 
         <div style="display:grid; grid-template-columns:38% 62%; gap:1.6em; align-items:center; font-size:0.69em;">
 
-          <!-- LEFT: problem stat -->
-          <div style="text-align:center; padding:0.8em; border:1px solid rgba(255,51,102,0.25); border-radius:6px; background:rgba(255,51,102,0.05);">
-            <div style="color:var(--accent); font-size:3.2em; font-weight:900; line-height:1;">194</div>
-            <div style="color:var(--accent); font-size:1.1em; font-weight:700; letter-spacing:0.04em;">días</div>
-            <div style="font-size:0.72em; color:var(--text-muted); margin-top:0.3em;">para identificar una brecha</div>
-            <div style="font-size:0.62em; color:var(--text-dim); margin-top:0.15em;">IBM Cost of a Data Breach 2024</div>
-            <div style="margin-top:0.7em; font-size:0.63em; color:var(--text-dim); font-style:italic; line-height:1.4;">detección reactiva:<br>brecha → alerta → análisis → respuesta</div>
+          <!-- LEFT: tradicional vs moderno -->
+          <div style="padding:0.7em 0.8em; border-radius:6px; background:rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:0.6em; height:100%; box-sizing:border-box;">
+
+            <!-- Tradicional -->
+            <div>
+              <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:0.35em;">Tradicional</div>
+              <div style="font-size:0.63em; color:var(--text-dim); font-style:italic; margin-bottom:0.3em;">enfoque reactivo</div>
+              <div style="display:flex; flex-direction:column; gap:0.18em; font-size:0.66em; color:var(--text-muted);">
+                <span>brecha ocurre</span>
+                <span style="color:var(--accent); font-weight:600;">↓ se detecta <span style="font-size:0.85em; color:var(--text-dim);">(~194 días · IBM 2024)</span></span>
+                <span>↓ se analiza</span>
+                <span>↓ se responde</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div style="border-top:1px solid rgba(255,255,255,0.08);"></div>
+
+            <!-- Moderno -->
+            <div>
+              <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--primary); margin-bottom:0.35em;">Moderno</div>
+              <div style="font-size:0.63em; color:var(--text-dim); font-style:italic; margin-bottom:0.3em;">enfoque predictivo</div>
+              <div style="display:flex; flex-direction:column; gap:0.18em; font-size:0.66em; color:var(--text-muted);">
+                <span>señales ingresan al modelo</span>
+                <span style="color:var(--primary); font-weight:600;">↓ modelo decide</span>
+                <span style="color:var(--positive); font-weight:600;">↓ intervención</span>
+                <span>↓ a tiempo de máquina</span>
+              </div>
+            </div>
+
           </div>
 
           <!-- RIGHT: hierarchy of 4 models -->
@@ -477,9 +500,9 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
         <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[147–149]</strong></p>
 
         <aside class="notes">
-[SLIDE ABIERTO — stat 194 días visible a la izquierda]
-"Ciento noventa y cuatro días. Ese es el tiempo promedio que una organización tarda en detectar que ha sido comprometida. IBM 2024. Casi seis meses de exposición antes de que alguien lo note."
-"La pregunta es: ¿puede la AI reducir esa ventana? Y la respuesta del paper es: sí — pero no con un solo modelo. Con una jerarquía de cuatro."
+[SLIDE ABIERTO — contraste Tradicional vs Moderno visible a la izquierda]
+"Otro paradigma del IDENTIFY en el NIST es el análisis predictivo. En el enfoque tradicional — reactivo — el ciclo es conocido: ocurre una brecha, eventualmente se detecta, se analiza, se responde. El problema es ese 'eventualmente': IBM 2024 lo mide en 194 días promedio."
+"El enfoque moderno invierte el ciclo. Las señales de la red ingresan continuamente a un conjunto de modelos, y el sistema decide intervenir a tiempo de máquina — antes de que la brecha se complete. Para ello, el paper propone un arreglo de cuatro modelos, cada uno analizando los datos desde un ángulo diferente."
 
 ── CLICK 1 — ① Logistic Regression ──
 "El primer modelo es Logistic Regression, entrenado para etiquetar cada observación como amenaza o normal.
@@ -525,8 +548,19 @@ La detección funciona así: cuando llega un evento nuevo, el modelo calcula su 
 Por eso GMM es especialmente poderoso contra ataques nunca vistos: un zero-day no tiene firma. Pero si el comportamiento del atacante se desvía del tráfico normal — y siempre lo hace — GMM lo detecta."
 
 ── CLICK 4 — ④ Bayesian Network ──
-"Y aquí está el techo del sistema. El Bayesian Network integra todo: el prior P(y) — la probabilidad histórica de ataque en este contexto — con la verosimilitud P(x|y) — qué tan probable es observar estos datos si hay un ataque. El resultado: P(y|x), la probabilidad posterior."
-"Y se actualiza en tiempo real. Cada nueva señal refina la estimación. El sistema no espera — predice."
+"El cuarto modelo es el Bayesian Network. Y aquí conviene aclarar algo: no es un integrador en el sentido de sumar probabilidades. Es un actualizador de creencias.
+
+La fórmula P(y|x) = P(x|y)·P(y)/P(x) es el Teorema de Bayes. Cada término tiene nombre:
+
+P(y) es el prior — la creencia inicial antes de ver el dato. Históricamente el 0.1% de los eventos son ataques. Eso ya se sabe antes de que llegue cualquier observación nueva.
+
+P(x|y) es la verosimilitud — si hubiera un ataque, ¿qué tan probable es observar exactamente estos datos? Un login a las 3AM desde una IP nunca vista tiene verosimilitud alta bajo la hipótesis de ataque.
+
+P(x) es la evidencia — qué tan probable es observar estos datos en general. Es el denominador normalizador que garantiza que el resultado sea una probabilidad válida entre 0 y 1.
+
+P(y|x) es el posterior — la creencia actualizada después de ver el dato. El 0.1% inicial puede saltar a 85% tras ver ese login a las 3AM.
+
+Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es integrar el tiempo. Cada nuevo evento actualiza el posterior. El sistema acumula evidencia observación por observación, sin necesidad de reentrenarse. Cuanta más historia observa, más precisa se vuelve la estimación de riesgo en tiempo real."
 
 ── CLICK 5 — Pivot callout ──
 "La pregunta cambia. Ya no es '¿cuánto tardé en detectar?' — reactivo, asume que la brecha ya ocurrió. Es '¿lo vi venir?' — proactivo, permite iniciar defensas antes de que el ataque escale."
