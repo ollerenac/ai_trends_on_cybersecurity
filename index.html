@@ -510,8 +510,17 @@ Esa selección no la diseña un humano — la aprende el modelo durante el entre
 Para ciberseguridad: las campañas APT siguen una secuencia — reconocimiento, acceso inicial, escalada de privilegios, movimiento lateral. Cada paso por separado parece benigno. LSTM detecta la secuencia completa como la firma del ataque."
 
 ── CLICK 3 — ③ GMM ──
-"El GMM modela la distribución de eventos normales como mezcla de Gaussianas. Cada cluster representa un modo de comportamiento legítimo — tráfico de trabajo, backups nocturnos, sincronizaciones. Lo que cae lejos de todos los clusters — distancia de Mahalanobis alta — es anomalía."
-"No necesita ejemplos etiquetados de ataques. Aprende lo que es normal y detecta cualquier desviación."
+"El tercer modelo es el GMM — Gaussian Mixture Model. Y aquí el cambio de paradigma es radical: este modelo no aprende cómo se ve un ataque. Aprende cómo se ve el comportamiento normal.
+
+LR y LSTM necesitaban datos etiquetados — ejemplos marcados como amenaza o normal. GMM no necesita ninguna etiqueta. Solo observa el tráfico legítimo durante un período de tiempo y aprende su distribución.
+
+La intuición es esta: el tráfico de red no tiene un solo patrón normal — tiene varios. Tráfico de trabajo en horario laboral. Backups nocturnos. Sincronizaciones de fin de semana. Cada uno de esos modos de comportamiento es una Gaussiana en la mezcla — una campana en múltiples dimensiones.
+
+La fórmula p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ) dice: la probabilidad de observar el evento x es la suma ponderada de cuán bien encaja en cada uno de los K clusters. μₖ es el centro de cada cluster — el comportamiento típico de ese modo. Σₖ es su forma — qué tan disperso o concentrado es.
+
+La detección funciona así: cuando llega un evento nuevo, el modelo calcula su probabilidad bajo esa distribución. Probabilidad alta — normal, el evento encaja en algún cluster conocido. Probabilidad baja — anomalía, este evento no se parece a ningún comportamiento que el sistema haya visto antes. Eso es lo que mide la distancia de Mahalanobis: qué tan lejos está el punto de todos los clusters, corrigiendo por la forma de cada uno.
+
+Por eso GMM es especialmente poderoso contra ataques nunca vistos: un zero-day no tiene firma. Pero si el comportamiento del atacante se desvía del tráfico normal — y siempre lo hace — GMM lo detecta."
 
 ── CLICK 4 — ④ Bayesian Network ──
 "Y aquí está el techo del sistema. El Bayesian Network integra todo: el prior P(y) — la probabilidad histórica de ataque en este contexto — con la verosimilitud P(x|y) — qué tan probable es observar estos datos si hay un ataque. El resultado: P(y|x), la probabilidad posterior."
