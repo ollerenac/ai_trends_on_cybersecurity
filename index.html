@@ -599,26 +599,297 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
         </aside>
       </section>
 
-      <!-- ACT II: DETECT — Anomaly Detection + Network Traffic -->
+      <!-- ACT II: DETECT — Anomaly Detection (§4.1) — nested: A=pipeline B=techniques -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-        <h2>Anomaly Detection: ve lo que los humanos no pueden ver</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
-          <div>
-            <p class="muted" style="font-size:0.63em; font-weight:600; margin-bottom:0.3em;">Nivel de evento — ¿es este dato anómalo?</p>
-            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• Mahalanobis: anomalía en espacio multivariable</p>
-            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• One-Class SVM: entrenado solo con datos normales</p>
-            <p class="fragment muted" style="font-size:0.62em;">• VAE: error de reconstrucción como score de anomalía</p>
+
+        <!-- SLIDE A: animated full-width pipeline -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.35em;">Anomaly Detection: aprender lo normal para detectar lo anormal</h2>
+
+          <div style="display:grid; grid-template-columns:25% 75%; gap:6px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
+
+            <!-- ORCHESTRATOR (fragment 10) — spans full width, top of DOM, invisible until frag 10 -->
+            <div class="fragment" data-fragment-index="10"
+                 style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:8px; padding:0.4em 1em; gap:0.6em; margin-bottom:4px;">
+              <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
+                <i class="ti ti-cpu" style="font-size:2.2em; color:var(--primary);"></i>
+                <i class="ti ti-eye" style="font-size:0.85em; color:var(--positive); position:absolute; bottom:-0.15em; right:-0.5em; background:var(--bg); border-radius:50%; padding:0.05em;"></i>
+              </div>
+              <span style="font-weight:700; color:var(--primary); font-size:0.92em; letter-spacing:0.06em; text-transform:uppercase;">AI Anomaly Detection Engine</span>
+            </div>
+
+            <!-- DATA SOURCES -->
+            <div></div>
+            <div class="fragment" data-fragment-index="0"
+                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Data Sources</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
+                  <i class="ti ti-database" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Historical Logs</span>
+                </div>
+                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
+                  <i class="ti ti-activity" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Live Network Stream</span>
+                </div>
+                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
+                  <i class="ti ti-file-analytics" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Behavior Logs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW: Data Sources → AI Detection Engine (fragment 4) -->
+            <div></div>
+            <div class="fragment" data-fragment-index="4"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- AI DETECTION ENGINE -->
+            <div></div>
+            <div class="fragment" data-fragment-index="5"
+                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Detection Engine</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
+                  <i class="ti ti-chart-histogram" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Baseline Modeler</span>
+                </div>
+                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
+                  <i class="ti ti-scan-eye" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Anomaly Scorer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW: AI Detection Engine → Response (fragment 8) -->
+            <div></div>
+            <div class="fragment" data-fragment-index="8"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- RESPONSE -->
+            <div></div>
+            <div class="fragment" data-fragment-index="9"
+                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-bell-ringing" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Alerting System</span>
+              </div>
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-zoom-check" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Investigation Dashboard</span>
+              </div>
+            </div>
+
+            <!-- SVG OVERLAY: trunk + branches (fragment 11) -->
+            <svg class="fragment" data-fragment-index="11"
+                 style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
+                 viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line x1="12.5" y1="20" x2="12.5" y2="90"
+                    stroke="rgba(0,212,255,0.5)" stroke-width="0.45" vector-effect="non-scaling-stroke"/>
+              <polyline points="12.5,32 25,32"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,30.8 25.5,32 23.5,33.2" fill="rgba(0,212,255,0.85)"/>
+              <polyline points="12.5,62 25,62"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,60.8 25.5,62 23.5,63.2" fill="rgba(0,212,255,0.85)"/>
+              <polyline points="12.5,90 25,90"
+                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
+              <polygon points="23.5,88.8 25.5,90 23.5,91.2" fill="rgba(0,212,255,0.85)"/>
+              <circle cx="12.5" cy="20" r="1" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
+            </svg>
+
           </div>
-          <div>
-            <p class="muted" style="font-size:0.63em; font-weight:600; margin-bottom:0.3em;">Nivel de red — ¿es este subgrafo anómalo?</p>
-            <p class="fragment muted" style="font-size:0.62em; margin-bottom:0.2em;">• GCN: red = grafo (nodos=IPs, aristas=conexiones)</p>
-            <p class="fragment positive" style="font-size:0.62em; margin-bottom:0.2em;">• Botnet: <strong>invisible</strong> paquete a paquete</p>
-            <p class="fragment positive" style="font-size:0.62em;">• <strong>Inmediatamente visible</strong> como cluster anómalo</p>
+
+          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[88–100]</strong> — Fig. 7</p>
+          <aside class="notes">
+[SLIDE ABIERTO — diagrama vacío]
+"El DETECT en el framework NIST tiene un desafío central: no puedes definir qué es un ataque hasta que alguien lo diseña. Pero sí puedes definir qué es el comportamiento normal. Y eso es exactamente lo que hace este sistema."
+
+── CLICK 1 — Data Sources (caja vacía) ──
+"Todo comienza con datos. Este sistema ingiere tres flujos de forma continua."
+
+── CLICK 2 — Historical Logs ──
+"Primero: logs históricos. Todo lo que ha pasado en la red — conexiones, autenticaciones, transferencias. La memoria de lo que es normal."
+
+── CLICK 3 — Live Network Stream ──
+"Segundo: el stream en vivo. Tráfico de red en tiempo real, paquete a paquete. Aquí es donde el sistema opera."
+
+── CLICK 4 — Behavior Logs ──
+"Tercero: logs de comportamiento del sistema. Accesos a archivos, uso de recursos, keystroke timing. El perfil conductual de cada entidad en la red."
+
+── CLICK 5 — Flecha: Data Sources → AI Detection Engine ──
+"Esos tres flujos alimentan continuamente al motor de detección. No en batch — en stream. El motor nunca deja de aprender."
+
+── CLICK 6 — AI Detection Engine (caja vacía) ──
+"Aquí ocurre la detección. Dos componentes complementarios."
+
+── CLICK 7 — Baseline Modeler ──
+"El Baseline Modeler aprende cómo se ve el comportamiento normal. GMM, KDE, autoencoders. No necesita ejemplos de ataques — aprende lo que es normal. Todo lo que se desvíe significativamente es candidato a anomalía."
+
+── CLICK 8 — Anomaly Scorer ──
+"El Anomaly Scorer cuantifica esa desviación. Distancia de Mahalanobis para espacios multivariables. One-Class SVM para trazar el hiperplano de normalidad. GCN para detectar patrones anómalos a nivel de subgrafo de red. Cada técnica produce un score. El engine los fusiona."
+
+── CLICK 9 — Flecha: AI Detection Engine → Response ──
+"Cuando el score supera el umbral, el sistema actúa automáticamente."
+
+── CLICK 10 — Response ──
+"Dos canales. El Alerting System notifica al equipo en tiempo real. El Investigation Dashboard construye el timeline del incidente — qué ocurrió, cuándo, desde qué entidad — listo para el analista."
+
+── CLICK 11 — AI Anomaly Detection Engine (orquestador) ──
+[PAUSA]
+"Y aquí aparece el coordinador. El AI Anomaly Detection Engine no es un componente más — es el que mantiene coherente el ciclo completo."
+"Con respecto a los Data Sources: el engine decide qué capturar, con qué granularidad y frecuencia. No todo el tráfico es igualmente informativo."
+"Con respecto al AI Detection Engine: calibra los umbrales y los modelos de baseline continuamente. Cuando el analista confirma un falso positivo, ese feedback actualiza el modelo. El sistema se vuelve más preciso con cada ciclo."
+"Con respecto al Response: ajusta la sensibilidad del alerting según el contexto — horario comercial vs. madrugada, cuenta normal vs. cuenta privilegiada, sistema crítico vs. periférico."
+
+── CLICK 12 — Flechas SVG ──
+"Las flechas cyan representan el control del orquestador hacia cada capa. Las verdes representan el flujo de datos. Y el ciclo es cerrado: los resultados de la investigación realimentan el baseline. Un ataque analizado hoy mejora la detección de mañana."
+
+[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.1]
+          </aside>
+        </section>
+
+        <!-- SLIDE B: compact pipeline left + §4.1 techniques right -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.4em;">Técnicas de detección de anomalías</h2>
+
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
+
+            <!-- LEFT: compact static pipeline -->
+            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
+
+              <div style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:6px; padding:0.3em 0.6em; gap:0.4em; margin-bottom:3px;">
+                <i class="ti ti-cpu" style="font-size:1.4em; color:var(--primary);"></i>
+                <span style="font-weight:700; color:var(--primary); font-size:0.78em; text-transform:uppercase; letter-spacing:0.05em;">AI Detection Engine</span>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Data Sources</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-database" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Logs</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-activity" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Stream</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-file-analytics" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Behavior</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(255,165,0,0.45); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(255,165,0,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">Detection</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-chart-histogram" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Baseline</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-scan-eye" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Scorer</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-bell-ringing" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-zoom-check" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Investigate</span></div>
+              </div>
+
+              <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
+                   viewBox="0 0 100 100" preserveAspectRatio="none">
+                <line x1="10" y1="18" x2="10" y2="90" stroke="rgba(0,212,255,0.5)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+                <polyline points="10,30 20,30" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,28.8 20.5,30 18.5,31.2" fill="rgba(0,212,255,0.85)"/>
+                <polyline points="10,62 20,62" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,60.8 20.5,62 18.5,63.2" fill="rgba(0,212,255,0.85)"/>
+                <polyline points="10,90 20,90" stroke="rgba(0,212,255,0.85)" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke"/>
+                <polygon points="18.5,88.8 20.5,90 18.5,91.2" fill="rgba(0,212,255,0.85)"/>
+                <circle cx="10" cy="18" r="1.2" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+
+            <!-- RIGHT: 5 techniques from §4.1 -->
+            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
+              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Gaussian Mixture Model</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela la distribución del comportamiento normal</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Mahalanobis Distance</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">D_M(x) = √((x−μ)ᵀ Σ⁻¹ (x−μ))</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Cuánto se aleja este evento del comportamiento normal?</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ One-Class SVM</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">min ½‖w‖² + (1/νm)Σξᵢ − ρ</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Hiperplano que encierra el comportamiento normal</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Autoencoder / VAE</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">L(x) = ‖x − g(f(x))‖²</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Anomalía = alta pérdida de reconstrucción</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">⑤ Graph Neural Network (GCN)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">G = (V, E) · V=IPs, E=conexiones</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Botnet = subgrafo anómalo en la topología de red</span>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.68em; margin-top:0.5em;">Pipeline (Fig. 7): <strong>ingesta → baseline → comparar stream → alertar → investigar</strong></p>
-        <aside class="notes">DETECT phase 1. El insight del GCN: la unidad de análisis cambia de paquete a subgrafo. Un botnet de 1000 nodos no hace nada inusual a nivel individual — pero su patrón de comunicación es perfectamente visible a nivel de grafo. Ali et al. 2025 [88-100, 134-142].</aside>
+
+          <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[88–100, 134–142]</strong></p>
+          <aside class="notes">
+[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
+"Ahora los modelos que hacen funcionar ese sistema de detección."
+
+── CLICK 1 — ① GMM ──
+"El Gaussian Mixture Model aprende cómo se distribuye el tráfico normal como una mezcla de gaussianas. Cada componente modela un patrón de comportamiento distinto — horario laboral, transferencias nocturnas, accesos a bases de datos. Cualquier punto fuera de esas distribuciones es candidato a anomalía."
+
+── CLICK 2 — ② Mahalanobis Distance ──
+"Para cuantificar esa desviación usamos la distancia de Mahalanobis. A diferencia de la euclidiana, normaliza por la covarianza — tiene en cuenta que algunas variables están correlacionadas y otras no. Un evento a tres sigmas de distancia en múltiples dimensiones simultáneamente es una anomalía estadísticamente significativa."
+
+── CLICK 3 — ③ One-Class SVM ──
+"El One-Class SVM traza un hiperplano que encierra el comportamiento normal en el espacio de features. Solo necesita datos normales para entrenarse — no requiere ejemplos de ataques previos. Todo lo que cae fuera del hiperplano es anómalo. Es el modelo por excelencia para detección de zero-days."
+
+── CLICK 4 — ④ Autoencoder / VAE ──
+"El autoencoder aprende a comprimir y reconstruir el comportamiento normal. Si el dato de entrada es anómalo, el decoder no puede reconstruirlo bien — la pérdida L(x) es alta. Ese error es directamente el score de anomalía. El VAE añade una regularización probabilística sobre el espacio latente para evitar overfitting."
+
+── CLICK 5 — ⑤ GCN ──
+"El GCN aborda una limitación de los cuatro modelos anteriores: analizan eventos individuales. Pero un botnet de mil nodos no hace nada inusual a nivel de paquete individual. En cambio, su patrón de comunicación coordinada es inmediatamente visible como un subgrafo anómalo en la topología de red. El GCN aprende embeddings de nodo y detecta estas estructuras."
+          </aside>
+        </section>
+
       </section>
 
       <!-- ACT II: DETECT — Behavioral Biometrics + UEBA -->
