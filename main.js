@@ -10,6 +10,7 @@ import { initCharts } from './js/charts.js'
 const deck = new Reveal({
   plugins: [ Notes ],
   hash: true,
+  fragmentInURL: false,
   transition: 'fade',
   transitionSpeed: 'slow',
   backgroundTransition: 'fade',
