@@ -409,9 +409,12 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
                   <span style="display:block; font-size:0.71em; color:var(--text-muted);">Control theory: sistema transita de S₀ inseguro a Sᶠ seguro</span>
                 </div>
 
-                <div class="fragment" style="padding:0.22em 0.65em; background:rgba(255,51,102,0.1); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.5em;">
-                  <span style="color:var(--accent); font-size:1.2em; font-weight:800; white-space:nowrap;">+42%</span>
-                  <span style="display:block; font-size:0.7em; color:var(--text-muted);">zero-days explotados antes de divulgación · CrowdStrike GTR 2026</span>
+                <div class="fragment" style="padding:0.3em 0.75em; background:rgba(255,51,102,0.08); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.75em;">
+                  <span style="color:var(--accent); font-size:1.3em; font-weight:900; white-space:nowrap; line-height:1;">+42%</span>
+                  <span style="display:flex; flex-direction:column; gap:0.15em;">
+                    <span style="font-size:0.7em; color:var(--text); font-weight:600; white-space:nowrap;">zero-days explotados <em>antes</em> de divulgación pública</span>
+                    <span style="font-size:0.63em; color:var(--text-muted);">sin CVE · sin firma · sin parche → solo detección conductual · CrowdStrike GTR 2026</span>
+                  </span>
                 </div>
 
               </div>
@@ -438,7 +441,9 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 "El componente más poderoso. Control theory puro: J(u) es el costo total de la trayectoria de remediación. El sistema calcula el camino de menor costo para llevar el sistema desde S₀ — el estado inseguro — hasta Sᶠ — el estado seguro — sin intervención humana."
 
 ── CLICK 6 — +42% callout ──
-"Y el argumento final: CrowdStrike 2026 reporta un aumento del 42% en zero-days explotados antes de su divulgación pública. Los adversarios no esperan el patch Tuesday. Este ciclo automatizado tampoco."
+"CrowdStrike 2026: el 42% más de zero-days se están explotando antes de que exista una CVE pública."
+"Esto no es un problema de velocidad de parcheo. Es un problema de modelo. Sin CVE no hay firma. Sin firma no hay regla. Sin regla, el sistema reactivo está ciego."
+"Estos cinco componentes — detección, evaluación, priorización, remediación — operan sobre comportamiento, no sobre firmas. El sistema puede detectar la explotación de algo que todavía no tiene nombre."
           </aside>
         </section>
 
