@@ -1122,32 +1122,40 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
               </svg>
             </div>
 
-            <!-- RIGHT: §4.2 techniques -->
+            <!-- RIGHT: §4.2 narrative -->
             <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
               <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
+
+                <div style="font-size:0.72em; color:var(--text-muted); padding:0 0.65em; margin-bottom:0.1em;">
+                  Verificación continua durante toda la sesión, no solo en el login
+                </div>
 
                 <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Hidden Markov Model (HMM)</div>
                   <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">P(X) = Σₛ P(X|S) · P(S)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Secuencias de estados conductuales — keystroke, clic, navegación</span>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela el comportamiento como cadena de estados ocultos</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Baum-Welch estima parámetros · Viterbi decodifica la secuencia más probable</span>
                 </div>
 
                 <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Gaussian Mixture Model (GMM)</div>
                   <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(X(t)) = Σₖ πₖ 𝒩(X(t); μₖ, Σₖ)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Distribución multivariable del comportamiento por usuario</span>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Distribución multivariable del comportamiento de cada usuario</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">k componentes gaussianas · parámetros via EM · tolerancia a variación natural</span>
                 </div>
 
                 <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ LSTM</div>
                   <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · min −Σ log p(xᵢ|x₁…xᵢ₋₁)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Dependencias temporales largas en la secuencia de comportamiento</span>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Dependencias temporales largas: A→B→C es la firma del usuario legítimo</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Un impostor que salta A→C sin el paso intermedio es estadísticamente detectable</span>
                 </div>
 
                 <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
                   <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Likelihood Ratio — decisión</div>
                   <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">A(X) = P(X|genuino) / P(X|impostor) ≷ τ</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Si A(X) &gt; τ → sesión legítima · Si A(X) ≤ τ → alerta</span>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Umbral τ contextual: más estricto en horario atípico o dispositivo nuevo</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Fusiona los outputs de HMM + GMM + LSTM en una decisión continua por sesión</span>
                 </div>
 
                 <div class="fragment" style="padding:0.3em 0.75em; background:rgba(255,51,102,0.08); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.75em;">
