@@ -423,12 +423,12 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
         <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
         <h2 style="margin-bottom:0.4em;">Predictive Analytics: anticipar, no reaccionar</h2>
 
-        <div style="display:grid; grid-template-columns:38% 62%; gap:1.6em; align-items:center; font-size:0.69em;">
+        <div style="display:grid; grid-template-columns:38% 62%; gap:1.6em; align-items:stretch; font-size:0.69em;">
 
           <!-- LEFT: tradicional vs moderno -->
-          <div style="padding:0.7em 0.8em; border-radius:6px; background:rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:0.6em; height:100%; box-sizing:border-box;">
+          <div style="padding:0.7em 0.8em; border-radius:6px; background:rgba(255,255,255,0.03); display:flex; flex-direction:column; justify-content:center; gap:0.6em; box-sizing:border-box;">
 
-            <!-- Tradicional -->
+            <!-- Tradicional: visible desde el inicio -->
             <div>
               <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:0.35em;">Tradicional</div>
               <div style="font-size:0.63em; color:var(--text-dim); font-style:italic; margin-bottom:0.3em;">enfoque reactivo</div>
@@ -440,11 +440,9 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
               </div>
             </div>
 
-            <!-- Divider -->
-            <div style="border-top:1px solid rgba(255,255,255,0.08);"></div>
-
-            <!-- Moderno -->
-            <div>
+            <!-- Divider + Moderno: aparece en CLICK 1 -->
+            <div class="fragment">
+              <div style="border-top:1px solid rgba(255,255,255,0.08); margin-bottom:0.6em;"></div>
               <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--primary); margin-bottom:0.35em;">Moderno</div>
               <div style="font-size:0.63em; color:var(--text-dim); font-style:italic; margin-bottom:0.3em;">enfoque predictivo</div>
               <div style="display:flex; flex-direction:column; gap:0.18em; font-size:0.66em; color:var(--text-muted);">
@@ -500,11 +498,13 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
         <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[147–149]</strong></p>
 
         <aside class="notes">
-[SLIDE ABIERTO — contraste Tradicional vs Moderno visible a la izquierda]
-"Otro paradigma del IDENTIFY en el NIST es el análisis predictivo. En el enfoque tradicional — reactivo — el ciclo es conocido: ocurre una brecha, eventualmente se detecta, se analiza, se responde. El problema es ese 'eventualmente': IBM 2024 lo mide en 194 días promedio."
-"El enfoque moderno invierte el ciclo. Las señales de la red ingresan continuamente a un conjunto de modelos, y el sistema decide intervenir a tiempo de máquina — antes de que la brecha se complete. Para ello, el paper propone un arreglo de cuatro modelos, cada uno analizando los datos desde un ángulo diferente."
+[SLIDE ABIERTO — bloque Tradicional visible, Moderno aún oculto]
+"Otro paradigma del IDENTIFY en el NIST es el análisis predictivo. El enfoque tradicional — reactivo — tiene un ciclo conocido: ocurre una brecha, eventualmente se detecta, se analiza, se responde. El problema es ese 'eventualmente': IBM 2024 lo mide en 194 días promedio."
 
-── CLICK 1 — ① Logistic Regression ──
+── CLICK 1 — Moderno aparece ──
+"El enfoque moderno invierte ese ciclo. Las señales de la red ingresan continuamente a un conjunto de modelos, y el sistema decide intervenir a tiempo de máquina — antes de que la brecha se complete. Para ello, el paper propone un arreglo de cuatro modelos, cada uno analizando los datos desde un ángulo diferente."
+
+── CLICK 2 — ① Logistic Regression ──
 "El primer modelo es Logistic Regression, entrenado para etiquetar cada observación como amenaza o normal.
 
 Aquí la función clave es P(y=1 | x; θ) — léase: la probabilidad de que este evento sea una amenaza, dado el dato observado x y los parámetros θ del modelo.
