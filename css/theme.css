@@ -154,10 +154,11 @@
   line-height: 1.4;
 }
 
-/* Equation block: auto-sizes to content with guard padding */
+/* Equation block: auto-sizes to content with guard padding, centered */
 .reveal code.eq {
   display: block;
   width: fit-content;
+  margin: 0 auto;
   font-size: 0.75em;
   padding: 0.12em 0.5em;
   font-family: 'JetBrains Mono', monospace;
