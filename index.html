@@ -735,29 +735,99 @@
       </section>
 
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-        <h2>NLP: el lenguaje de las amenazas</h2>
-        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;"><strong>91% de los ciberataques comienzan con phishing.</strong> Es el vector más frecuente y más humano.</p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.5em; margin-bottom:0.5em;">
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">①</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">URL analysis<br><span style="color:var(--text-dim);">entropía, TLD</span></p>
+
+        <!-- SLIDE A: animated pipeline (Fig. 6 §3.4.5) -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.25em;">NLP y detección de phishing</h2>
+          <p class="muted" style="font-size:0.65em; margin-bottom:0.45em;"><strong>91% de los ciberataques comienzan con phishing.</strong> El vector más frecuente — y el más humano.</p>
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:72%; margin:0 auto;">
+
+            <div class="fragment" data-fragment-index="0" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Input</div>
+              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-mail" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Email body</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-link" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">URLs</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-user" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Metadata</span></div>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="2" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <div class="fragment" data-fragment-index="3" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Feature Extraction</div>
+              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-scan" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">URL entropy · TLD</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-brain" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">BERT tokenización</span></div>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="4" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <div class="fragment" data-fragment-index="5" style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 12px rgba(255,165,0,0.35);">
+              <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">NLP Classifier</div>
+              <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">PhishBERT · UrlBERT · Transformer fine-tuning</div>
+              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-message-language" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">Semántica</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-link-off" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">URL encoding</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-target" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">Intención</span></div>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="6" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <div class="fragment" data-fragment-index="7" style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,255,136,0.08); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--positive); text-transform:uppercase; letter-spacing:0.05em;">Decisión</div>
+              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-ban" style="font-size:1.3em; color:var(--accent);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Bloquear</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-archive" style="font-size:1.3em; color:#ffaa00;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Cuarentena</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-circle-check" style="font-size:1.3em; color:var(--positive);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Permitir</span></div>
+              </div>
+            </div>
+
           </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">②</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">BERT embedding<br><span style="color:var(--text-dim);">semántica del mensaje</span></p>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.4em;">Ali et al. 2025 <strong>[33,34]</strong></p>
+          <aside class="notes">DETECT phase. 91% de ciberataques inician con phishing — el vector más frecuente. Fig. 6 §3.4.5: sistema en pipeline de tres etapas. BERT entiende contexto semántico completo, no palabras clave. Los atacantes ya usan LLMs para generar phishing más convincente — tensión que se desarrolla en ACT III.</aside>
+        </section>
+
+        <!-- SLIDE B: model details -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.3em;">Modelos NLP anti-phishing</h2>
+          <div style="display:grid; grid-template-columns:36% 64%; gap:0.8em; align-items:start; font-size:0.72em;">
+
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--primary);">Input<br><span style="font-size:0.75em; color:var(--text-muted);">Email · URL · Metadata</span></div>
+              <div style="text-align:center; color:var(--text-dim); font-size:0.8em;">▼</div>
+              <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--primary);">Feature Extraction</div>
+              <div style="text-align:center; color:var(--text-dim); font-size:0.8em;">▼</div>
+              <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:#ffa500; font-weight:700; box-shadow:0 0 8px rgba(255,165,0,0.25);">NLP Classifier<br><span style="font-size:0.7em; color:rgba(255,165,0,0.6); font-weight:400;">PhishBERT · UrlBERT</span></div>
+              <div style="text-align:center; color:var(--text-dim); font-size:0.8em;">▼</div>
+              <div style="border:1px solid rgba(0,255,136,0.3); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--positive);">Decisión</div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.4em;">
+              <div class="fragment card" style="padding:0.5em 0.7em;">
+                <div style="font-weight:700; color:var(--primary); margin-bottom:0.2em;">BERT en ciberseguridad</div>
+                <p style="font-size:0.82em; margin:0;">Pre-entrenado en texto masivo, fine-tuned en corpus de phishing. Entiende contexto semántico completo — no palabras clave aisladas.</p>
+              </div>
+              <div class="fragment card" style="padding:0.5em 0.7em;">
+                <div style="font-weight:700; color:#ffa500; margin-bottom:0.2em;">UrlBERT</div>
+                <p style="font-size:0.82em; margin:0;">Tokeniza URLs como secuencias de subpalabras. Detecta entropía anómala, dominios typosquatting y rutas sospechosas.</p>
+              </div>
+              <div class="fragment card" style="padding:0.5em 0.7em;">
+                <div style="font-weight:700; color:#ffa500; margin-bottom:0.2em;">PhishBERT</div>
+                <p style="font-size:0.82em; margin:0;">Fine-tuning sobre emails de phishing reales. Captura urgencia artificial, suplantación de marca e intención fraudulenta.</p>
+              </div>
+              <div class="fragment card" style="padding:0.5em 0.7em; border-color:rgba(0,255,136,0.3);">
+                <span class="positive" style="font-size:1.05em;">&gt;98% accuracy</span> — pero los atacantes ya usan LLMs para generar phishing convincente: <span class="danger">arms race activa</span>.
+              </div>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.1em;">Ali et al. 2025 <strong>[33,34]</strong></p>
+            </div>
           </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">③</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">Clasificación NLP<br><span style="color:var(--text-dim);">intención del texto</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">④</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">Biometría conductual<br><span style="color:var(--text-dim);">velocidad de clic</span></p>
-          </div>
-        </div>
-        <p class="fragment positive" style="font-size:0.7em;">PhishBERT y UrlBERT: &gt;98% accuracy — superan ampliamente a filtros de firma <strong>[33,34]</strong></p>
-        <aside class="notes">DETECT phase 3. BERT comprende el contexto semántico completo del mensaje, no solo palabras clave. Los atacantes ya usan LLMs para generar phishing más convincente — esa tensión se desarrolla en ACT III. Ali et al. 2025 sección 3.4.5.</aside>
+          <aside class="notes">Slide B: detalle de modelos. BERT usa attention bidireccional. UrlBERT y PhishBERT son especializaciones para el dominio. El resultado >98% es impresionante, pero la carrera armamentista con LLMs generativos es la tensión central de ACT III. Ali et al. 2025 §3.4.5.</aside>
+        </section>
+
       </section>
 
       <section>
