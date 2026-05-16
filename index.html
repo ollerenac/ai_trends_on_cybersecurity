@@ -691,65 +691,63 @@
         <section>
           <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
           <h2 style="margin-bottom:0.25em;">Automated Threat Response: arquitectura</h2>
-          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:74%; margin:0 auto;">
+          <div style="display:flex; flex-direction:column; gap:5px; font-size:0.68em; width:80%; margin:0 auto;">
 
+            <!-- Threat Detection Service -->
             <div class="fragment" data-fragment-index="0" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
-              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Inputs</div>
-              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                <div style="text-align:center; flex:1;"><i class="ti ti-radar" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">SIEM alerts</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-device-laptop" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">EDR telemetry</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-network" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Network sensors</span></div>
+              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Threat Detection Service</div>
+              <div style="display:flex; justify-content:space-around; padding:0.25em 0.2em; gap:0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-shield-search" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Network scanning</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-activity" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Anomaly detection</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-alert-circle" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Threat alerts</span></div>
               </div>
             </div>
 
             <div class="fragment" data-fragment-index="1" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
 
-            <div class="fragment" data-fragment-index="2" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
-              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">AI Triage</div>
-              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                <div style="text-align:center; flex:1;"><i class="ti ti-category" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Clasificación</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-chart-bar" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">Severity score</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-filter-off" style="font-size:1.3em; color:var(--primary);"></i><span style="display:block; font-size:0.7em; margin-top:0.1em;">FP filtering</span></div>
-              </div>
+            <!-- AI Response Engine (orange — hub central) -->
+            <div class="fragment" data-fragment-index="2" style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 14px rgba(255,165,0,0.35);">
+              <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em; text-align:center;">AI Response Engine</div>
+              <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">Analyzes threat · selects countermeasures · dispatches actions autonomously</div>
             </div>
 
             <div class="fragment" data-fragment-index="3" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
 
-            <div class="fragment" data-fragment-index="4" style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 12px rgba(255,165,0,0.35);">
-              <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">SOAR Orchestration</div>
-              <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">Playbook selection · Action sequencing · API integration</div>
-              <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                <div style="text-align:center; flex:1;"><i class="ti ti-books" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">Playbooks</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-plug-connected" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">Integrations</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-timeline" style="font-size:1.3em; color:#ffa500;"></i><span style="display:block; font-size:0.7em; margin-top:0.1em; color:#ffa500;">Sequencing</span></div>
+            <!-- 4 response services (branches from AI) -->
+            <div class="fragment" data-fragment-index="3" style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:5px;">
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-device-desktop-off" style="font-size:1.3em; color:var(--positive);"></i>
+                <div style="font-size:0.7em; margin-top:0.15em; font-weight:600; color:var(--positive);">Device Isolation</div>
+                <div style="font-size:0.62em; color:var(--text-muted);">Service</div>
+              </div>
+              <div style="border:1px solid rgba(255,165,0,0.4); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-ban" style="font-size:1.3em; color:#ffa500;"></i>
+                <div style="font-size:0.7em; margin-top:0.15em; font-weight:600; color:#ffa500;">IP Blocking</div>
+                <div style="font-size:0.62em; color:var(--text-muted);">Service</div>
+              </div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-tool" style="font-size:1.3em; color:var(--primary);"></i>
+                <div style="font-size:0.7em; margin-top:0.15em; font-weight:600; color:var(--primary);">Patch Management</div>
+                <div style="font-size:0.62em; color:var(--text-muted);">Service</div>
+              </div>
+              <div style="border:1px solid rgba(136,136,153,0.35); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-database-x" style="font-size:1.3em; color:var(--text-muted);"></i>
+                <div style="font-size:0.7em; margin-top:0.15em; font-weight:600; color:var(--text-muted);">Threat Database</div>
+                <div style="font-size:0.62em; color:var(--text-dim);">Service</div>
               </div>
             </div>
 
-            <div class="fragment" data-fragment-index="5" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+            <div class="fragment" data-fragment-index="4" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
 
-            <div class="fragment" data-fragment-index="6" style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
-              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; overflow:hidden;">
-                <div style="background:rgba(0,255,136,0.08); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--positive); text-transform:uppercase; letter-spacing:0.05em;">Automated Actions</div>
-                <div style="padding:0.3em 0.5em; font-size:0.68em; display:flex; flex-direction:column; gap:0.15em;">
-                  <div><i class="ti ti-shield-lock" style="color:var(--positive);"></i> Isolate endpoint</div>
-                  <div><i class="ti ti-ban" style="color:var(--positive);"></i> Block IP / account</div>
-                  <div><i class="ti ti-tool" style="color:var(--positive);"></i> Apply patch</div>
-                  <div><i class="ti ti-ticket" style="color:var(--positive);"></i> Generate ticket</div>
-                </div>
-              </div>
-              <div style="border:1px solid rgba(255,51,102,0.3); border-radius:6px; overflow:hidden;">
-                <div style="background:rgba(255,51,102,0.08); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em;">Human Loop</div>
-                <div style="padding:0.3em 0.5em; font-size:0.68em; display:flex; flex-direction:column; gap:0.15em;">
-                  <div><i class="ti ti-alert-triangle" style="color:var(--accent);"></i> Escalate critical</div>
-                  <div><i class="ti ti-clipboard-list" style="color:var(--accent);"></i> Audit trail</div>
-                  <div><i class="ti ti-user-check" style="color:var(--accent);"></i> Strategic decisions</div>
-                </div>
-              </div>
+            <!-- Backup Storage -->
+            <div class="fragment" data-fragment-index="4" style="border:1px solid rgba(85,85,106,0.5); border-radius:6px; padding:0.25em 0.5em; text-align:center;">
+              <i class="ti ti-database" style="font-size:1.1em; color:var(--text-muted);"></i>
+              <span style="font-size:0.78em; color:var(--text-muted); font-weight:600; margin-left:0.4em;">Backup Storage</span>
             </div>
 
           </div>
-          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T<sub>automado</sub> / T<sub>total</sub>) · 100%</p>
-          <aside class="notes">Fig. 4 §3.4.3: arquitectura completa del sistema de respuesta automatizada. SOAR es el orquestador central — normaliza eventos heterogéneos y ejecuta playbooks preautorizados en milisegundos. Human loop crítico: decisiones de alto impacto requieren validación humana. La fórmula de eficiencia mide qué fracción del tiempo total de respuesta es automatizable.</aside>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[31,59]</strong> — Fig. 4</p>
+          <aside class="notes">Fig. 4 §3.4.3: arquitectura hub-and-spoke. El AI Response Engine es el centro — analiza la amenaza detectada y despacha acciones en paralelo a los 4 servicios: aísla el dispositivo, bloquea la IP, aplica el patch, y registra en Threat Database. Todo queda respaldado en Backup Storage. Sin intervención humana en el loop primario — respuesta en milisegundos.</aside>
         </section>
 
         <!-- SLIDE B: Sin AI vs Con AI — contexto y urgencia -->
