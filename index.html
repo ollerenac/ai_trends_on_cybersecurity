@@ -609,16 +609,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
 
           <div style="display:grid; grid-template-columns:25% 75%; gap:6px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
 
-            <!-- ORCHESTRATOR (fragment 10) — spans full width, top of DOM, invisible until frag 10 -->
-            <div class="fragment" data-fragment-index="10"
-                 style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:8px; padding:0.4em 1em; gap:0.6em; margin-bottom:4px;">
-              <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
-                <i class="ti ti-cpu" style="font-size:2.2em; color:var(--primary);"></i>
-                <i class="ti ti-eye" style="font-size:0.85em; color:var(--positive); position:absolute; bottom:-0.15em; right:-0.5em; background:var(--bg); border-radius:50%; padding:0.05em;"></i>
-              </div>
-              <span style="font-weight:700; color:var(--primary); font-size:0.92em; letter-spacing:0.06em; text-transform:uppercase;">AI Anomaly Detection Engine</span>
-            </div>
-
             <!-- DATA SOURCES -->
             <div></div>
             <div class="fragment" data-fragment-index="0"
@@ -650,11 +640,12 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
               </svg>
             </div>
 
-            <!-- AI DETECTION ENGINE -->
+            <!-- AI DETECTION ENGINE — highlight: modelos actúan aquí -->
             <div></div>
             <div class="fragment" data-fragment-index="5"
-                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden;">
+                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
               <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Detection Engine</div>
+              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">GMM · Mahalanobis · OC-SVM · VAE · GCN</div>
               <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
                 <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
                   <i class="ti ti-chart-histogram" style="font-size:1.75em; color:#ffa500; display:block;"></i>
@@ -690,24 +681,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
                 <span style="font-size:0.72em; color:var(--text-muted);">Investigation Dashboard</span>
               </div>
             </div>
-
-            <!-- SVG OVERLAY: trunk + branches (fragment 11) -->
-            <svg class="fragment" data-fragment-index="11"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
-                 viewBox="0 0 100 100" preserveAspectRatio="none">
-              <line x1="12.5" y1="20" x2="12.5" y2="90"
-                    stroke="rgba(0,212,255,0.5)" stroke-width="0.45" vector-effect="non-scaling-stroke"/>
-              <polyline points="12.5,32 25,32"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,30.8 25.5,32 23.5,33.2" fill="rgba(0,212,255,0.85)"/>
-              <polyline points="12.5,62 25,62"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,60.8 25.5,62 23.5,63.2" fill="rgba(0,212,255,0.85)"/>
-              <polyline points="12.5,90 25,90"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,88.8 25.5,90 23.5,91.2" fill="rgba(0,212,255,0.85)"/>
-              <circle cx="12.5" cy="20" r="1" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
-            </svg>
 
           </div>
 
@@ -745,16 +718,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
 
 ── CLICK 10 — Response ──
 "Dos canales. El Alerting System notifica al equipo en tiempo real. El Investigation Dashboard construye el timeline del incidente — qué ocurrió, cuándo, desde qué entidad — listo para el analista."
-
-── CLICK 11 — AI Anomaly Detection Engine (orquestador) ──
-[PAUSA]
-"Y aquí aparece el coordinador. El AI Anomaly Detection Engine no es un componente más — es el que mantiene coherente el ciclo completo."
-"Con respecto a los Data Sources: el engine decide qué capturar, con qué granularidad y frecuencia. No todo el tráfico es igualmente informativo."
-"Con respecto al AI Detection Engine: calibra los umbrales y los modelos de baseline continuamente. Cuando el analista confirma un falso positivo, ese feedback actualiza el modelo. El sistema se vuelve más preciso con cada ciclo."
-"Con respecto al Response: ajusta la sensibilidad del alerting según el contexto — horario comercial vs. madrugada, cuenta normal vs. cuenta privilegiada, sistema crítico vs. periférico."
-
-── CLICK 12 — Flechas SVG ──
-"Las flechas cyan representan el control del orquestador hacia cada capa. Las verdes representan el flujo de datos. Y el ciclo es cerrado: los resultados de la investigación realimentan el baseline. Un ataque analizado hoy mejora la detección de mañana."
 
 [→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.1]
           </aside>
@@ -902,16 +865,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
 
           <div style="display:grid; grid-template-columns:25% 75%; gap:6px; font-size:0.69em; position:relative; width:92%; margin:0 auto;">
 
-            <!-- ORCHESTRATOR (fragment 10) -->
-            <div class="fragment" data-fragment-index="10"
-                 style="grid-column:1/-1; display:flex; align-items:center; justify-content:center; background:rgba(0,212,255,0.08); border:2px solid var(--primary); border-radius:8px; padding:0.4em 1em; gap:0.6em; margin-bottom:4px;">
-              <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
-                <i class="ti ti-fingerprint" style="font-size:2.2em; color:var(--primary);"></i>
-                <i class="ti ti-shield-check" style="font-size:0.85em; color:var(--positive); position:absolute; bottom:-0.15em; right:-0.5em; background:var(--bg); border-radius:50%; padding:0.05em;"></i>
-              </div>
-              <span style="font-weight:700; color:var(--primary); font-size:0.92em; letter-spacing:0.06em; text-transform:uppercase;">Behavioral Biometric Service</span>
-            </div>
-
             <!-- DATA SOURCES: behavioral signals -->
             <div></div>
             <div class="fragment" data-fragment-index="0"
@@ -946,8 +899,9 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
             <!-- AI BEHAVIORAL ENGINE -->
             <div></div>
             <div class="fragment" data-fragment-index="5"
-                 style="border:1px solid rgba(255,165,0,0.45); border-radius:6px; overflow:hidden;">
+                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
               <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Behavioral Engine</div>
+              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">HMM · GMM · LSTM</div>
               <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
                 <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
                   <i class="ti ti-user-check" style="font-size:1.75em; color:#ffa500; display:block;"></i>
@@ -983,24 +937,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
                 <span style="font-size:0.72em; color:var(--text-muted);">Threat Alert</span>
               </div>
             </div>
-
-            <!-- SVG OVERLAY (fragment 11) -->
-            <svg class="fragment" data-fragment-index="11"
-                 style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible;"
-                 viewBox="0 0 100 100" preserveAspectRatio="none">
-              <line x1="12.5" y1="20" x2="12.5" y2="90"
-                    stroke="rgba(0,212,255,0.5)" stroke-width="0.45" vector-effect="non-scaling-stroke"/>
-              <polyline points="12.5,32 25,32"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,30.8 25.5,32 23.5,33.2" fill="rgba(0,212,255,0.85)"/>
-              <polyline points="12.5,62 25,62"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,60.8 25.5,62 23.5,63.2" fill="rgba(0,212,255,0.85)"/>
-              <polyline points="12.5,90 25,90"
-                        stroke="rgba(0,212,255,0.85)" stroke-width="0.45" fill="none" vector-effect="non-scaling-stroke"/>
-              <polygon points="23.5,88.8 25.5,90 23.5,91.2" fill="rgba(0,212,255,0.85)"/>
-              <circle cx="12.5" cy="20" r="1" fill="rgba(0,212,255,0.85)" vector-effect="non-scaling-stroke"/>
-            </svg>
 
           </div>
 
@@ -1038,16 +974,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
 
 ── CLICK 10 — Response ──
 "Si el comportamiento es consistente con el perfil: Profile Update — el modelo aprende la sesión como comportamiento legítimo y refina el baseline. Si es inconsistente: Threat Alert — la sesión se bloquea o se escala al equipo de seguridad."
-
-── CLICK 11 — Behavioral Biometric Service (orquestador) ──
-[PAUSA]
-"Y aquí aparece el coordinador. El Behavioral Biometric Service no es un componente de procesamiento — es el que mantiene la coherencia del ciclo."
-"Gestiona el perfil de cada usuario en la User Profile DB, define qué señales capturar y con qué frecuencia, ajusta los umbrales τ por contexto — una sesión desde una ubicación nueva tiene un umbral más estricto que desde el dispositivo habitual."
-"Y cierra el loop: cada sesión confirmada como legítima entrena el modelo. Cada alerta investigada y validada ajusta el umbral. El sistema se personaliza con el tiempo."
-"Lo importante: según CrowdStrike 2026, el breakout promedio — el tiempo que tarda un atacante en moverse del punto de entrada al objetivo — es de 29 minutos. El récord registrado: 27 segundos. Este sistema opera en milisegundos. Detecta el movimiento lateral antes de que el atacante llegue al objetivo."
-
-── CLICK 12 — Flechas SVG ──
-"Las flechas cyan representan el control del orquestador hacia cada capa. Las verdes, el flujo de señales. Y el loop es continuo: comportamiento legítimo refuerza el perfil, comportamiento anómalo activa la respuesta."
 
 [→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.2]
           </aside>
