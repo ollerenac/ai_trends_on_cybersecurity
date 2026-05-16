@@ -18,13 +18,14 @@
     <div class="slides">
 
       <!-- ==================== ACT I ==================== -->
+      <!-- ==================== ACT I ==================== -->
+
       <section data-act="1">
         <h1 class="act-title">ACT I</h1>
         <h2 class="act-subtitle">El Problema</h2>
         <aside class="notes">Introducción al escenario actual de ciberseguridad. Contextualiza la magnitud del problema antes de presentar soluciones.</aside>
       </section>
 
-      <!-- ACT I: Slide 1 — Hook -->
       <section>
         <h2>El costo de un ataque ya no es abstracto</h2>
         <p>
@@ -38,7 +39,6 @@
         </aside>
       </section>
 
-      <!-- ACT I: Slide 2 — Superficie de ataque -->
       <section>
         <h2>La superficie de ataque se expande</h2>
         <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1em; margin-top:0.8em;">
@@ -62,7 +62,6 @@
         </aside>
       </section>
 
-      <!-- ACT I: Slide 3 — Velocidad de las amenazas -->
       <section>
         <h2>Las amenazas evolucionan más rápido que los defensores</h2>
         <ul>
@@ -76,7 +75,6 @@
         </aside>
       </section>
 
-      <!-- ACT I: Slide 4 — Falla de métodos tradicionales -->
       <section>
         <h2>¿Por qué fallan los métodos tradicionales?</h2>
         <div class="card fragment">
@@ -96,7 +94,6 @@
         </aside>
       </section>
 
-      <!-- ACT I: Slide 5 — El límite humano -->
       <section>
         <h2>El problema escala más rápido que los equipos humanos</h2>
         <p>
@@ -110,7 +107,6 @@
         </aside>
       </section>
 
-      <!-- ACT I: Slide 6 — Transición dramática -->
       <section>
         <h2 style="color: var(--text-muted); font-weight:300;">Necesitamos algo que</h2>
         <h1 style="font-size:2.8em;">aprenda.</h1>
@@ -124,13 +120,14 @@
       </section>
 
       <!-- ==================== ACT II ==================== -->
+
       <section data-act="2">
         <h1 class="act-title">ACT II</h1>
         <h2 class="act-subtitle">AI en Ciberseguridad — NIST Reimaginado</h2>
         <aside class="notes">El ACT II está organizado en el marco NIST CSF: Identify → Detect → Respond → Recover. Cada fase transformada por AI.</aside>
       </section>
 
-      <!-- ACT II: NIST Framework intro -->
+      <!-- §3.1 — El framework como contexto -->
       <section>
         <h2>El framework que ya conoces — transformado por AI</h2>
         <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.7em; margin-top:0.8em;">
@@ -155,7 +152,614 @@
         <aside class="notes">El NIST CSF es el marco estándar. La audiencia técnica lo conoce. El argumento del ACT II: cada una de estas 4 fases pasa de proceso humano lento a sistema AI continuo.</aside>
       </section>
 
-      <!-- ACT II: IDENTIFY — Vulnerability Management (Fig. 10) — nested: A=pipeline B=components -->
+      <!-- §3.2 — El auge de AI/ML -->
+      <!-- §3.2: El auge de AI/ML en ciberseguridad -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Background</span></div>
+        <h2>El auge de AI en ciberseguridad</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; margin-top:0.4em; font-size:0.72em;">
+          <div class="fragment card">
+            <p style="color:var(--primary); font-weight:700; margin-bottom:0.2em;">¿Por qué ahora?</p>
+            <p class="muted" style="font-size:0.85em;">Volumen de datos inmanejable para analistas humanos · velocidad de los ataques supera los procesos manuales · patrones demasiado complejos para reglas estáticas</p>
+          </div>
+          <div class="fragment card">
+            <p style="color:var(--primary); font-weight:700; margin-bottom:0.2em;">El cambio de paradigma</p>
+            <p class="muted" style="font-size:0.85em;">De reglas predefinidas a modelos que <em>aprenden</em> · de detección reactiva a predicción proactiva · de herramientas aisladas a sistemas integrados</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:2em; justify-content:center; margin-top:0.7em;">
+          <div class="fragment" style="text-align:center;">
+            <span class="big-stat">2.5×</span>
+            <span class="big-stat-label">más rápido: detección con AI<br>vs. análisis manual</span>
+          </div>
+          <div class="fragment" style="text-align:center;">
+            <span class="big-stat" style="color:var(--positive);">85%</span>
+            <span class="big-stat-label">Fortune 500 integra AI<br>en su SOC — 2025</span>
+          </div>
+        </div>
+        <aside class="notes">§3.2 Ali et al. 2025. El cambio fundamental: las herramientas tradicionales (firewalls, antivirus basados en firmas, SIEMs con reglas fijas) no escalan al volumen y sofisticación de las amenazas modernas. AI no es solo automatización — es capacidad de generalizar a amenazas no vistas previamente.</aside>
+      </section>
+
+      <!-- §3.3 — Tecnologías clave -->
+      <!-- §3.3: Key AI technologies -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tecnologías</span></div>
+        <h2>Cuatro tecnologías, un objetivo</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6em; margin-top:0.4em; font-size:0.68em;">
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.15em;">① Supervised Learning</p>
+            <p class="muted" style="font-size:0.85em;">Entrena con ejemplos etiquetados (malware conocido, spam). Clasifica amenazas conocidas con alta precisión. Limitado por el catálogo de lo visto.</p>
+          </div>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.15em;">② Unsupervised Learning</p>
+            <p class="muted" style="font-size:0.85em;">Sin etiquetas — detecta lo que nadie describió antes. GMM, autoencoders, clustering. La base de la detección de anomalías y zero-days.</p>
+          </div>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.15em;">③ Deep Learning</p>
+            <p class="muted" style="font-size:0.85em;">CNN para análisis de binarios · LSTM para secuencias temporales · GCN para grafos de red. Aprende representaciones jerárquicas.</p>
+          </div>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.15em;">④ Natural Language Processing</p>
+            <p class="muted" style="font-size:0.85em;">BERT para semántica de mensajes · transformers para threat intelligence · análisis de dark web y CVEs en texto no estructurado.</p>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.52em; margin-top:0.5em; text-align:center;">Ali et al. 2025 §3.3 — Tabla 1</p>
+        <aside class="notes">§3.3 Ali et al. 2025. Las cuatro tecnologías no son mutuamente excluyentes. Un sistema real combina unsupervised learning para encontrar anomalías, deep learning para clasificarlas y NLP para correlacionarlas con inteligencia externa. La sección 3.4 muestra cómo se aplican en contextos específicos.</aside>
+      </section>
+
+      <!-- §3.4 — Aplicaciones -->
+      <section>
+
+        <!-- SLIDE A: animated full-width pipeline -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.35em;">Anomaly Detection: aprender lo normal para detectar lo anormal</h2>
+
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:72%; margin:0 auto;">
+
+            <!-- DATA SOURCES -->
+            <div class="fragment" data-fragment-index="0"
+                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Data Sources</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
+                  <i class="ti ti-database" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Historical Logs</span>
+                </div>
+                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
+                  <i class="ti ti-activity" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Live Network Stream</span>
+                </div>
+                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
+                  <i class="ti ti-file-analytics" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Behavior Logs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW -->
+            <div class="fragment" data-fragment-index="4"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- AI DETECTION ENGINE -->
+            <div class="fragment" data-fragment-index="5"
+                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
+              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Detection Engine</div>
+              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">GMM · Mahalanobis · OC-SVM · VAE · GCN</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
+                  <i class="ti ti-chart-histogram" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Baseline Modeler</span>
+                </div>
+                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
+                  <i class="ti ti-scan-eye" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Anomaly Scorer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW -->
+            <div class="fragment" data-fragment-index="8"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- RESPONSE -->
+            <div class="fragment" data-fragment-index="9"
+                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-bell-ringing" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Alerting System</span>
+              </div>
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-zoom-check" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Investigation Dashboard</span>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[88–100]</strong> — Fig. 7</p>
+          <aside class="notes">
+[SLIDE ABIERTO — diagrama vacío]
+"El DETECT en el framework NIST tiene un desafío central: no puedes definir qué es un ataque hasta que alguien lo diseña. Pero sí puedes definir qué es el comportamiento normal. Y eso es exactamente lo que hace este sistema."
+
+── CLICK 1 — Data Sources (caja vacía) ──
+"Todo comienza con datos. Este sistema ingiere tres flujos de forma continua."
+
+── CLICK 2 — Historical Logs ──
+"Primero: logs históricos. Todo lo que ha pasado en la red — conexiones, autenticaciones, transferencias. La memoria de lo que es normal."
+
+── CLICK 3 — Live Network Stream ──
+"Segundo: el stream en vivo. Tráfico de red en tiempo real, paquete a paquete. Aquí es donde el sistema opera."
+
+── CLICK 4 — Behavior Logs ──
+"Tercero: logs de comportamiento del sistema. Accesos a archivos, uso de recursos, keystroke timing. El perfil conductual de cada entidad en la red."
+
+── CLICK 5 — Flecha: Data Sources → AI Detection Engine ──
+"Esos tres flujos alimentan continuamente al motor de detección. No en batch — en stream. El motor nunca deja de aprender."
+
+── CLICK 6 — AI Detection Engine (caja vacía) ──
+"Aquí ocurre la detección. Dos componentes complementarios."
+
+── CLICK 7 — Baseline Modeler ──
+"El Baseline Modeler aprende cómo se ve el comportamiento normal. GMM, KDE, autoencoders. No necesita ejemplos de ataques — aprende lo que es normal. Todo lo que se desvíe significativamente es candidato a anomalía."
+
+── CLICK 8 — Anomaly Scorer ──
+"El Anomaly Scorer cuantifica esa desviación. Distancia de Mahalanobis para espacios multivariables. One-Class SVM para trazar el hiperplano de normalidad. GCN para detectar patrones anómalos a nivel de subgrafo de red. Cada técnica produce un score. El engine los fusiona."
+
+── CLICK 9 — Flecha: AI Detection Engine → Response ──
+"Cuando el score supera el umbral, el sistema actúa automáticamente."
+
+── CLICK 10 — Response ──
+"Dos canales. El Alerting System notifica al equipo en tiempo real. El Investigation Dashboard construye el timeline del incidente — qué ocurrió, cuándo, desde qué entidad — listo para el analista."
+
+[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.1]
+          </aside>
+        </section>
+
+        <!-- SLIDE B: compact pipeline left + §4.1 techniques right -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.4em;">Técnicas de detección de anomalías</h2>
+
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
+
+            <!-- LEFT: compact static pipeline -->
+            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
+
+              <div></div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Data Sources</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-database" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Logs</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-activity" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Stream</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-file-analytics" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Behavior</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(255,165,0,0.45); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(255,165,0,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">Detection</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1; border:1px solid rgba(255,165,0,0.55); border-radius:4px; background:rgba(255,165,0,0.08); padding:0.15em; box-shadow:0 0 6px rgba(255,165,0,0.2);"><i class="ti ti-chart-histogram" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Baseline</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-scan-eye" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Scorer</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-bell-ringing" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-zoom-check" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Investigate</span></div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT: 5 techniques from §4.1 -->
+            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
+              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Gaussian Mixture Model</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela la distribución del comportamiento normal</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Mahalanobis Distance</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">D_M(x) = √((x−μ)ᵀ Σ⁻¹ (x−μ))</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Cuánto se aleja este evento del comportamiento normal?</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ One-Class SVM</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">min ½‖w‖² + (1/νm)Σξᵢ − ρ</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Hiperplano que encierra el comportamiento normal</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Autoencoder / VAE</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">L(x) = ‖x − g(f(x))‖²</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Anomalía = alta pérdida de reconstrucción</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">⑤ Graph Neural Network (GCN)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">G = (V, E) · V=IPs, E=conexiones</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Botnet = subgrafo anómalo en la topología de red</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <p class="fragment" style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[88–100, 134–142]</strong></p>
+          <aside class="notes">
+[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
+"Ahora los modelos que hacen funcionar ese sistema de detección."
+
+── CLICK 1 — ① GMM ──
+"El Gaussian Mixture Model aprende cómo se distribuye el tráfico normal como una mezcla de gaussianas. Cada componente modela un patrón de comportamiento distinto — horario laboral, transferencias nocturnas, accesos a bases de datos. Cualquier punto fuera de esas distribuciones es candidato a anomalía."
+
+── CLICK 2 — ② Mahalanobis Distance ──
+"Para cuantificar esa desviación usamos la distancia de Mahalanobis. A diferencia de la euclidiana, normaliza por la covarianza — tiene en cuenta que algunas variables están correlacionadas y otras no. Un evento a tres sigmas de distancia en múltiples dimensiones simultáneamente es una anomalía estadísticamente significativa."
+
+── CLICK 3 — ③ One-Class SVM ──
+"El One-Class SVM traza un hiperplano que encierra el comportamiento normal en el espacio de features. Solo necesita datos normales para entrenarse — no requiere ejemplos de ataques previos. Todo lo que cae fuera del hiperplano es anómalo. Es el modelo por excelencia para detección de zero-days."
+
+── CLICK 4 — ④ Autoencoder / VAE ──
+"El autoencoder aprende a comprimir y reconstruir el comportamiento normal. Si el dato de entrada es anómalo, el decoder no puede reconstruirlo bien — la pérdida L(x) es alta. Ese error es directamente el score de anomalía. El VAE añade una regularización probabilística sobre el espacio latente para evitar overfitting."
+
+── CLICK 5 — ⑤ GCN ──
+"El GCN aborda una limitación de los cuatro modelos anteriores: analizan eventos individuales. Pero un botnet de mil nodos no hace nada inusual a nivel de paquete individual. En cambio, su patrón de comunicación coordinada es inmediatamente visible como un subgrafo anómalo en la topología de red. El GCN aprende embeddings de nodo y detecta estas estructuras."
+          </aside>
+        </section>
+      </section>
+
+      <section>
+
+        <!-- SLIDE A: animated full-width pipeline -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.35em;">Behavioral Analysis: las credenciales se roban, el comportamiento no</h2>
+
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:72%; margin:0 auto;">
+
+            <!-- DATA SOURCES: behavioral signals -->
+            <div class="fragment" data-fragment-index="0"
+                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Behavioral Signals</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
+                  <i class="ti ti-keyboard" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Keystroke Dynamics</span>
+                </div>
+                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
+                  <i class="ti ti-mouse" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Mouse & Navigation</span>
+                </div>
+                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
+                  <i class="ti ti-route" style="font-size:1.75em; color:var(--primary); display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Access Patterns</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW -->
+            <div class="fragment" data-fragment-index="4"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- AI BEHAVIORAL ENGINE -->
+            <div class="fragment" data-fragment-index="5"
+                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
+              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Behavioral Engine</div>
+              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">HMM · GMM · LSTM</div>
+              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
+                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
+                  <i class="ti ti-user-check" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">User Profiler</span>
+                </div>
+                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
+                  <i class="ti ti-refresh-alert" style="font-size:1.75em; color:#ffa500; display:block;"></i>
+                  <span style="font-size:0.72em; color:var(--text-muted);">Continuous Authenticator</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOW ARROW -->
+            <div class="fragment" data-fragment-index="8"
+                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
+              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
+                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
+              </svg>
+            </div>
+
+            <!-- RESPONSE -->
+            <div class="fragment" data-fragment-index="9"
+                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-database-plus" style="font-size:1.75em; color:var(--positive); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Profile Update</span>
+              </div>
+              <div style="text-align:center; flex:1;">
+                <i class="ti ti-shield-x" style="font-size:1.75em; color:var(--accent); display:block;"></i>
+                <span style="font-size:0.72em; color:var(--text-muted);">Threat Alert</span>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[97–102]</strong> — Fig. 8</p>
+          <aside class="notes">
+[SLIDE ABIERTO — diagrama vacío]
+"La autenticación clásica verifica la identidad una sola vez — en el login. Todo lo que ocurre después se asume legítimo. Este sistema invierte ese supuesto: verifica de forma continua, durante toda la sesión."
+
+── CLICK 1 — Behavioral Signals (caja vacía) ──
+"El sistema ingiere tres categorías de señales conductuales de forma continua."
+
+── CLICK 2 — Keystroke Dynamics ──
+"Primero: keystroke dynamics. No qué teclas se presionan, sino cómo — el tiempo entre teclas, la duración de cada pulsación, los patrones de ritmo. Cada persona tiene una firma de tipeo única, tan distintiva como una huella dactilar."
+
+── CLICK 3 — Mouse & Navigation ──
+"Segundo: movimiento del ratón y navegación. Velocidad, aceleración, curvatura de trayectoria, patrones de scroll. El comportamiento motor es difícil de imitar porque es inconsciente."
+
+── CLICK 4 — Access Patterns ──
+"Tercero: patrones de acceso. Qué recursos se consultan, en qué secuencia, desde qué dispositivo, a qué hora. El perfil de actividad de cada usuario en la red."
+
+── CLICK 5 — Flecha: Signals → AI Engine ──
+"Esas señales fluyen continuamente al motor. El sistema no espera al final de la sesión — analiza en tiempo real."
+
+── CLICK 6 — AI Behavioral Engine (caja vacía) ──
+"Dos componentes en el motor."
+
+── CLICK 7 — User Profiler ──
+"El User Profiler construye y mantiene un modelo probabilístico del comportamiento normal de cada usuario. HMM para las secuencias de estados, GMM para la distribución multivariable, LSTM para las dependencias temporales largas. El perfil se actualiza con cada sesión legítima confirmada."
+
+── CLICK 8 — Continuous Authenticator ──
+"El Continuous Authenticator compara el comportamiento en vivo contra el perfil mediante el likelihood ratio: A(X) = P(X|genuino) / P(X|impostor). Si A(X) cae por debajo del umbral τ, la sesión se marca como sospechosa — sin esperar al analista."
+
+── CLICK 9 — Flecha: AI Engine → Response ──
+"El resultado toma uno de dos caminos."
+
+── CLICK 10 — Response ──
+"Si el comportamiento es consistente con el perfil: Profile Update — el modelo aprende la sesión como comportamiento legítimo y refina el baseline. Si es inconsistente: Threat Alert — la sesión se bloquea o se escala al equipo de seguridad."
+
+[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.2]
+          </aside>
+        </section>
+
+        <!-- SLIDE B: compact pipeline left + §4.2 techniques right -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+          <h2 style="margin-bottom:0.4em;">Modelos de autenticación conductual</h2>
+
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
+
+            <!-- LEFT: compact static pipeline -->
+            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
+
+              <div></div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
+                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Signals</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-keyboard" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Keystroke</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-mouse" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Mouse</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-route" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Access</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:2px solid rgba(255,165,0,0.85); border-radius:4px; overflow:hidden; margin-bottom:3px; box-shadow:0 0 12px rgba(255,165,0,0.35);">
+                <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">AI Engine</div>
+                <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">HMM · GMM · LSTM · A(X)</div>
+                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-user-check" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Profiler</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-refresh-alert" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Auth.</span></div>
+                </div>
+              </div>
+
+              <div></div>
+              <div style="display:flex; justify-content:center; padding:0.02em 0;">
+                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
+                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
+                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
+                </svg>
+              </div>
+
+              <div></div>
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-database-plus" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Update</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-shield-x" style="font-size:1.3em; color:var(--accent); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT: §4.2 narrative -->
+            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
+              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
+
+                <div style="font-size:0.72em; color:var(--text-muted); padding:0 0.65em; margin-bottom:0.1em;">
+                  Verificación continua durante toda la sesión, no solo en el login
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Hidden Markov Model (HMM)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">P(X) = Σₛ P(X|S) · P(S)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela el comportamiento como cadena de estados ocultos</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Baum-Welch estima parámetros · Viterbi decodifica la secuencia más probable</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Gaussian Mixture Model (GMM)</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(X(t)) = Σₖ πₖ 𝒩(X(t); μₖ, Σₖ)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Distribución multivariable del comportamiento de cada usuario</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">k componentes gaussianas · parámetros via EM · tolerancia a variación natural</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ LSTM</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · min −Σ log p(xᵢ|x₁…xᵢ₋₁)</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Dependencias temporales largas: A→B→C es la firma del usuario legítimo</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Un impostor que salta A→C sin el paso intermedio es estadísticamente detectable</span>
+                </div>
+
+                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
+                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Likelihood Ratio — decisión</div>
+                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">A(X) = P(X|genuino) / P(X|impostor) ≷ τ</code>
+                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Umbral τ contextual: más estricto en horario atípico o dispositivo nuevo</span>
+                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Fusiona los outputs de HMM + GMM + LSTM en una decisión continua por sesión</span>
+                </div>
+
+                <div class="fragment" style="padding:0.3em 0.75em; background:rgba(255,51,102,0.08); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.75em;">
+                  <span style="color:var(--accent); font-size:1.3em; font-weight:900; white-space:nowrap; line-height:1;">29 min</span>
+                  <span style="display:flex; flex-direction:column; gap:0.15em;">
+                    <span style="font-size:0.7em; color:var(--text); font-weight:600; white-space:nowrap;">breakout time promedio · récord: 27 segundos</span>
+                    <span style="font-size:0.63em; color:var(--text-muted);">este sistema opera en milisegundos · CrowdStrike GTR 2026</span>
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <p class="fragment" style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[97–102, 18–21]</strong></p>
+          <aside class="notes">
+[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
+"Los modelos detrás de la autenticación conductual."
+
+── CLICK 1 — ① HMM ──
+"El Hidden Markov Model modela el comportamiento como una secuencia de estados ocultos. Para keystroke dynamics: los estados representan patrones de tipeo — velocidad rápida, pausa, corrección. Las transiciones entre estados y las emisiones de cada estado caracterizan al usuario. Baum-Welch aprende los parámetros, Viterbi decodifica la secuencia más probable."
+
+── CLICK 2 — ② GMM ──
+"El GMM modela la distribución conjunta de las señales conductuales en cada instante de tiempo. Cada componente gaussiana captura un modo de comportamiento distinto — el usuario en modo concentrado vs. el usuario navegando casualmente. El algoritmo EM estima los parámetros."
+
+── CLICK 3 — ③ LSTM ──
+"El LSTM captura dependencias temporales que los modelos anteriores no pueden: si el usuario siempre va de correo a base de datos a reportes, y de repente va directo a base de datos sin pasar por correo, esa secuencia atípica es detectable. La función de pérdida minimiza la log-verosimilitud negativa sobre las secuencias de comportamiento."
+
+── CLICK 4 — ④ Likelihood Ratio ──
+"El likelihood ratio es el mecanismo de decisión. A(X) es la probabilidad de que la secuencia X sea del usuario genuino dividida por la probabilidad de que sea de un impostor. Si cae por debajo del umbral τ, la sesión se marca sospechosa. El umbral es ajustable por contexto: más estricto para cuentas privilegiadas, más tolerante para variaciones conocidas del comportamiento."
+
+── CLICK 5 — 29 min callout ──
+"Y el argumento operacional: CrowdStrike 2026 reporta que el breakout time promedio — el tiempo entre el punto de entrada y el primer movimiento lateral — es de 29 minutos. El récord registrado es 27 segundos. Este sistema opera en milisegundos. Detecta el cambio de comportamiento antes de que el atacante llegue al primer objetivo."
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+        <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
+        <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
+          <div class="fragment">
+            <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
+            <ol class="muted" style="font-size:0.6em;">
+              <li>Alerta en SIEM</li>
+              <li>Analista la revisa (horas)</li>
+              <li>Investigación manual</li>
+              <li>Escalamiento al equipo</li>
+              <li>Acción correctiva (días)</li>
+            </ol>
+          </div>
+          <div class="fragment">
+            <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
+            <ol class="muted" style="font-size:0.6em;">
+              <li>Detección en tiempo real</li>
+              <li>Cuarentena del endpoint</li>
+              <li>Bloqueo de IP / cuenta</li>
+              <li>Patch automático disponible</li>
+              <li>Ticket + contexto generado</li>
+            </ol>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T_automado / T_total) · 100%</p>
+        <aside class="notes">RESPOND phase 3. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico.</aside>
+      </section>
+
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+        <h2>Threat Intelligence: de datos a decisión</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
+          <div>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">📡 <strong>Fusión Bayesiana:</strong> cada feed tiene score de confiabilidad ρᵢ — pondera fuentes según historial de precisión <strong>[103–108]</strong></p>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔗 <strong>STIX + TAXII:</strong> formato e interoperabilidad — la inteligencia compartida multiplica el alcance de cada SOC</p>
+            <p class="fragment muted" style="font-size:0.67em;">🗺️ <strong>MITRE ATT&amp;CK:</strong> AI mapea actividad detectada → técnica → grupo adversario → próximo movimiento</p>
+          </div>
+          <div class="fragment" style="display:flex; align-items:center; justify-content:center;">
+            <div class="card" style="text-align:center; padding:1em;">
+              <p class="positive" style="font-size:1.2em; font-weight:700; margin:0;">Predictiva</p>
+              <p class="muted" style="font-size:0.6em; margin-top:0.3em;">Procesa dark web, CVEs y telemetría interna simultáneamente <strong>[62,63]</strong></p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">RESPOND phase 1. De reactive a predictive: ATT&CK hace esto operacional — "esta actividad es T1078 Valid Accounts del grupo VOLT TYPHOON, próximo movimiento probable: T1021 Remote Services". Ali et al. 2025 sección 3.4.4 + 4.3.</aside>
+      </section>
+
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
+        <h2>NLP: el lenguaje de las amenazas</h2>
+        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;"><strong>91% de los ciberataques comienzan con phishing.</strong> Es el vector más frecuente y más humano.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.5em; margin-bottom:0.5em;">
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">①</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">URL analysis<br><span style="color:var(--text-dim);">entropía, TLD</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">②</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">BERT embedding<br><span style="color:var(--text-dim);">semántica del mensaje</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">③</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">Clasificación NLP<br><span style="color:var(--text-dim);">intención del texto</span></p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.6em;">
+            <div style="font-size:1em; color:var(--primary);">④</div>
+            <p style="font-size:0.58em; margin:0.2em 0 0;">Biometría conductual<br><span style="color:var(--text-dim);">velocidad de clic</span></p>
+          </div>
+        </div>
+        <p class="fragment positive" style="font-size:0.7em;">PhishBERT y UrlBERT: &gt;98% accuracy — superan ampliamente a filtros de firma <strong>[33,34]</strong></p>
+        <aside class="notes">DETECT phase 3. BERT comprende el contexto semántico completo del mensaje, no solo palabras clave. Los atacantes ya usan LLMs para generar phishing más convincente — esa tensión se desarrolla en ACT III. Ali et al. 2025 sección 3.4.5.</aside>
+      </section>
+
       <section>
 
         <!-- SLIDE A: animated full-width pipeline -->
@@ -449,836 +1053,83 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
 
       </section>
 
-      <!-- ACT II: IDENTIFY — Predictive Analytics -->
+      <!-- §3.5 — Desafíos y limitaciones -->
+      <!-- §3.5a: Adversarial attacks -->
       <section>
-        <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--primary); background:rgba(0,212,255,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Identify</span></div>
-        <h2 style="margin-bottom:0.4em;">Predictive Analytics: anticipar, no reaccionar</h2>
-
-        <div style="display:grid; grid-template-columns:38% 62%; gap:1.6em; align-items:stretch; font-size:0.69em;">
-
-          <!-- LEFT: tradicional vs moderno -->
-          <div style="padding:0.7em 0.8em; border-radius:6px; background:rgba(255,255,255,0.03); display:flex; flex-direction:column; justify-content:center; gap:0.6em; box-sizing:border-box;">
-
-            <!-- Tradicional: visible desde el inicio -->
-            <div>
-              <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:0.35em;">Tradicional</div>
-              <div style="font-size:0.63em; color:var(--text-muted); margin-bottom:0.3em;">enfoque reactivo</div>
-              <div style="display:flex; flex-direction:column; gap:0.18em; font-size:0.66em; color:var(--text-muted);">
-                <span>brecha ocurre</span>
-                <span>↓ se detecta <span style="font-size:0.85em; color:var(--text-dim);">(~194 días · IBM 2024)</span></span>
-                <span>↓ se analiza</span>
-                <span>↓ se responde</span>
-              </div>
-            </div>
-
-            <!-- Divider + Moderno: aparece en CLICK 1 -->
-            <div class="fragment">
-              <div style="border-top:1px solid rgba(255,255,255,0.08); margin-bottom:0.6em;"></div>
-              <div style="font-size:0.72em; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--primary); margin-bottom:0.35em;">Moderno</div>
-              <div style="font-size:0.63em; color:var(--text-muted); margin-bottom:0.3em;">enfoque predictivo</div>
-              <div style="display:flex; flex-direction:column; gap:0.18em; font-size:0.66em; color:var(--text-muted);">
-                <span>señales ingresan al modelo</span>
-                <span>↓ modelo decide</span>
-                <span>↓ intervención</span>
-                <span>↓ a tiempo de máquina</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- RIGHT: hierarchy of 4 models -->
-          <div style="display:flex; flex-direction:column; gap:0.28em;">
-
-            <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-              <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Logistic Regression</div>
-              <code class="eq" style="color:rgba(0,212,255,0.8);">P(y=1|x;θ) = 1 / (1 + exp(−θᵀx))</code>
-              <span style="display:block; font-size:0.71em; color:var(--text-muted);">Clasificación binaria: ¿es este evento una amenaza?</span>
-              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ cuando el dato tiene dimensión temporal…</span>
-            </div>
-
-            <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-              <div style="font-weight:700; color:var(--text); font-size:0.86em;">② LSTM</div>
-              <code class="eq" style="color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · gates: forget / input / output</code>
-              <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Qué secuencia de comportamiento conduce aquí?</span>
-              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ cuando necesitamos definir qué es "normal"…</span>
-            </div>
-
-            <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-              <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ GMM — Gaussian Mixture Model</div>
-              <code class="eq" style="color:rgba(0,212,255,0.8);">p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ) · Mahalanobis distance</code>
-              <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Qué tan lejos está este evento de la distribución normal?</span>
-              <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.12em;">↳ integrando toda la evidencia acumulada…</span>
-            </div>
-
-            <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-              <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Bayesian Network</div>
-              <code class="eq" style="color:rgba(0,212,255,0.8);">P(y|x) = P(x|y) · P(y) / P(x)</code>
-              <span style="display:block; font-size:0.71em; color:var(--text-muted);">Probabilidad condicional de ataque dado todo lo observado. Se actualiza en tiempo real al recibir nueva inteligencia.</span>
-            </div>
-
-            <div class="fragment" style="padding:0.22em 0.65em; background:rgba(0,212,255,0.06); border:1px solid rgba(0,212,255,0.2); border-radius:4px; display:flex; justify-content:center; align-items:center; gap:0.5em; flex-wrap:wrap; margin-top:0.1em; text-align:center;">
-              <span style="color:var(--text-muted); font-size:0.72em;">De</span>
-              <span style="color:var(--accent); font-size:0.78em;">¿cuánto tardé en detectar?</span>
-              <span style="color:var(--primary); font-weight:700;">→</span>
-              <span style="color:var(--positive); font-size:0.78em; font-weight:600;">¿Lo vi venir?</span>
-            </div>
-
-          </div>
-        </div>
-
-        <p style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[147–149]</strong></p>
-
-        <aside class="notes">
-[SLIDE ABIERTO — bloque Tradicional visible, Moderno aún oculto]
-"Otro paradigma del IDENTIFY en el NIST es el análisis predictivo. El enfoque tradicional — reactivo — tiene un ciclo conocido: ocurre una brecha, eventualmente se detecta, se analiza, se responde. El problema es ese 'eventualmente': IBM 2024 lo mide en 194 días promedio."
-
-── CLICK 1 — Moderno aparece ──
-"El enfoque moderno invierte ese ciclo. Las señales de la red ingresan continuamente a un conjunto de modelos, y el sistema decide intervenir a tiempo de máquina — antes de que la brecha se complete. Para ello, el paper propone un arreglo de cuatro modelos, cada uno analizando los datos desde un ángulo diferente."
-
-── CLICK 2 — ① Logistic Regression ──
-"El primer modelo es Logistic Regression, entrenado para etiquetar cada observación como amenaza o normal.
-
-Aquí la función clave es P(y=1 | x; θ) — léase: la probabilidad de que este evento sea una amenaza, dado el dato observado x y los parámetros θ del modelo.
-
-x es el vector de features del evento: patrones de login, volumen de tráfico, puertos, timestamps. θ es la matriz de parámetros aprendida durante el entrenamiento — ya está fija cuando el modelo entra en producción.
-
-El sigmoid toma el producto punto θᵀx — un único número que resume qué tan 'amenazante' parece el evento — y lo comprime al rango [0, 1]. Eso es una probabilidad.
-
-Si esa probabilidad supera el umbral → amenaza. Si no → normal.
-
-Por eso LR es el frente inicial de detección: inference es una sola multiplicación matricial más una función sigmoid. Microsegundos por evento. Puede procesar millones de observaciones por segundo."
-
-── CLICK 2 — ② LSTM ──
-"El segundo modelo es LSTM — Long Short-Term Memory. Y aquí el cambio es fundamental: ya no analizamos eventos aislados. Analizamos secuencias.
-
-La pregunta que LSTM responde es distinta a la de LR. No es '¿este evento es una amenaza?' sino '¿esta secuencia de eventos es la firma de un ataque?'
-
-Un solo login fallido es normal. Cincuenta logins fallidos desde la misma IP en diez minutos es un brute force. LR no puede ver eso — solo ve el evento actual, en aislamiento. LSTM sí — porque mantiene memoria de lo que ocurrió antes.
-
-La clave está en el estado oculto hₜ — el parámetro de la arquitectura que concentra la memoria del modelo en el tiempo t. hₜ no es una acumulación ciega de todos los eventos pasados. Es una memoria selectiva y filtrada: las tres compuertas del LSTM deciden en cada paso qué del pasado merece ser recordado y qué puede descartarse.
-
-hₜ es el producto elemento a elemento entre dos vectores: la memoria acumulada cₜ — normalizada al rango [−1, 1] por la tangente hiperbólica para evitar valores explosivos — y el output gate oₜ, que actúa como una máscara y decide qué partes de esa memoria son relevantes exponer en este momento.
-
-Esa selección no la diseña un humano — la aprende el modelo durante el entrenamiento. Resultado: un evento de hace dos días puede tener más peso en hₜ que lo que ocurrió hace dos segundos, si el modelo aprendió que ese patrón temporal es la firma de un ataque.
-
-Para ciberseguridad: las campañas APT siguen una secuencia — reconocimiento, acceso inicial, escalada de privilegios, movimiento lateral. Cada paso por separado parece benigno. LSTM detecta la secuencia completa como la firma del ataque.
-
-Vale la pena mencionar que LSTM está siendo gradualmente reemplazado en implementaciones recientes por arquitecturas basadas en transformers. La razón es simple: LSTM procesa los eventos uno por uno y lo que ocurrió hace días puede diluirse. Los transformers ven toda la secuencia de eventos simultáneamente y pueden conectar directamente un comportamiento de hace una semana con uno de hoy, sin perder fidelidad. Para patrones de ataque que se extienden por largos períodos — como una campaña APT que opera en silencio durante meses — esa capacidad marca diferencia. Hay papers recientes que los aplican específicamente para sistemas de detección de intrusiones, aunque el campo todavía está madurando en cuanto a métricas de performance en producción."
-
-── CLICK 3 — ③ GMM ──
-"El tercer modelo es el GMM — Gaussian Mixture Model. Y aquí el cambio de paradigma es radical: este modelo no aprende cómo se ve un ataque. Aprende cómo se ve el comportamiento normal.
-
-LR y LSTM necesitaban datos etiquetados — ejemplos marcados como amenaza o normal. GMM no necesita ninguna etiqueta. Solo observa el tráfico legítimo durante un período de tiempo y aprende su distribución.
-
-La intuición es esta: el tráfico de red no tiene un solo patrón normal — tiene varios. Tráfico de trabajo en horario laboral. Backups nocturnos. Sincronizaciones de fin de semana. Cada uno de esos modos de comportamiento es una Gaussiana en la mezcla — una campana en múltiples dimensiones.
-
-La fórmula p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ) dice: la probabilidad de observar el evento x es la suma ponderada de cuán bien encaja en cada uno de los K clusters. μₖ es el centro de cada cluster — el comportamiento típico de ese modo. Σₖ es su forma — qué tan disperso o concentrado es.
-
-La detección funciona así: cuando llega un evento nuevo, el modelo calcula su probabilidad bajo esa distribución. Probabilidad alta — normal, el evento encaja en algún cluster conocido. Probabilidad baja — anomalía, este evento no se parece a ningún comportamiento que el sistema haya visto antes. Eso es lo que mide la distancia de Mahalanobis: qué tan lejos está el punto de todos los clusters, corrigiendo por la forma de cada uno.
-
-Por eso GMM es especialmente poderoso contra ataques nunca vistos: un zero-day no tiene firma. Pero si el comportamiento del atacante se desvía del tráfico normal — y siempre lo hace — GMM lo detecta."
-
-── CLICK 4 — ④ Bayesian Network ──
-"El cuarto modelo es el Bayesian Network. Y aquí conviene aclarar algo: no es un integrador en el sentido de sumar probabilidades. Es un actualizador de creencias.
-
-La fórmula P(y|x) = P(x|y)·P(y)/P(x) es el Teorema de Bayes. Cada término tiene nombre:
-
-P(y) es el prior — la creencia inicial antes de ver el dato. Históricamente el 0.1% de los eventos son ataques. Eso ya se sabe antes de que llegue cualquier observación nueva.
-
-P(x|y) es la verosimilitud — si hubiera un ataque, ¿qué tan probable es observar exactamente estos datos? Un login a las 3AM desde una IP nunca vista tiene verosimilitud alta bajo la hipótesis de ataque.
-
-P(x) es la evidencia — qué tan probable es observar estos datos en general. Es el denominador normalizador que garantiza que el resultado sea una probabilidad válida entre 0 y 1.
-
-P(y|x) es el posterior — la creencia actualizada después de ver el dato. El 0.1% inicial puede saltar a 85% tras ver ese login a las 3AM.
-
-Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es integrar el tiempo. Cada nuevo evento actualiza el posterior. El sistema acumula evidencia observación por observación, sin necesidad de reentrenarse. Cuanta más historia observa, más precisa se vuelve la estimación de riesgo en tiempo real."
-
-── CLICK 5 — Pivot callout ──
-"La pregunta cambia. Ya no es '¿cuánto tardé en detectar?' — reactivo, asume que la brecha ya ocurrió. Es '¿lo vi venir?' — proactivo, permite iniciar defensas antes de que el ataque escale."
-"De 194 días a horas. Esa es la promesa del §4.10."
-        </aside>
-      </section>
-
-      <!-- ACT II: DETECT — Anomaly Detection (§4.1) — nested: A=pipeline B=techniques -->
-      <section>
-
-        <!-- SLIDE A: animated full-width pipeline -->
-        <section>
-          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-          <h2 style="margin-bottom:0.35em;">Anomaly Detection: aprender lo normal para detectar lo anormal</h2>
-
-          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:72%; margin:0 auto;">
-
-            <!-- DATA SOURCES -->
-            <div class="fragment" data-fragment-index="0"
-                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
-              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Data Sources</div>
-              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
-                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
-                  <i class="ti ti-database" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Historical Logs</span>
-                </div>
-                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
-                  <i class="ti ti-activity" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Live Network Stream</span>
-                </div>
-                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
-                  <i class="ti ti-file-analytics" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Behavior Logs</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- FLOW ARROW -->
-            <div class="fragment" data-fragment-index="4"
-                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
-              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
-                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
-              </svg>
-            </div>
-
-            <!-- AI DETECTION ENGINE -->
-            <div class="fragment" data-fragment-index="5"
-                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
-              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Detection Engine</div>
-              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">GMM · Mahalanobis · OC-SVM · VAE · GCN</div>
-              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
-                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
-                  <i class="ti ti-chart-histogram" style="font-size:1.75em; color:#ffa500; display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Baseline Modeler</span>
-                </div>
-                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
-                  <i class="ti ti-scan-eye" style="font-size:1.75em; color:#ffa500; display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Anomaly Scorer</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- FLOW ARROW -->
-            <div class="fragment" data-fragment-index="8"
-                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
-              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
-                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
-              </svg>
-            </div>
-
-            <!-- RESPONSE -->
-            <div class="fragment" data-fragment-index="9"
-                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
-              <div style="text-align:center; flex:1;">
-                <i class="ti ti-bell-ringing" style="font-size:1.75em; color:var(--positive); display:block;"></i>
-                <span style="font-size:0.72em; color:var(--text-muted);">Alerting System</span>
-              </div>
-              <div style="text-align:center; flex:1;">
-                <i class="ti ti-zoom-check" style="font-size:1.75em; color:var(--positive); display:block;"></i>
-                <span style="font-size:0.72em; color:var(--text-muted);">Investigation Dashboard</span>
-              </div>
-            </div>
-
-          </div>
-
-          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[88–100]</strong> — Fig. 7</p>
-          <aside class="notes">
-[SLIDE ABIERTO — diagrama vacío]
-"El DETECT en el framework NIST tiene un desafío central: no puedes definir qué es un ataque hasta que alguien lo diseña. Pero sí puedes definir qué es el comportamiento normal. Y eso es exactamente lo que hace este sistema."
-
-── CLICK 1 — Data Sources (caja vacía) ──
-"Todo comienza con datos. Este sistema ingiere tres flujos de forma continua."
-
-── CLICK 2 — Historical Logs ──
-"Primero: logs históricos. Todo lo que ha pasado en la red — conexiones, autenticaciones, transferencias. La memoria de lo que es normal."
-
-── CLICK 3 — Live Network Stream ──
-"Segundo: el stream en vivo. Tráfico de red en tiempo real, paquete a paquete. Aquí es donde el sistema opera."
-
-── CLICK 4 — Behavior Logs ──
-"Tercero: logs de comportamiento del sistema. Accesos a archivos, uso de recursos, keystroke timing. El perfil conductual de cada entidad en la red."
-
-── CLICK 5 — Flecha: Data Sources → AI Detection Engine ──
-"Esos tres flujos alimentan continuamente al motor de detección. No en batch — en stream. El motor nunca deja de aprender."
-
-── CLICK 6 — AI Detection Engine (caja vacía) ──
-"Aquí ocurre la detección. Dos componentes complementarios."
-
-── CLICK 7 — Baseline Modeler ──
-"El Baseline Modeler aprende cómo se ve el comportamiento normal. GMM, KDE, autoencoders. No necesita ejemplos de ataques — aprende lo que es normal. Todo lo que se desvíe significativamente es candidato a anomalía."
-
-── CLICK 8 — Anomaly Scorer ──
-"El Anomaly Scorer cuantifica esa desviación. Distancia de Mahalanobis para espacios multivariables. One-Class SVM para trazar el hiperplano de normalidad. GCN para detectar patrones anómalos a nivel de subgrafo de red. Cada técnica produce un score. El engine los fusiona."
-
-── CLICK 9 — Flecha: AI Detection Engine → Response ──
-"Cuando el score supera el umbral, el sistema actúa automáticamente."
-
-── CLICK 10 — Response ──
-"Dos canales. El Alerting System notifica al equipo en tiempo real. El Investigation Dashboard construye el timeline del incidente — qué ocurrió, cuándo, desde qué entidad — listo para el analista."
-
-[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.1]
-          </aside>
-        </section>
-
-        <!-- SLIDE B: compact pipeline left + §4.1 techniques right -->
-        <section>
-          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-          <h2 style="margin-bottom:0.4em;">Técnicas de detección de anomalías</h2>
-
-          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
-
-            <!-- LEFT: compact static pipeline -->
-            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
-
-              <div></div>
-              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
-                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Data Sources</div>
-                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                  <div style="text-align:center; flex:1;"><i class="ti ti-database" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Logs</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-activity" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Stream</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-file-analytics" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Behavior</span></div>
-                </div>
-              </div>
-
-              <div></div>
-              <div style="display:flex; justify-content:center; padding:0.02em 0;">
-                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
-                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
-                </svg>
-              </div>
-
-              <div></div>
-              <div style="border:1px solid rgba(255,165,0,0.45); border-radius:4px; overflow:hidden; margin-bottom:3px;">
-                <div style="background:rgba(255,165,0,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">Detection</div>
-                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                  <div style="text-align:center; flex:1; border:1px solid rgba(255,165,0,0.55); border-radius:4px; background:rgba(255,165,0,0.08); padding:0.15em; box-shadow:0 0 6px rgba(255,165,0,0.2);"><i class="ti ti-chart-histogram" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Baseline</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-scan-eye" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Scorer</span></div>
-                </div>
-              </div>
-
-              <div></div>
-              <div style="display:flex; justify-content:center; padding:0.02em 0;">
-                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
-                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
-                </svg>
-              </div>
-
-              <div></div>
-              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
-                <div style="text-align:center; flex:1;"><i class="ti ti-bell-ringing" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-zoom-check" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Investigate</span></div>
-              </div>
-
-            </div>
-
-            <!-- RIGHT: 5 techniques from §4.1 -->
-            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
-              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Gaussian Mixture Model</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(x) = Σₖ πₖ 𝒩(x; μₖ, Σₖ)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela la distribución del comportamiento normal</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Mahalanobis Distance</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">D_M(x) = √((x−μ)ᵀ Σ⁻¹ (x−μ))</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">¿Cuánto se aleja este evento del comportamiento normal?</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ One-Class SVM</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">min ½‖w‖² + (1/νm)Σξᵢ − ρ</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Hiperplano que encierra el comportamiento normal</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Autoencoder / VAE</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">L(x) = ‖x − g(f(x))‖²</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Anomalía = alta pérdida de reconstrucción</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">⑤ Graph Neural Network (GCN)</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">G = (V, E) · V=IPs, E=conexiones</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Botnet = subgrafo anómalo en la topología de red</span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <p class="fragment" style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[88–100, 134–142]</strong></p>
-          <aside class="notes">
-[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
-"Ahora los modelos que hacen funcionar ese sistema de detección."
-
-── CLICK 1 — ① GMM ──
-"El Gaussian Mixture Model aprende cómo se distribuye el tráfico normal como una mezcla de gaussianas. Cada componente modela un patrón de comportamiento distinto — horario laboral, transferencias nocturnas, accesos a bases de datos. Cualquier punto fuera de esas distribuciones es candidato a anomalía."
-
-── CLICK 2 — ② Mahalanobis Distance ──
-"Para cuantificar esa desviación usamos la distancia de Mahalanobis. A diferencia de la euclidiana, normaliza por la covarianza — tiene en cuenta que algunas variables están correlacionadas y otras no. Un evento a tres sigmas de distancia en múltiples dimensiones simultáneamente es una anomalía estadísticamente significativa."
-
-── CLICK 3 — ③ One-Class SVM ──
-"El One-Class SVM traza un hiperplano que encierra el comportamiento normal en el espacio de features. Solo necesita datos normales para entrenarse — no requiere ejemplos de ataques previos. Todo lo que cae fuera del hiperplano es anómalo. Es el modelo por excelencia para detección de zero-days."
-
-── CLICK 4 — ④ Autoencoder / VAE ──
-"El autoencoder aprende a comprimir y reconstruir el comportamiento normal. Si el dato de entrada es anómalo, el decoder no puede reconstruirlo bien — la pérdida L(x) es alta. Ese error es directamente el score de anomalía. El VAE añade una regularización probabilística sobre el espacio latente para evitar overfitting."
-
-── CLICK 5 — ⑤ GCN ──
-"El GCN aborda una limitación de los cuatro modelos anteriores: analizan eventos individuales. Pero un botnet de mil nodos no hace nada inusual a nivel de paquete individual. En cambio, su patrón de comunicación coordinada es inmediatamente visible como un subgrafo anómalo en la topología de red. El GCN aprende embeddings de nodo y detecta estas estructuras."
-          </aside>
-        </section>
-      </section>
-
-      <!-- ACT II: DETECT — Behavioral Biometrics (§4.2) — nested: A=pipeline B=techniques -->
-      <section>
-
-        <!-- SLIDE A: animated full-width pipeline -->
-        <section>
-          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-          <h2 style="margin-bottom:0.35em;">Behavioral Analysis: las credenciales se roban, el comportamiento no</h2>
-
-          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:72%; margin:0 auto;">
-
-            <!-- DATA SOURCES: behavioral signals -->
-            <div class="fragment" data-fragment-index="0"
-                 style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
-              <div style="background:rgba(0,212,255,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:var(--primary); letter-spacing:0.07em; text-transform:uppercase;">Behavioral Signals</div>
-              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
-                <div class="fragment" data-fragment-index="1" style="text-align:center; flex:1;">
-                  <i class="ti ti-keyboard" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Keystroke Dynamics</span>
-                </div>
-                <div class="fragment" data-fragment-index="2" style="text-align:center; flex:1;">
-                  <i class="ti ti-mouse" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Mouse & Navigation</span>
-                </div>
-                <div class="fragment" data-fragment-index="3" style="text-align:center; flex:1;">
-                  <i class="ti ti-route" style="font-size:1.75em; color:var(--primary); display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Access Patterns</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- FLOW ARROW -->
-            <div class="fragment" data-fragment-index="4"
-                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
-              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
-                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
-              </svg>
-            </div>
-
-            <!-- AI BEHAVIORAL ENGINE -->
-            <div class="fragment" data-fragment-index="5"
-                 style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 10px rgba(255,165,0,0.15);">
-              <div style="background:rgba(255,165,0,0.18); padding:0.22em 0.8em; font-weight:700; font-size:0.82em; color:#ffa500; letter-spacing:0.07em; text-transform:uppercase;">AI Behavioral Engine</div>
-              <div style="padding:0.06em 0.8em; font-size:0.65em; color:rgba(255,165,0,0.65); text-align:center; letter-spacing:0.03em;">HMM · GMM · LSTM</div>
-              <div style="display:flex; justify-content:space-around; padding:0.45em 0.4em; gap:0.3em;">
-                <div class="fragment" data-fragment-index="6" style="text-align:center; flex:1;">
-                  <i class="ti ti-user-check" style="font-size:1.75em; color:#ffa500; display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">User Profiler</span>
-                </div>
-                <div class="fragment" data-fragment-index="7" style="text-align:center; flex:1;">
-                  <i class="ti ti-refresh-alert" style="font-size:1.75em; color:#ffa500; display:block;"></i>
-                  <span style="font-size:0.72em; color:var(--text-muted);">Continuous Authenticator</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- FLOW ARROW -->
-            <div class="fragment" data-fragment-index="8"
-                 style="display:flex; justify-content:center; align-items:center; padding:0.05em 0;">
-              <svg viewBox="0 0 14 20" width="14" height="20" style="overflow:visible; display:block;">
-                <line x1="7" y1="0" x2="7" y2="13" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                <polygon points="3.5,11 7,18 10.5,11" fill="rgba(0,255,136,0.85)"/>
-              </svg>
-            </div>
-
-            <!-- RESPONSE -->
-            <div class="fragment" data-fragment-index="9"
-                 style="border:1px solid rgba(0,255,136,0.35); border-radius:6px; padding:0.45em 1em; display:flex; justify-content:space-around; align-items:center; gap:0.5em;">
-              <div style="text-align:center; flex:1;">
-                <i class="ti ti-database-plus" style="font-size:1.75em; color:var(--positive); display:block;"></i>
-                <span style="font-size:0.72em; color:var(--text-muted);">Profile Update</span>
-              </div>
-              <div style="text-align:center; flex:1;">
-                <i class="ti ti-shield-x" style="font-size:1.75em; color:var(--accent); display:block;"></i>
-                <span style="font-size:0.72em; color:var(--text-muted);">Threat Alert</span>
-              </div>
-            </div>
-
-          </div>
-
-          <p class="fragment muted" style="font-size:0.54em; margin-top:0.4em; width:92%; margin-left:auto; margin-right:auto;">Ali et al. 2025 <strong>[97–102]</strong> — Fig. 8</p>
-          <aside class="notes">
-[SLIDE ABIERTO — diagrama vacío]
-"La autenticación clásica verifica la identidad una sola vez — en el login. Todo lo que ocurre después se asume legítimo. Este sistema invierte ese supuesto: verifica de forma continua, durante toda la sesión."
-
-── CLICK 1 — Behavioral Signals (caja vacía) ──
-"El sistema ingiere tres categorías de señales conductuales de forma continua."
-
-── CLICK 2 — Keystroke Dynamics ──
-"Primero: keystroke dynamics. No qué teclas se presionan, sino cómo — el tiempo entre teclas, la duración de cada pulsación, los patrones de ritmo. Cada persona tiene una firma de tipeo única, tan distintiva como una huella dactilar."
-
-── CLICK 3 — Mouse & Navigation ──
-"Segundo: movimiento del ratón y navegación. Velocidad, aceleración, curvatura de trayectoria, patrones de scroll. El comportamiento motor es difícil de imitar porque es inconsciente."
-
-── CLICK 4 — Access Patterns ──
-"Tercero: patrones de acceso. Qué recursos se consultan, en qué secuencia, desde qué dispositivo, a qué hora. El perfil de actividad de cada usuario en la red."
-
-── CLICK 5 — Flecha: Signals → AI Engine ──
-"Esas señales fluyen continuamente al motor. El sistema no espera al final de la sesión — analiza en tiempo real."
-
-── CLICK 6 — AI Behavioral Engine (caja vacía) ──
-"Dos componentes en el motor."
-
-── CLICK 7 — User Profiler ──
-"El User Profiler construye y mantiene un modelo probabilístico del comportamiento normal de cada usuario. HMM para las secuencias de estados, GMM para la distribución multivariable, LSTM para las dependencias temporales largas. El perfil se actualiza con cada sesión legítima confirmada."
-
-── CLICK 8 — Continuous Authenticator ──
-"El Continuous Authenticator compara el comportamiento en vivo contra el perfil mediante el likelihood ratio: A(X) = P(X|genuino) / P(X|impostor). Si A(X) cae por debajo del umbral τ, la sesión se marca como sospechosa — sin esperar al analista."
-
-── CLICK 9 — Flecha: AI Engine → Response ──
-"El resultado toma uno de dos caminos."
-
-── CLICK 10 — Response ──
-"Si el comportamiento es consistente con el perfil: Profile Update — el modelo aprende la sesión como comportamiento legítimo y refina el baseline. Si es inconsistente: Threat Alert — la sesión se bloquea o se escala al equipo de seguridad."
-
-[→ SIGUIENTE SLIDE con tecla abajo: los modelos matemáticos de §4.2]
-          </aside>
-        </section>
-
-        <!-- SLIDE B: compact pipeline left + §4.2 techniques right -->
-        <section>
-          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-          <h2 style="margin-bottom:0.4em;">Modelos de autenticación conductual</h2>
-
-          <div style="display:grid; grid-template-columns:40% 60%; gap:1.4em; align-items:start; font-size:0.67em;">
-
-            <!-- LEFT: compact static pipeline -->
-            <div style="display:grid; grid-template-columns:20% 80%; gap:4px; font-size:0.83em; position:relative; width:100%;">
-
-              <div></div>
-              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:4px; overflow:hidden; margin-bottom:3px;">
-                <div style="background:rgba(0,212,255,0.15); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em;">Signals</div>
-                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                  <div style="text-align:center; flex:1;"><i class="ti ti-keyboard" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Keystroke</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-mouse" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Mouse</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-route" style="font-size:1.3em; color:var(--primary); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Access</span></div>
-                </div>
-              </div>
-
-              <div></div>
-              <div style="display:flex; justify-content:center; padding:0.02em 0;">
-                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
-                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
-                </svg>
-              </div>
-
-              <div></div>
-              <div style="border:2px solid rgba(255,165,0,0.85); border-radius:4px; overflow:hidden; margin-bottom:3px; box-shadow:0 0 12px rgba(255,165,0,0.35);">
-                <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.78em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em;">AI Engine</div>
-                <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">HMM · GMM · LSTM · A(X)</div>
-                <div style="display:flex; justify-content:space-around; padding:0.3em 0.2em; gap:0.2em;">
-                  <div style="text-align:center; flex:1;"><i class="ti ti-user-check" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Profiler</span></div>
-                  <div style="text-align:center; flex:1;"><i class="ti ti-refresh-alert" style="font-size:1.3em; color:#ffa500; display:block;"></i><span style="font-size:0.65em; color:#ffa500; font-weight:700;">Auth.</span></div>
-                </div>
-              </div>
-
-              <div></div>
-              <div style="display:flex; justify-content:center; padding:0.02em 0;">
-                <svg viewBox="0 0 14 14" width="12" height="12" style="overflow:visible; display:block;">
-                  <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(0,255,136,0.85)" stroke-width="1.5"/>
-                  <polygon points="4,6 7,12 10,6" fill="rgba(0,255,136,0.85)"/>
-                </svg>
-              </div>
-
-              <div></div>
-              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.6em; display:flex; justify-content:space-around; align-items:center; gap:0.3em;">
-                <div style="text-align:center; flex:1;"><i class="ti ti-database-plus" style="font-size:1.3em; color:var(--positive); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Update</span></div>
-                <div style="text-align:center; flex:1;"><i class="ti ti-shield-x" style="font-size:1.3em; color:var(--accent); display:block;"></i><span style="font-size:0.65em; color:var(--text-muted);">Alert</span></div>
-              </div>
-
-            </div>
-
-            <!-- RIGHT: §4.2 narrative -->
-            <div style="display:flex; justify-content:center; align-items:flex-start; height:100%;">
-              <div style="display:inline-flex; flex-direction:column; gap:0.55em;">
-
-                <div style="font-size:0.72em; color:var(--text-muted); padding:0 0.65em; margin-bottom:0.1em;">
-                  Verificación continua durante toda la sesión, no solo en el login
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">① Hidden Markov Model (HMM)</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">P(X) = Σₛ P(X|S) · P(S)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Modela el comportamiento como cadena de estados ocultos</span>
-                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Baum-Welch estima parámetros · Viterbi decodifica la secuencia más probable</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">② Gaussian Mixture Model (GMM)</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">p(X(t)) = Σₖ πₖ 𝒩(X(t); μₖ, Σₖ)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Distribución multivariable del comportamiento de cada usuario</span>
-                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">k componentes gaussianas · parámetros via EM · tolerancia a variación natural</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">③ LSTM</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">hₜ = oₜ ⊙ tanh(cₜ) · min −Σ log p(xᵢ|x₁…xᵢ₋₁)</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Dependencias temporales largas: A→B→C es la firma del usuario legítimo</span>
-                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Un impostor que salta A→C sin el paso intermedio es estadísticamente detectable</span>
-                </div>
-
-                <div class="fragment" style="border-left:3px solid rgba(0,212,255,0.35); padding:0.18em 0.65em;">
-                  <div style="font-weight:700; color:var(--text); font-size:0.86em;">④ Likelihood Ratio — decisión</div>
-                  <code class="eq" style="white-space:nowrap; color:rgba(0,212,255,0.8);">A(X) = P(X|genuino) / P(X|impostor) ≷ τ</code>
-                  <span style="display:block; font-size:0.71em; color:var(--text-muted);">Umbral τ contextual: más estricto en horario atípico o dispositivo nuevo</span>
-                  <span style="display:block; font-size:0.63em; color:var(--text-dim); margin-top:0.1em;">Fusiona los outputs de HMM + GMM + LSTM en una decisión continua por sesión</span>
-                </div>
-
-                <div class="fragment" style="padding:0.3em 0.75em; background:rgba(255,51,102,0.08); border:1px solid rgba(255,51,102,0.3); border-radius:4px; display:flex; align-items:center; gap:0.75em;">
-                  <span style="color:var(--accent); font-size:1.3em; font-weight:900; white-space:nowrap; line-height:1;">29 min</span>
-                  <span style="display:flex; flex-direction:column; gap:0.15em;">
-                    <span style="font-size:0.7em; color:var(--text); font-weight:600; white-space:nowrap;">breakout time promedio · récord: 27 segundos</span>
-                    <span style="font-size:0.63em; color:var(--text-muted);">este sistema opera en milisegundos · CrowdStrike GTR 2026</span>
-                  </span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <p class="fragment" style="font-size:0.52em; color:var(--text-dim); text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[97–102, 18–21]</strong></p>
-          <aside class="notes">
-[SLIDE ABIERTO — arquitectura compacta visible a la izquierda]
-"Los modelos detrás de la autenticación conductual."
-
-── CLICK 1 — ① HMM ──
-"El Hidden Markov Model modela el comportamiento como una secuencia de estados ocultos. Para keystroke dynamics: los estados representan patrones de tipeo — velocidad rápida, pausa, corrección. Las transiciones entre estados y las emisiones de cada estado caracterizan al usuario. Baum-Welch aprende los parámetros, Viterbi decodifica la secuencia más probable."
-
-── CLICK 2 — ② GMM ──
-"El GMM modela la distribución conjunta de las señales conductuales en cada instante de tiempo. Cada componente gaussiana captura un modo de comportamiento distinto — el usuario en modo concentrado vs. el usuario navegando casualmente. El algoritmo EM estima los parámetros."
-
-── CLICK 3 — ③ LSTM ──
-"El LSTM captura dependencias temporales que los modelos anteriores no pueden: si el usuario siempre va de correo a base de datos a reportes, y de repente va directo a base de datos sin pasar por correo, esa secuencia atípica es detectable. La función de pérdida minimiza la log-verosimilitud negativa sobre las secuencias de comportamiento."
-
-── CLICK 4 — ④ Likelihood Ratio ──
-"El likelihood ratio es el mecanismo de decisión. A(X) es la probabilidad de que la secuencia X sea del usuario genuino dividida por la probabilidad de que sea de un impostor. Si cae por debajo del umbral τ, la sesión se marca sospechosa. El umbral es ajustable por contexto: más estricto para cuentas privilegiadas, más tolerante para variaciones conocidas del comportamiento."
-
-── CLICK 5 — 29 min callout ──
-"Y el argumento operacional: CrowdStrike 2026 reporta que el breakout time promedio — el tiempo entre el punto de entrada y el primer movimiento lateral — es de 29 minutos. El récord registrado es 27 segundos. Este sistema opera en milisegundos. Detecta el cambio de comportamiento antes de que el atacante llegue al primer objetivo."
-          </aside>
-        </section>
-      </section>
-
-      <!-- ACT II: DETECT — NLP Phishing -->
-      <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Detect</span></div>
-        <h2>NLP: el lenguaje de las amenazas</h2>
-        <p class="muted" style="font-size:0.7em; margin-bottom:0.5em;"><strong>91% de los ciberataques comienzan con phishing.</strong> Es el vector más frecuente y más humano.</p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:0.5em; margin-bottom:0.5em;">
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">①</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">URL analysis<br><span style="color:var(--text-dim);">entropía, TLD</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">②</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">BERT embedding<br><span style="color:var(--text-dim);">semántica del mensaje</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">③</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">Clasificación NLP<br><span style="color:var(--text-dim);">intención del texto</span></p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.6em;">
-            <div style="font-size:1em; color:var(--primary);">④</div>
-            <p style="font-size:0.58em; margin:0.2em 0 0;">Biometría conductual<br><span style="color:var(--text-dim);">velocidad de clic</span></p>
-          </div>
-        </div>
-        <p class="fragment positive" style="font-size:0.7em;">PhishBERT y UrlBERT: &gt;98% accuracy — superan ampliamente a filtros de firma <strong>[33,34]</strong></p>
-        <aside class="notes">DETECT phase 3. BERT comprende el contexto semántico completo del mensaje, no solo palabras clave. Los atacantes ya usan LLMs para generar phishing más convincente — esa tensión se desarrolla en ACT III. Ali et al. 2025 sección 3.4.5.</aside>
-      </section>
-
-      <!-- ACT II: RESPOND — Threat Intelligence -->
-      <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-        <h2>Threat Intelligence: de datos a decisión</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+        <h2>Adversarial attacks: engañar al modelo</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; margin-top:0.4em; font-size:0.7em;">
           <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">📡 <strong>Fusión Bayesiana:</strong> cada feed tiene score de confiabilidad ρᵢ — pondera fuentes según historial de precisión <strong>[103–108]</strong></p>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔗 <strong>STIX + TAXII:</strong> formato e interoperabilidad — la inteligencia compartida multiplica el alcance de cada SOC</p>
-            <p class="fragment muted" style="font-size:0.67em;">🗺️ <strong>MITRE ATT&amp;CK:</strong> AI mapea actividad detectada → técnica → grupo adversario → próximo movimiento</p>
+            <div class="fragment card" style="margin-bottom:0.5em;">
+              <p style="font-weight:700; color:var(--accent); margin-bottom:0.15em;">FGSM — Fast Gradient Sign Method</p>
+              <code class="eq">x' = x + ε · sign(∇ₓ J(θ, x, y))</code>
+              <p class="muted" style="font-size:0.82em; margin-top:0.2em;">1 perturbación mínima puede cegar un detector. Imperceptible para humanos, devastador para el modelo.</p>
+            </div>
+            <div class="fragment card">
+              <p style="font-weight:700; color:var(--accent); margin-bottom:0.15em;">Data poisoning</p>
+              <p class="muted" style="font-size:0.82em;">Inyección de muestras maliciosas durante el entrenamiento. El modelo aprende a ignorar exactamente los ataques que el adversario planea lanzar.</p>
+            </div>
           </div>
-          <div class="fragment" style="display:flex; align-items:center; justify-content:center;">
-            <div class="card" style="text-align:center; padding:1em;">
-              <p class="positive" style="font-size:1.2em; font-weight:700; margin:0;">Predictiva</p>
-              <p class="muted" style="font-size:0.6em; margin-top:0.3em;">Procesa dark web, CVEs y telemetría interna simultáneamente <strong>[62,63]</strong></p>
+          <div class="fragment" style="display:flex; flex-direction:column; gap:0.5em; justify-content:center;">
+            <div class="card" style="border-color:rgba(255,51,102,0.3);">
+              <p style="font-weight:700; color:var(--text); font-size:0.88em; margin-bottom:0.2em;">La carrera armamentista</p>
+              <p class="muted" style="font-size:0.8em;">Cada mejora defensiva expone nueva superficie de ataque. Los modelos más precisos son los más susceptibles a perturbaciones adversariales.</p>
+            </div>
+            <div class="card" style="border-color:rgba(0,255,136,0.25);">
+              <p style="font-weight:700; color:var(--positive); font-size:0.88em; margin-bottom:0.2em;">Adversarial training</p>
+              <p class="muted" style="font-size:0.8em;">Respuesta: entrenar con ejemplos adversariales generados. Aumenta robustez pero introduce el trade-off accuracy vs. resilience.</p>
             </div>
           </div>
         </div>
-        <aside class="notes">RESPOND phase 1. De reactive a predictive: ATT&CK hace esto operacional — "esta actividad es T1078 Valid Accounts del grupo VOLT TYPHOON, próximo movimiento probable: T1021 Remote Services". Ali et al. 2025 sección 3.4.4 + 4.3.</aside>
+        <p class="fragment muted" style="font-size:0.52em; margin-top:0.4em;">Ali et al. 2025 §3.5.1</p>
+        <aside class="notes">§3.5.1 Ali et al. 2025. El problema fundamental: los modelos de ML optimizan una función de pérdida sobre una distribución de entrenamiento. Un atacante que conoce esa función puede construir inputs que maximizan el error del modelo. FGSM es la técnica más documentada — puede reducir la accuracy de un detector de malware del 99% al 30% con una perturbación invisible al ojo humano.</aside>
       </section>
 
-      <!-- ACT II: RESPOND — Automated Threat Hunting -->
+      <!-- §3.5b: Privacy, Bias, Explainability -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-        <h2>Automated Threat Hunting: proactivo, no reactivo</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
-          <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.5em;"><span class="danger">Detección reactiva:</span> espera la alerta → investiga → actúa. El daño ya ocurrió.</p>
-            <p class="fragment muted" style="font-size:0.67em;"><span class="positive">Threat Hunting:</span> el agente RL recorre activamente el entorno buscando señales de amenaza <em>antes</em> de que disparen alertas.</p>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+        <h2>Privacidad, sesgo y explicabilidad</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.6em; margin-top:0.4em; font-size:0.67em;">
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-lock"></i> Data Privacy</p>
+            <p class="muted" style="font-size:0.85em;">Los modelos requieren datos sensibles de red y comportamiento. GDPR limita uso de PII en entrenamiento. Federated Learning como respuesta parcial — el modelo viaja al dato, no al revés.</p>
           </div>
-          <div class="card fragment" style="padding:0.8em;">
-            <p class="muted" style="font-size:0.6em; font-weight:600; margin-bottom:0.3em;">El agente aprende de cada hunt:</p>
-            <p style="font-family:'JetBrains Mono',monospace; font-size:0.52em; color:var(--primary); line-height:1.6;">Q(s,a) ← Q(s,a) + α[r + γ·maxQ(s',a') − Q(s,a)]</p>
-            <p class="muted" style="font-size:0.56em; margin-top:0.4em;">Cuanto más tiempo desplegado, más refinada su política de caza</p>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-scale"></i> Bias & Fairness</p>
+            <p class="muted" style="font-size:0.85em;">Datasets históricos amplifican sesgos: geografía, protocolo, industria. Un modelo sesgado produce falsos positivos sistemáticos sobre poblaciones subrepresentadas en el entrenamiento.</p>
+          </div>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-eye"></i> Explainability</p>
+            <p class="muted" style="font-size:0.85em;">¿Por qué el modelo bloqueó esa sesión? Reguladores y analistas exigen justificación auditable. Black boxes no son aceptables en decisiones con impacto legal o de negocio.</p>
           </div>
         </div>
-        <p class="fragment positive" style="font-size:0.7em; margin-top:0.5em;">GCN detecta APTs como subgrafos anómalos — WARP PANDA (22 meses) sería visible en semanas. <em>(CrowdStrike GTR 2026)</em></p>
-        <aside class="notes">RESPOND phase 2. El agente RL no espera que algo falle — busca activamente evidencia de compromiso. Bellman captura el aprendizaje acumulativo: cada hunt mejora la política futura. Ali et al. 2025 [126-132].</aside>
+        <p class="fragment muted" style="font-size:0.52em; margin-top:0.5em; text-align:center;">Ali et al. 2025 §3.5.2–3.5.4</p>
+        <aside class="notes">§3.5.2-3.5.4 Ali et al. 2025. Tres desafíos que convergen en el mismo problema: la confianza institucional en el sistema. Un modelo que no puede explicar sus decisiones, que discrimina, o que requiere datos legalmente no compartibles no es desplegable en producción — independientemente de su accuracy técnica.</aside>
       </section>
 
-      <!-- ACT II: RESPOND — Security Automation -->
+      <!-- §3.5c: Fusion with existing systems -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-        <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
-        <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
-          <div class="fragment">
-            <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
-            <ol class="muted" style="font-size:0.6em;">
-              <li>Alerta en SIEM</li>
-              <li>Analista la revisa (horas)</li>
-              <li>Investigación manual</li>
-              <li>Escalamiento al equipo</li>
-              <li>Acción correctiva (días)</li>
-            </ol>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+        <h2>Integración con sistemas existentes</h2>
+        <div style="font-size:0.7em; width:88%; margin:0.4em auto 0;">
+          <div class="fragment card" style="margin-bottom:0.45em;">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">El problema del legacy</p>
+            <p class="muted" style="font-size:0.85em;">SIEMs de 10+ años, firewalls con APIs propietarias, EDRs sin telemetría estructurada. Los modelos de AI requieren datos normalizados — la realidad operativa es heterogénea y ruidosa.</p>
           </div>
-          <div class="fragment">
-            <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
-            <ol class="muted" style="font-size:0.6em;">
-              <li>Detección en tiempo real</li>
-              <li>Cuarentena del endpoint</li>
-              <li>Bloqueo de IP / cuenta</li>
-              <li>Patch automático disponible</li>
-              <li>Ticket + contexto generado</li>
-            </ol>
+          <div class="fragment card" style="margin-bottom:0.45em;">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">La capa de orquestación — SOAR</p>
+            <p class="muted" style="font-size:0.85em;">Security Orchestration, Automation and Response como puente. Normaliza eventos de múltiples fuentes, expone APIs estandarizadas, permite que los modelos actúen sobre infraestructura heterogénea sin reemplazarla.</p>
+          </div>
+          <div class="fragment card">
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">Modelo de adopción realista</p>
+            <p class="muted" style="font-size:0.85em;">AI augmenta — no reemplaza. Capa de inteligencia encima de la infraestructura existente. El analista retiene la decisión final; AI provee contexto, priorización y automatización de tareas L1.</p>
           </div>
         </div>
-        <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T_automado / T_total) · 100%</p>
-        <aside class="notes">RESPOND phase 3. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico.</aside>
+        <p class="fragment muted" style="font-size:0.52em; margin-top:0.4em;">Ali et al. 2025 §3.5.5</p>
+        <aside class="notes">§3.5.5 Ali et al. 2025. El desafío de integración es el más subestimado. El mayor obstáculo para adoptar AI en ciberseguridad no es técnico — es operacional. El patrón de adopción exitoso es incremental: AI como capa de inteligencia encima de lo existente, no como sustituto.</aside>
       </section>
 
-      <!-- ACT II: RESPOND — VIZ: MTTR -->
-      <section data-chart="mttr">
-        <div style="margin-bottom:0.4em;">
-          <span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span>
-        </div>
-        <h2>MTTR: el impacto medido</h2>
-        <p class="muted" style="font-size:0.7em;">Mean Time to Respond — horas por fase (sin AI vs con AI)</p>
-        <div style="width:700px; height:340px; margin:0 auto;">
-          <canvas id="chart-mttr"></canvas>
-        </div>
-        <p class="fragment muted" style="font-size:0.6em; margin-top:0.3em;">Ali et al. 2025 <strong>[12,31]</strong> — IBM CODB 2024: detección 194 días → horas con AI continua</p>
-        <aside class="notes">Las barras hablan solas. Respond es la fase donde el tiempo diferencia una brecha de $1M de una de $10M. Detección: de 24h a 4h. Contención: de 12h a 2h. Recuperación: de 72h a 8h. Estos no son números teóricos — vienen del IBM CODB 2024 y benchmarks de SOAR deployments.</aside>
-      </section>
-
-      <!-- ACT II: RECOVER — AI-Powered Forensics -->
-      <section>
-        <div style="margin-bottom:0.4em;">
-          <span style="font-size:0.58em; font-weight:700; color:#a78bfa; background:rgba(167,139,250,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Recover</span>
-        </div>
-        <h2>Forensics: reconstruir el ataque</h2>
-        <p class="muted" style="font-size:0.68em; margin-bottom:0.5em;">¿Qué hace la AI <em>después</em> de la brecha? Reconstruye la línea de tiempo automáticamente.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.7em; font-size:0.72em;">
-          <div class="card fragment" style="border-left:3px solid #a78bfa;">
-            <div style="font-size:0.75em; color:#a78bfa; font-weight:700; margin-bottom:0.3em;">CAUSALIDAD TEMPORAL</div>
-            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Causalidad de Granger + RNN/LSTM → secuencia de eventos ordenada en tiempo real</p>
-            <code style="font-size:0.75em; color:#a78bfa; display:block; margin-top:0.4em;">log₁ → log₂ → … → breach</code>
-          </div>
-          <div class="card fragment" style="border-left:3px solid #a78bfa;">
-            <div style="font-size:0.75em; color:#a78bfa; font-weight:700; margin-bottom:0.3em;">CLASIFICACIÓN DE ARTEFACTOS</div>
-            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">PCA + GMM sobre memory dumps y pcaps → clusteriza artefactos sin firma previa</p>
-            <code style="font-size:0.75em; color:#a78bfa; display:block; margin-top:0.4em;">P(artefacto | cluster_k) = GMM</code>
-          </div>
-          <div class="card fragment" style="grid-column:1/-1; border-left:3px solid var(--accent); background:rgba(255,51,102,0.06);">
-            <div style="font-size:0.75em; color:var(--accent); font-weight:700; margin-bottom:0.2em;">GDPR Art. 33 — obligación de negocio</div>
-            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Notificar a autoridades en <strong style="color:var(--accent);">72 horas</strong> tras detectar una brecha. Sin AI forensics: imposible cumplir. Con AI: timeline listo en minutos.</p>
-          </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.6em; margin-top:0.4em;">Ali et al. 2025 <strong>[112–115]</strong></p>
-        <aside class="notes">RECOVER es la fase que nadie planifica hasta que la necesita. GDPR Art. 33: 72 horas para notificar — no es opción, es multa de hasta 4% de facturación global. La AI forensics convierte lo que antes tomaba semanas (análisis manual de logs) en minutos. Granger causality establece qué causó qué. GMM sobre PCA clusteriza sin necesidad de malware signatures previas.</aside>
-      </section>
-
-      <!-- ACT II: RECOVER — GANs: el loop que nunca para -->
-      <section>
-        <div style="margin-bottom:0.4em;">
-          <span style="font-size:0.58em; font-weight:700; color:#a78bfa; background:rgba(167,139,250,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Recover → ACT III</span>
-        </div>
-        <h2>GANs: el loop que nunca para</h2>
-        <p class="muted" style="font-size:0.68em; margin-bottom:0.5em;">El mismo framework que nos defiende también nos ataca.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9em; font-size:0.72em;">
-          <div class="card fragment" style="border-left:3px solid var(--positive);">
-            <div style="font-size:0.75em; color:var(--positive); font-weight:700; margin-bottom:0.3em;">DEFENSOR — Discriminador D</div>
-            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Entrena con tráfico sintético malicioso generado por G → detecta variantes nunca vistas</p>
-            <code style="font-size:0.73em; color:var(--positive); display:block; margin-top:0.4em;">max D: log D(x) + log(1−D(G(z)))</code>
-          </div>
-          <div class="card fragment" style="border-left:3px solid var(--accent);">
-            <div style="font-size:0.75em; color:var(--accent); font-weight:700; margin-bottom:0.3em;">ATACANTE — Generador G</div>
-            <p style="margin:0; font-size:0.85em; color:var(--text-muted);">Genera muestras adversariales que evaden al Discriminador → fuerza al defensor a evolucionar</p>
-            <code style="font-size:0.73em; color:var(--accent); display:block; margin-top:0.4em;">min G: log(1−D(G(z)))</code>
-          </div>
-        </div>
-        <div class="card fragment" style="margin-top:0.6em; font-size:0.72em; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.3); text-align:center;">
-          <span style="color:#a78bfa; font-weight:700;">Equilibrio de Nash:</span>
-          <code style="color:var(--text-muted); margin-left:0.5em;">D*(x) = ½</code>
-          <span style="color:var(--text-muted); margin-left:0.5em; font-size:0.9em;">— ninguno puede mejorar sin que el otro mejore también</span>
-        </div>
-        <p class="fragment" style="font-size:0.68em; color:#a78bfa; margin-top:0.5em; font-style:italic;">Y eso nos lleva directamente al ACT III.</p>
-        <aside class="notes">Este slide es el puente entre ACT II y ACT III. Las GANs son la tecnología que cierra el ciclo NIST: el defensor usa GANs para generar ataques sintéticos con los que entrenarse, pero los atacantes usan el mismo framework para generar ataques reales. El equilibrio de Nash es el punto teórico donde ninguna parte puede mejorar unilateralmente — en la práctica, ese equilibrio nunca se alcanza. Ali et al. 2025 [64-71] — sección 4.6.</aside>
-      </section>
-
-      <!-- ==================== ACT III ==================== -->
-      <section data-act="3">
-        <h1 class="act-title">ACT III</h1>
-        <h2 class="act-subtitle">El Futuro y los Riesgos</h2>
-        <aside class="notes">Tendencias emergentes, adversarial attacks, ética y cierre de la presentación.</aside>
-      </section>
-
-      <!-- Slides ACT III (7 slides) — se agregan en Task 9 -->
-
-      <!-- ACT III: Slide 19 — VIZ 1: Line Chart Threat Landscape -->
-      <section data-chart="threat-growth">
-        <h2>El problema no para de crecer</h2>
-        <p class="muted" style="font-size:0.7em;">Costo promedio de una brecha de datos 2018–2024 (USD millones)</p>
-        <div style="width:750px; height:380px; margin:0 auto;">
-          <canvas id="chart-threat-growth"></canvas>
-        </div>
-        <p class="fragment muted" style="font-size:0.65em;">Fuente: IBM Cost of a Data Breach Report 2024</p>
-        <aside class="notes">IBM 2024. De $3.86M en 2018 a $4.88M en 2024 — +26%. Y la tendencia no se frena.</aside>
-      </section>
-
-      <!-- ACT III: Slide 20 — Adversarial Attacks -->
-      <section>
-        <h2>El lado oscuro: AI contra AI</h2>
-        <p class="fragment muted" style="font-size:0.73em;">Si AI puede defender, también puede ser atacada — y usada como arma.</p>
-        <ul>
-          <li class="fragment"><strong>FGSM:</strong> perturbación mínima calculada con el gradiente del modelo → ciega al detector</li>
-          <li class="fragment"><code style="font-size:0.73em;">x_adv = x + ε · sign(∇ₓ J(θ, x, y))</code> — 1 byte alterado puede hacer invisible un malware</li>
-          <li class="fragment"><strong>Data poisoning:</strong> corromper el dataset → modelo aprende a ignorar ataques reales</li>
-          <li class="fragment danger">+89% ataques AI-enabled en 2025 vs 2024 <em>(CrowdStrike GTR 2026)</em></li>
-        </ul>
-        <p class="fragment positive" style="font-size:0.7em; margin-top:0.4em;">Defensa: <strong>adversarial training</strong> — incluir ejemplos adversariales en el entrenamiento para robustez.</p>
-        <aside class="notes">Ali et al. 2025 sección 3.5 + CrowdStrike GTR 2026. El +89% convierte la teoría en realidad 2025. La carrera armamentista AI vs AI es el tema central del ACT III. El FGSM es la técnica más documentada — el impacto "1 byte cambiado = detector cegado" es lo que resuena en el auditorio técnico.</aside>
-      </section>
-
-      <!-- ACT III: Slide 21 — Blockchain + AI -->
+      <!-- §3.6 — Tendencias emergentes -->
       <section>
         <h2>Blockchain + AI: integridad de datos</h2>
         <ul>
@@ -1290,7 +1141,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
         <aside class="notes">Ali et al. 2025. No es hype — tiene casos de uso concretos donde la cadena de custodia de datos es crítica.</aside>
       </section>
 
-      <!-- ACT III: Slide 22 — Quantum Computing -->
       <section>
         <h2>Computación cuántica: amenaza y oportunidad</h2>
         <div class="card fragment">
@@ -1305,7 +1155,88 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
         <aside class="notes">Ali et al. 2025. NIST finalizó los estándares PQC en 2024. Hablar con el auditorio técnico sobre migración de PKI.</aside>
       </section>
 
-      <!-- ACT III: Slide 23 — Ética y Política -->
+      <section>
+        <h2>El futuro: sistemas que se curan solos</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.5em;">
+          <div>
+            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.5em;"><strong>Self-healing:</strong> AI detecta → aísla → repara → aprende. Loop autónomo para incidentes de bajo/medio riesgo.</p>
+            <p class="fragment muted" style="font-size:0.67em;"><strong>XAI (SHAP/LIME):</strong> el modelo explica cada decisión — "bloqueé esta IP porque su entropía de tráfico superó 3σ del baseline".</p>
+          </div>
+          <div class="card fragment" style="text-align:center; padding:0.8em;">
+            <p class="muted" style="font-size:0.62em; margin-bottom:0.5em;">Integración en sistemas legacy:</p>
+            <p style="font-size:0.65em; color: var(--text-muted);">AI <span class="positive">sugiere</span></p>
+            <p style="font-size:0.65em; color: var(--text-muted);">→ humano <strong>aprueba</strong></p>
+            <p style="font-size:0.65em; color: var(--text-muted);">→ AI <span class="positive">aprende</span></p>
+            <p class="muted" style="font-size:0.58em; margin-top:0.4em;">Ali et al. 2025 — P = f(S, A)</p>
+          </div>
+        </div>
+        <p class="fragment positive" style="font-size:0.7em; margin-top:0.5em;">SentinelOne, Darktrace y CrowdStrike Falcon ya implementan remediación autónoma en producción.</p>
+        <aside class="notes">Ali et al. 2025 sección 3.5. El patrón suggest→approve→learn es la respuesta al problema de integración con sistemas legacy. No reemplaza los SIEMs existentes — actúa como capa de inteligencia encima. XAI es lo que hace ese loop auditable ante el regulador.</aside>
+      </section>
+
+      <!-- §3.6d: XAI + SOCs -->
+      <section>
+        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Emergente</span></div>
+        <h2>XAI y SOCs aumentados</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; margin-top:0.4em; font-size:0.7em;">
+          <div>
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.3em;">Explainable AI (XAI)</p>
+            <div class="fragment card" style="margin-bottom:0.4em;">
+              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">SHAP · LIME</p>
+              <p class="muted" style="font-size:0.82em;">Atribuyen importancia de features a cada predicción individual. "Esta sesión fue bloqueada porque el entropy del payload supera 7.2 y el destino AS nunca fue visto en 90 días."</p>
+            </div>
+            <div class="fragment card">
+              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">Accountability regulatoria</p>
+              <p class="muted" style="font-size:0.82em;">GDPR Art. 22 requiere explicación de decisiones automatizadas. XAI convierte el modelo en sistema auditable — crítico para banca, salud e infraestructura crítica.</p>
+            </div>
+          </div>
+          <div>
+            <p style="font-weight:700; color:var(--primary); margin-bottom:0.3em;">AI-Augmented SOCs</p>
+            <div class="fragment card" style="margin-bottom:0.4em;">
+              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">Triaje automatizado</p>
+              <p class="muted" style="font-size:0.82em;">AI maneja el 80–90% de alertas L1: correlación, priorización, descarte de falsos positivos. El analista humano recibe solo lo que requiere juicio contextual.</p>
+            </div>
+            <div class="fragment card">
+              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">El perfil del analista cambia</p>
+              <p class="muted" style="font-size:0.82em;">Menos analistas L1, más ingenieros de modelos. El trabajo evoluciona de investigar alertas a supervisar sistemas que investigan por sí mismos.</p>
+            </div>
+          </div>
+        </div>
+        <p class="fragment muted" style="font-size:0.52em; margin-top:0.3em;">Ali et al. 2025 §3.6.4–3.6.5</p>
+        <aside class="notes">§3.6.4-3.6.5 Ali et al. 2025. XAI y SOCs aumentados son las tendencias con mayor impacto directo en el trabajo del analista. XAI resuelve el problema de accountability. El SOC del futuro no reemplaza al analista — cambia el perfil: el analista supervisa modelos más que investiga alertas individuales.</aside>
+      </section>
+
+      <!-- ==================== ACT III ==================== -->
+
+      <section data-act="3">
+        <h1 class="act-title">ACT III</h1>
+        <h2 class="act-subtitle">El Futuro y los Riesgos</h2>
+        <aside class="notes">Tendencias emergentes, adversarial attacks, ética y cierre de la presentación.</aside>
+      </section>
+
+      <section data-chart="threat-growth">
+        <h2>El problema no para de crecer</h2>
+        <p class="muted" style="font-size:0.7em;">Costo promedio de una brecha de datos 2018–2024 (USD millones)</p>
+        <div style="width:750px; height:380px; margin:0 auto;">
+          <canvas id="chart-threat-growth"></canvas>
+        </div>
+        <p class="fragment muted" style="font-size:0.65em;">Fuente: IBM Cost of a Data Breach Report 2024</p>
+        <aside class="notes">IBM 2024. De $3.86M en 2018 a $4.88M en 2024 — +26%. Y la tendencia no se frena.</aside>
+      </section>
+
+      <section>
+        <h2>El lado oscuro: AI contra AI</h2>
+        <p class="fragment muted" style="font-size:0.73em;">Si AI puede defender, también puede ser atacada — y usada como arma.</p>
+        <ul>
+          <li class="fragment"><strong>FGSM:</strong> perturbación mínima calculada con el gradiente del modelo → ciega al detector</li>
+          <li class="fragment"><code style="font-size:0.73em;">x_adv = x + ε · sign(∇ₓ J(θ, x, y))</code> — 1 byte alterado puede hacer invisible un malware</li>
+          <li class="fragment"><strong>Data poisoning:</strong> corromper el dataset → modelo aprende a ignorar ataques reales</li>
+          <li class="fragment danger">+89% ataques AI-enabled en 2025 vs 2024 <em>(CrowdStrike GTR 2026)</em></li>
+        </ul>
+        <p class="fragment positive" style="font-size:0.7em; margin-top:0.4em;">Defensa: <strong>adversarial training</strong> — incluir ejemplos adversariales en el entrenamiento para robustez.</p>
+        <aside class="notes">Ali et al. 2025 sección 3.5 + CrowdStrike GTR 2026. El +89% convierte la teoría en realidad 2025. La carrera armamentista AI vs AI es el tema central del ACT III. El FGSM es la técnica más documentada — el impacto "1 byte cambiado = detector cegado" es lo que resuena en el auditorio técnico.</aside>
+      </section>
+
       <section>
         <h2>El triángulo de tensión</h2>
         <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.7em; margin-top:0.5em;">
@@ -1331,27 +1262,6 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
         <aside class="notes">Ali et al. 2025 sección 3.5. Para gestión: conecta con compliance y riesgo organizacional. Federated Learning es la respuesta tecnológica concreta al dilema privacidad vs efectividad. XAI resuelve el problema de accountability regulatoria — si el modelo bloqueó algo, debe poder explicar por qué.</aside>
       </section>
 
-      <!-- ACT III: Slide 24 — Self-healing y XAI -->
-      <section>
-        <h2>El futuro: sistemas que se curan solos</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.5em;">
-          <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.5em;"><strong>Self-healing:</strong> AI detecta → aísla → repara → aprende. Loop autónomo para incidentes de bajo/medio riesgo.</p>
-            <p class="fragment muted" style="font-size:0.67em;"><strong>XAI (SHAP/LIME):</strong> el modelo explica cada decisión — "bloqueé esta IP porque su entropía de tráfico superó 3σ del baseline".</p>
-          </div>
-          <div class="card fragment" style="text-align:center; padding:0.8em;">
-            <p class="muted" style="font-size:0.62em; margin-bottom:0.5em;">Integración en sistemas legacy:</p>
-            <p style="font-size:0.65em; color: var(--text-muted);">AI <span class="positive">sugiere</span></p>
-            <p style="font-size:0.65em; color: var(--text-muted);">→ humano <strong>aprueba</strong></p>
-            <p style="font-size:0.65em; color: var(--text-muted);">→ AI <span class="positive">aprende</span></p>
-            <p class="muted" style="font-size:0.58em; margin-top:0.4em;">Ali et al. 2025 — P = f(S, A)</p>
-          </div>
-        </div>
-        <p class="fragment positive" style="font-size:0.7em; margin-top:0.5em;">SentinelOne, Darktrace y CrowdStrike Falcon ya implementan remediación autónoma en producción.</p>
-        <aside class="notes">Ali et al. 2025 sección 3.5. El patrón suggest→approve→learn es la respuesta al problema de integración con sistemas legacy. No reemplaza los SIEMs existentes — actúa como capa de inteligencia encima. XAI es lo que hace ese loop auditable ante el regulador.</aside>
-      </section>
-
-      <!-- ACT III: Slide 25 — Cierre -->
       <section>
         <h2 style="font-size:1.2em; color: var(--text-muted); font-weight:300;">La pregunta no es</h2>
         <h1 style="font-size:2.2em;">¿deberíamos usar AI en ciberseguridad?</h1>
@@ -1365,6 +1275,7 @@ Lo que hace al Bayesian Network poderoso no es integrar los otros modelos — es
           Luego agradecer y abrir preguntas.
         </aside>
       </section>
+
 
     </div>
   </div>
