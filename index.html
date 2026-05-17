@@ -752,33 +752,37 @@
 
         <!-- SLIDE B: Sin AI vs Con AI — contexto y urgencia -->
         <section>
-          <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-          <h2>Security Automation: la respuesta en <span class="positive">segundos</span></h2>
-          <p class="fragment danger" style="font-size:0.73em; margin-bottom:0.4em;">Breakout más rápido registrado: <strong>27 segundos</strong>. Ningún humano puede responder en ese tiempo.</p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em;">
-            <div class="fragment">
-              <h3 class="danger" style="font-size:0.78em;">Sin AI</h3>
-              <ol class="muted" style="font-size:0.6em;">
-                <li>Alerta en SIEM</li>
-                <li>Analista la revisa (horas)</li>
-                <li>Investigación manual</li>
-                <li>Escalamiento al equipo</li>
-                <li>Acción correctiva (días)</li>
-              </ol>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+          <h2 style="margin-bottom:0.3em;">Automated Threat Response</h2>
+          <div style="display:grid; grid-template-columns:36% 64%; gap:1em; align-items:start; font-size:0.72em;">
+
+            <!-- Left: compact Fig. 4 -->
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--primary); font-size:0.82em; font-weight:600;">Threat Detection Service</div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:#ffa500; font-weight:700; font-size:0.82em; box-shadow:0 0 8px rgba(255,165,0,0.25);">AI Response Engine</div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; font-size:0.8em;">
+                <div style="border:1px solid rgba(0,255,136,0.3); border-radius:3px; padding:0.2em 0.3em; text-align:center; color:var(--positive);">Device<br>Isolation</div>
+                <div style="border:1px solid rgba(255,165,0,0.3); border-radius:3px; padding:0.2em 0.3em; text-align:center; color:#ffa500;">IP<br>Blocking</div>
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:3px; padding:0.2em 0.3em; text-align:center; color:var(--primary);">Patch<br>Management</div>
+                <div style="border:1px solid rgba(136,136,153,0.3); border-radius:3px; padding:0.2em 0.3em; text-align:center; color:var(--text-muted);">Threat<br>Database</div>
+              </div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:1px solid rgba(85,85,106,0.4); border-radius:4px; padding:0.25em 0.5em; text-align:center; color:var(--text-muted); font-size:0.82em;">Backup Storage</div>
             </div>
-            <div class="fragment">
-              <h3 class="positive" style="font-size:0.78em;">Con AI</h3>
-              <ol class="muted" style="font-size:0.6em;">
-                <li>Detección en tiempo real</li>
-                <li>Cuarentena del endpoint</li>
-                <li>Bloqueo de IP / cuenta</li>
-                <li>Patch automático disponible</li>
-                <li>Ticket + contexto generado</li>
-              </ol>
+
+            <!-- Right: narrative items from §3.4.3, no boxes -->
+            <div style="display:flex; flex-direction:column; gap:0.55em; padding-top:0.2em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Identifica, analiza y responde a amenazas <strong style="color:var(--text);">sin intervención humana</strong> — decisiones ejecutadas en <strong style="color:var(--text);">milisegundos</strong> <strong>[31]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">En ransomware y APTs, un pequeño retraso causa <span class="danger">pérdidas irreversibles</span> de datos y daño financiero <strong>[31]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Contramedidas automáticas: <strong style="color:var(--text);">cuarentena · bloqueo de IPs · revocación de credenciales · restauración de archivos</strong> <strong>[31]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Especialmente eficaz en entornos <strong style="color:var(--text);">cloud dinámicos</strong> donde los controles perimetrales tradicionales tienen poco impacto <strong>[31]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Reduce el <span class="positive">alert fatigue</span> — AI categoriza y actúa autónomamente; analistas se enfocan en decisiones estratégicas complejas <strong>[59]</strong></p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.4.3</p>
             </div>
           </div>
-          <p class="fragment muted" style="font-size:0.63em; margin-top:0.4em;">Ali et al. 2025 <strong>[31,59]</strong> — E = (T<sub>automado</sub> / T<sub>total</sub>) · 100%</p>
-          <aside class="notes">RESPOND phase. No es preferencia de velocidad: es imposibilidad física de respuesta humana. Tres acciones documentadas: cuarentena, bloqueo IP/cuenta, patch management. El analista SOC queda liberado para trabajo estratégico. Ali et al. 2025 §3.4.3.</aside>
+          <aside class="notes">§3.4.3: puntos clave de la narrativa. La respuesta en milisegundos no es optimización — es la única forma viable contra ransomware y APTs. Las cuatro contramedidas son las documentadas explícitamente en el paper. El alert fatigue es un problema real: los SOCs procesan miles de alertas por día; AI filtra y prioriza.</aside>
         </section>
 
       </section>
