@@ -788,22 +788,113 @@
       </section>
 
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
-        <h2>Threat Intelligence: de datos a decisión</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.4em;">
-          <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">📡 <strong>Fusión Bayesiana:</strong> cada feed tiene score de confiabilidad ρᵢ — pondera fuentes según historial de precisión <strong>[103–108]</strong></p>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.4em;">🔗 <strong>STIX + TAXII:</strong> formato e interoperabilidad — la inteligencia compartida multiplica el alcance de cada SOC</p>
-            <p class="fragment muted" style="font-size:0.67em;">🗺️ <strong>MITRE ATT&amp;CK:</strong> AI mapea actividad detectada → técnica → grupo adversario → próximo movimiento</p>
+
+        <!-- SLIDE A: Fig. 5 — Threat Intelligence System architecture -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+          <h2 style="margin-bottom:0.25em;">Threat Intelligence: arquitectura</h2>
+          <div style="display:flex; flex-direction:column; gap:5px; font-size:0.69em; width:78%; margin:0 auto;">
+
+            <!-- Inputs row -->
+            <div class="fragment" data-fragment-index="0" style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+                <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">External Threat Feed</div>
+                <div style="display:flex; justify-content:space-around; padding:0.25em 0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-world-search" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">OSINT</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-bug" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Malware feeds</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-eye-off" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Dark web</span></div>
+                </div>
+              </div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+                <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Network Logs</div>
+                <div style="display:flex; justify-content:space-around; padding:0.25em 0.2em;">
+                  <div style="text-align:center; flex:1;"><i class="ti ti-topology-star" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Traffic</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-shield-exclamation" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">IDS alerts</span></div>
+                  <div style="text-align:center; flex:1;"><i class="ti ti-list-details" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">System logs</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="1" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <!-- Data Congestion / Fusion layer -->
+            <div class="fragment" data-fragment-index="2" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Data Congestion</div>
+              <div style="display:flex; justify-content:space-around; padding:0.25em 0.2em;">
+                <div style="text-align:center; flex:1;"><i class="ti ti-filter" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Normalización</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-circle-dashed" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Deduplicación</span></div>
+                <div style="text-align:center; flex:1;"><i class="ti ti-git-merge" style="font-size:1.2em; color:var(--primary);"></i><span style="display:block; font-size:0.68em; margin-top:0.1em;">Fusión</span></div>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="3" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <!-- ML Engine — AI core (orange) -->
+            <div class="fragment" data-fragment-index="4" style="border:2px solid rgba(255,165,0,0.7); border-radius:6px; overflow:hidden; box-shadow:0 0 14px rgba(255,165,0,0.35);">
+              <div style="background:rgba(255,165,0,0.18); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:#ffa500; text-transform:uppercase; letter-spacing:0.05em; text-align:center;">ML Engine</div>
+              <div style="padding:0.04em 0.5em; font-size:0.6em; color:rgba(255,165,0,0.6); text-align:center; letter-spacing:0.03em;">Correlación · Clasificación · Predicción · Mapeo TTPs</div>
+            </div>
+
+            <div class="fragment" data-fragment-index="5" style="display:flex; justify-content:center;"><i class="ti ti-arrow-down" style="color:var(--text-dim); font-size:1em;"></i></div>
+
+            <!-- Outputs row -->
+            <div class="fragment" data-fragment-index="6" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;">
+              <div style="border:1px solid rgba(255,51,102,0.4); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-bell-ringing" style="font-size:1.3em; color:var(--accent);"></i>
+                <div style="font-size:0.72em; margin-top:0.12em; font-weight:600; color:var(--accent);">Security Alert</div>
+              </div>
+              <div style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-users" style="font-size:1.3em; color:var(--primary);"></i>
+                <div style="font-size:0.72em; margin-top:0.12em; font-weight:600; color:var(--primary);">Security Team</div>
+              </div>
+              <div style="border:1px solid rgba(136,136,153,0.35); border-radius:6px; padding:0.3em 0.3em; text-align:center;">
+                <i class="ti ti-database" style="font-size:1.3em; color:var(--text-muted);"></i>
+                <div style="font-size:0.72em; margin-top:0.12em; font-weight:600; color:var(--text-muted);">Threat Database</div>
+              </div>
+            </div>
+
           </div>
-          <div class="fragment" style="display:flex; align-items:center; justify-content:center;">
-            <div class="card" style="text-align:center; padding:1em;">
-              <p class="positive" style="font-size:1.2em; font-weight:700; margin:0;">Predictiva</p>
-              <p class="muted" style="font-size:0.6em; margin-top:0.3em;">Procesa dark web, CVEs y telemetría interna simultáneamente <strong>[62,63]</strong></p>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.35em;">Ali et al. 2025 <strong>[62,63]</strong> — Fig. 5</p>
+          <aside class="notes">Fig. 5 §3.4.4: sistema de inteligencia de amenazas. Dos canales de entrada: feeds externos (OSINT, dark web, malware samples) y logs internos de red (tráfico, IDS, sistema). El Data Congestion es la capa de fusión — normaliza y deduplica. El ML Engine es el núcleo AI: correlaciona, clasifica y predice. Tres salidas: alertas automáticas, contexto para el equipo humano, y persistencia en Threat Database.</aside>
+        </section>
+
+        <!-- SLIDE B: compact left + §3.4.4 narrative right -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Respond</span></div>
+          <h2 style="margin-bottom:0.3em;">Threat Intelligence</h2>
+          <div style="display:grid; grid-template-columns:34% 66%; gap:1em; align-items:start; font-size:0.72em;">
+
+            <!-- Left: compact Fig. 5 with ML Engine highlighted -->
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px;">
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.25em 0.3em; text-align:center; color:var(--primary); font-size:0.78em;">External<br>Threat Feed</div>
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.25em 0.3em; text-align:center; color:var(--primary); font-size:0.78em;">Network<br>Logs</div>
+              </div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.25em 0.4em; text-align:center; color:var(--primary); font-size:0.78em;">Data Congestion</div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.3em 0.4em; text-align:center; color:#ffa500; font-weight:700; font-size:0.82em; box-shadow:0 0 10px rgba(255,165,0,0.3);">ML Engine<br><span style="font-size:0.72em; color:rgba(255,165,0,0.6); font-weight:400;">Correlación · Predicción</span></div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px;">
+                <div style="border:1px solid rgba(255,51,102,0.35); border-radius:3px; padding:0.2em 0.2em; text-align:center; color:var(--accent); font-size:0.72em;">Alert</div>
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:3px; padding:0.2em 0.2em; text-align:center; color:var(--primary); font-size:0.72em;">Team</div>
+                <div style="border:1px solid rgba(136,136,153,0.3); border-radius:3px; padding:0.2em 0.2em; text-align:center; color:var(--text-muted); font-size:0.72em;">DB</div>
+              </div>
+            </div>
+
+            <!-- Right: §3.4.4 narrative, plain text -->
+            <div style="display:flex; flex-direction:column; gap:0.52em; padding-top:0.1em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Recopila, analiza y disemina información sobre amenazas potenciales y confirmadas para que las organizaciones puedan anticiparse y prevenirlas <strong>[62]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Procesa datos no estructurados en tiempo real desde múltiples fuentes: <strong style="color:var(--text);">logs de red · IDS · muestras de malware · OSINT · dark web</strong> <strong>[62]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Correlaciona evidencia dispersa: la misma IP en un análisis de malware y en intentos de login = <strong style="color:var(--text);">campaña coordinada identificada</strong> <strong>[62]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Mapea actividad a <strong style="color:var(--text);">MITRE ATT&amp;CK</strong> — identifica el grupo adversario y anticipa el próximo movimiento en la cadena de ataque <strong>[62]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">Predictiva</span>: analiza patrones históricos para determinar futuros vectores de ataque antes de que se materialicen <strong>[62,63]</strong></p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.4.4</p>
             </div>
           </div>
-        </div>
-        <aside class="notes">RESPOND phase 1. De reactive a predictive: ATT&CK hace esto operacional — "esta actividad es T1078 Valid Accounts del grupo VOLT TYPHOON, próximo movimiento probable: T1021 Remote Services". Ali et al. 2025 sección 3.4.4 + 4.3.</aside>
+          <aside class="notes">§3.4.4 puntos clave. El ML Engine es donde reside la inteligencia: no solo detecta IoCs sino que los contextualiza. La correlación IP malware+login es el ejemplo exacto del paper. MITRE ATT&CK es el lenguaje común que hace operacional esa correlación. El carácter predictivo es la diferencia clave con los sistemas reactivos tradicionales.</aside>
+        </section>
+
       </section>
 
       <section>
