@@ -1455,80 +1455,222 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
       </section>
 
       <!-- §3.6 — Tendencias emergentes -->
+
+      <!-- §3.6.1 Blockchain + AI: single slide -->
       <section>
-        <h2>Blockchain + AI: integridad de datos</h2>
-        <ul>
-          <li class="fragment">Blockchain garantiza <span class="positive">inmutabilidad</span> de los logs de seguridad</li>
-          <li class="fragment">AI sobre blockchain: detección de anomalías con trazabilidad auditada</li>
-          <li class="fragment">Ideal para entornos regulados: banca, salud, gobierno</li>
-          <li class="fragment positive">Resuelve el problema de "¿puede confiar en sus propios logs?"</li>
-        </ul>
-        <aside class="notes">Ali et al. 2025. No es hype — tiene casos de uso concretos donde la cadena de custodia de datos es crítica.</aside>
+        <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+        <h2 style="margin-bottom:0.3em;">Blockchain + AI: datos verificables</h2>
+        <div style="display:grid; grid-template-columns:38% 62%; gap:1em; align-items:start; font-size:0.72em;">
+
+          <!-- Left: conceptual flow -->
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--primary); font-size:0.82em;">Security Data<br><span style="font-size:0.8em; color:var(--text-muted);">logs · transacciones · telemetría</span></div>
+            <div style="text-align:center; color:var(--text-dim);">▼</div>
+            <div style="border:2px solid rgba(255,165,0,0.6); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:#ffa500; font-weight:700; font-size:0.85em; box-shadow:0 0 8px rgba(255,165,0,0.2);">Blockchain<br><span style="font-size:0.72em; color:rgba(255,165,0,0.6); font-weight:400;">inmutable · descentralizado · auditable</span></div>
+            <div style="text-align:center; color:var(--text-dim);">▼</div>
+            <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:#ffa500; font-weight:700; font-size:0.85em;">AI Model g(A, D)<br><span style="font-size:0.72em; font-weight:400; color:rgba(255,165,0,0.6);">V(x) = 1 válido · 0 fraudulento</span></div>
+            <div style="text-align:center; color:var(--text-dim);">▼</div>
+            <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.3em 0.5em; text-align:center; color:var(--positive); font-size:0.82em;">Verified · Auditable Output ✅</div>
+          </div>
+
+          <!-- Right: narrative items -->
+          <div style="display:flex; flex-direction:column; gap:0.52em; padding-top:0.1em;">
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Blockchain es <strong style="color:var(--text);">inmutable y descentralizado</strong> — los datos de seguridad no pueden ser alterados retroactivamente por un adversario <strong>[83]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Smart contracts S(c)</strong>: autenticación y verificación automatizada sin intervención manual — S(c) = O si c se cumple, null si no <strong>[83]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Transparencia y accountability</strong>: el ledger público audita cómo los modelos AI usan los datos — confianza institucional demostrable <strong>[83]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Métrica de rendimiento: throughput T<sub>p</sub> = N/T y latencia L — el overhead computacional es el principal desafío de adopción</p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Casos de uso críticos: <span class="positive">banca · salud · infraestructura</span> donde la cadena de custodia de datos es requisito legal</p>
+            <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.6.1</p>
+          </div>
+        </div>
+        <aside class="notes">§3.6.1. La combinación es poderosa: blockchain garantiza integridad del dato de entrenamiento, AI procesa y detecta anomalías sobre ese dato verificado. El resultado es un sistema donde la trazabilidad es completa — desde la fuente hasta la predicción. El overhead de latencia es el obstáculo principal para tiempo real.</aside>
       </section>
 
+      <!-- §3.6.2 Quantum Computing: A/B -->
       <section>
-        <h2>Computación cuántica: amenaza y oportunidad</h2>
-        <div class="card fragment">
-          <h3 class="danger">La amenaza</h3>
-          <p class="muted" style="font-size:0.65em;">Algoritmo de Shor puede romper RSA-2048 en horas. Toda nuestra infraestructura PKI es vulnerable.</p>
-        </div>
-        <div class="card fragment">
-          <h3 class="positive">La oportunidad</h3>
-          <p class="muted" style="font-size:0.65em;">NIST ya estandarizó algoritmos post-cuánticos (CRYSTALS-Kyber, CRYSTALS-Dilithium).</p>
-        </div>
-        <p class="fragment muted" style="font-size:0.7em; margin-top:0.6em;">El timeline de riesgo: 5-10 años. El tiempo de preparación: ahora.</p>
-        <aside class="notes">Ali et al. 2025. NIST finalizó los estándares PQC en 2024. Hablar con el auditorio técnico sobre migración de PKI.</aside>
+
+        <!-- SLIDE A: la amenaza — Shor + RSA -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+          <h2 style="margin-bottom:0.25em;">Computación cuántica: la amenaza</h2>
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.69em; width:80%; margin:0 auto;">
+
+            <div class="fragment" data-fragment-index="0" style="border:1px solid rgba(0,212,255,0.35); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(0,212,255,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--primary); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">RSA — Seguridad clásica</div>
+              <div style="padding:0.3em 0.8em; text-align:center;">
+                <span style="color:var(--text-muted); font-size:0.88em;">Seguridad basada en factorizar N = p × q — computacionalmente infactible con hardware clásico</span><br>
+                <code style="font-size:0.82em; margin-top:0.2em; display:inline-block;">c = m<sup>e</sup> mod N &nbsp;·&nbsp; m ≡ c<sup>d</sup> mod N</code>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="1" style="display:flex; justify-content:center; align-items:center; gap:0.5em;">
+              <span style="color:var(--text-dim); font-size:0.85em;">computadora clásica:</span>
+              <span style="color:var(--positive); font-weight:700;">tiempo exponencial ✅</span>
+              <span style="color:var(--text-dim); font-size:1.2em;">→</span>
+              <span style="color:var(--accent); font-weight:700;">computadora cuántica: tiempo polinomial ❌</span>
+            </div>
+
+            <div class="fragment" data-fragment-index="2" style="border:2px solid rgba(255,51,102,0.6); border-radius:6px; overflow:hidden; box-shadow:0 0 12px rgba(255,51,102,0.25);">
+              <div style="background:rgba(255,51,102,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Shor's Algorithm — velocidad exponencial</div>
+              <div style="padding:0.3em 0.8em; text-align:center;">
+                <span style="color:var(--text-muted); font-size:0.88em;">Factoriza N usando superposición cuántica — rompe RSA, ECC y toda la PKI actual</span><br>
+                <code style="font-size:0.82em; color:var(--accent); margin-top:0.2em; display:inline-block;">O(log³N) operaciones cuánticas</code>
+              </div>
+            </div>
+
+            <div class="fragment" data-fragment-index="3" style="border:1px solid rgba(255,51,102,0.4); border-radius:6px; padding:0.35em 0.8em; text-align:center;">
+              <span class="danger" style="font-weight:700; font-size:1.05em;">Toda la infraestructura PKI actual es vulnerable</span><br>
+              <span style="color:var(--text-muted); font-size:0.82em;">HTTPS · VPNs · certificados digitales · firmas de software — todo cifrado asimétrico en riesgo</span>
+            </div>
+
+          </div>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.35em; width:80%; margin-left:auto; margin-right:auto;">Ali et al. 2025 §3.6.2 <strong>[84]</strong></p>
+          <aside class="notes">§3.6.2. Shor's algorithm no es teórico — es la razón por la que NIST finalizó estándares post-cuánticos en 2024. El timeline estimado es 5-10 años para computadoras cuánticas suficientemente grandes. "Harvest now, decrypt later" ya ocurre: adversarios recopilan tráfico cifrado hoy para descifrarlo cuando tengan la computadora cuántica.</aside>
+        </section>
+
+        <!-- SLIDE B: la respuesta — post-quantum + QKD -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+          <h2 style="margin-bottom:0.3em;">Computación cuántica: la respuesta</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; font-size:0.71em;">
+
+            <div style="display:flex; flex-direction:column; gap:0.45em;">
+              <div style="font-weight:700; color:var(--primary); font-size:0.9em; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.1em;">Post-Quantum Cryptography</div>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Lattice-based (LWE)</strong>: resolver A·s + e = b con A pública y e ruido — computacionalmente infactible incluso para computadoras cuánticas <strong>[84]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">CRYSTALS-Kyber / Dilithium</strong>: estándares NIST 2024 — basados en LWE, reemplazo drop-in para RSA y ECC</p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Seguridad formal: P es seguro ⟺ ¬∃Q cuántico que pueda romper P — resistencia demostrable matemáticamente</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.45em;">
+              <div style="font-weight:700; color:var(--primary); font-size:0.9em; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.1em;">Quantum Key Distribution</div>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">QKD — BB84</strong>: distribuye claves usando principios cuánticos — cualquier intercepción colapsa el estado y es detectable físicamente <strong>[84]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Tasa de generación de clave: R = I<sub>AB</sub> − I<sub>AE</sub> — ventaja de información Alice-Bob sobre Eva</p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">Timeline de preparación: ahora.</span> "Harvest now, decrypt later" ya ocurre — adversarios recopilan tráfico cifrado hoy para descifrarlo cuando tengan la computadora cuántica</p>
+            </div>
+
+          </div>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.4em;">Ali et al. 2025 §3.6.2 <strong>[84]</strong></p>
+          <aside class="notes">§3.6.2. LWE (Learning With Errors) es el fundamento matemático más sólido para post-quantum: la dificultad de resolver sistemas lineales ruidosos en dimensiones altas es resistente a ataques cuánticos. QKD es la solución a largo plazo pero requiere infraestructura de fibra especializada — PQC es la respuesta práctica inmediata.</aside>
+        </section>
+
       </section>
 
+      <!-- §3.6.3 Self-Healing Systems: A/B -->
       <section>
-        <h2>El futuro: sistemas que se curan solos</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.8em; margin-top:0.5em;">
-          <div>
-            <p class="fragment muted" style="font-size:0.67em; margin-bottom:0.5em;"><strong>Self-healing:</strong> AI detecta → aísla → repara → aprende. Loop autónomo para incidentes de bajo/medio riesgo.</p>
-            <p class="fragment muted" style="font-size:0.67em;"><strong>XAI (SHAP/LIME):</strong> el modelo explica cada decisión — "bloqueé esta IP porque su entropía de tráfico superó 3σ del baseline".</p>
+
+        <!-- SLIDE A: Markov chain diagram -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+          <h2 style="margin-bottom:0.3em;">Self-Healing Systems: ciclo autónomo</h2>
+          <p class="muted" style="font-size:0.65em; margin-bottom:0.5em;">D = |f(t) − μ| &gt; umbral → el sistema activa el ciclo de recuperación autónoma</p>
+
+          <!-- Markov chain: 2x2 grid with arrows -->
+          <div style="display:grid; grid-template-columns:1fr 60px 1fr; grid-template-rows:auto 60px auto; gap:4px; width:68%; margin:0 auto; font-size:0.7em;">
+
+            <!-- Row 1: Detection | → | Containment -->
+            <div class="fragment" data-fragment-index="0" style="border:2px solid rgba(255,51,102,0.6); border-radius:8px; padding:0.5em; text-align:center; background:rgba(255,51,102,0.06);">
+              <i class="ti ti-radar" style="font-size:1.4em; color:var(--accent);"></i>
+              <div style="font-weight:700; color:var(--accent); font-size:0.88em; margin-top:0.2em;">Detection</div>
+              <div style="font-size:0.72em; color:var(--text-muted);">D &gt; threshold</div>
+            </div>
+            <div class="fragment" data-fragment-index="1" style="display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:1.3em;">→</div>
+            <div class="fragment" data-fragment-index="1" style="border:2px solid rgba(255,165,0,0.6); border-radius:8px; padding:0.5em; text-align:center; background:rgba(255,165,0,0.06);">
+              <i class="ti ti-shield-lock" style="font-size:1.4em; color:#ffa500;"></i>
+              <div style="font-weight:700; color:#ffa500; font-size:0.88em; margin-top:0.2em;">Containment</div>
+              <div style="font-size:0.72em; color:var(--text-muted);">isolate · quarantine</div>
+            </div>
+
+            <!-- Row 2: ↑ | | ↓ -->
+            <div class="fragment" data-fragment-index="3" style="display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:1.3em;">↑</div>
+            <div style="display:flex; align-items:center; justify-content:center;">
+              <div style="border:1px solid rgba(0,212,255,0.2); border-radius:50%; padding:0.3em; font-size:0.6em; color:var(--text-dim); text-align:center; line-height:1.3;">AI<br>loop</div>
+            </div>
+            <div class="fragment" data-fragment-index="2" style="display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:1.3em;">↓</div>
+
+            <!-- Row 3: Recovery | ← | Eradication -->
+            <div class="fragment" data-fragment-index="3" style="border:2px solid rgba(0,255,136,0.5); border-radius:8px; padding:0.5em; text-align:center; background:rgba(0,255,136,0.05);">
+              <i class="ti ti-refresh" style="font-size:1.4em; color:var(--positive);"></i>
+              <div style="font-weight:700; color:var(--positive); font-size:0.88em; margin-top:0.2em;">Recovery</div>
+              <div style="font-size:0.72em; color:var(--text-muted);">restore · learn</div>
+            </div>
+            <div class="fragment" data-fragment-index="3" style="display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:1.3em;">←</div>
+            <div class="fragment" data-fragment-index="2" style="border:2px solid rgba(0,212,255,0.5); border-radius:8px; padding:0.5em; text-align:center; background:rgba(0,212,255,0.05);">
+              <i class="ti ti-trash-x" style="font-size:1.4em; color:var(--primary);"></i>
+              <div style="font-weight:700; color:var(--primary); font-size:0.88em; margin-top:0.2em;">Eradication</div>
+              <div style="font-size:0.72em; color:var(--text-muted);">remove · patch</div>
+            </div>
+
           </div>
-          <div class="card fragment" style="text-align:center; padding:0.8em;">
-            <p class="muted" style="font-size:0.62em; margin-bottom:0.5em;">Integración en sistemas legacy:</p>
-            <p style="font-size:0.65em; color: var(--text-muted);">AI <span class="positive">sugiere</span></p>
-            <p style="font-size:0.65em; color: var(--text-muted);">→ humano <strong>aprueba</strong></p>
-            <p style="font-size:0.65em; color: var(--text-muted);">→ AI <span class="positive">aprende</span></p>
-            <p class="muted" style="font-size:0.58em; margin-top:0.4em;">Ali et al. 2025 — P = f(S, A)</p>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.5em; width:68%; margin-left:auto; margin-right:auto;">Ali et al. 2025 §3.6.3 <strong>[85]</strong></p>
+          <aside class="notes">§3.6.3. El modelo de Markov de 4 estados es explícito en el paper. D = |f(t) - μ| mide la desviación del comportamiento esperado — cuando supera el umbral, el sistema activa el ciclo autónomamente. En incidentes de bajo/medio riesgo el loop completo corre sin intervención humana. Recovery incluye aprendizaje: el modelo actualiza su baseline con cada incidente.</aside>
+        </section>
+
+        <!-- SLIDE B: KPIs + §3.6.3 narrative -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+          <h2 style="margin-bottom:0.3em;">Self-Healing Systems</h2>
+          <div style="display:grid; grid-template-columns:34% 66%; gap:1em; align-items:start; font-size:0.72em;">
+
+            <!-- Left: compact Markov + KPIs -->
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:3px; font-size:0.82em; text-align:center;">
+                <div style="border:1px solid rgba(255,51,102,0.4); border-radius:4px; padding:0.2em; color:var(--accent);">Detection</div>
+                <div style="display:flex; align-items:center; color:var(--text-dim);">→</div>
+                <div style="border:1px solid rgba(255,165,0,0.4); border-radius:4px; padding:0.2em; color:#ffa500;">Containment</div>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:3px; font-size:0.82em; text-align:center;">
+                <div style="border:1px solid rgba(0,255,136,0.4); border-radius:4px; padding:0.2em; color:var(--positive);">Recovery</div>
+                <div style="display:flex; align-items:center; color:var(--text-dim);">←</div>
+                <div style="border:1px solid rgba(0,212,255,0.4); border-radius:4px; padding:0.2em; color:var(--primary);">Eradication</div>
+              </div>
+              <div style="margin-top:0.4em; border:1px solid rgba(0,212,255,0.2); border-radius:6px; padding:0.4em; font-size:0.82em;">
+                <div style="color:var(--primary); font-weight:700; margin-bottom:0.3em; font-size:0.88em;">KPIs</div>
+                <div class="muted">MTTD = <sup>1</sup>/<sub>N</sub> Σ T<sub>i</sub><sup>D</sup></div>
+                <div class="muted">MTTR = <sup>1</sup>/<sub>N</sub> Σ T<sub>i</sub><sup>R</sup></div>
+                <div class="muted" style="margin-top:0.2em;">min<sub>a</sub> R(a) + C(a)</div>
+              </div>
+            </div>
+
+            <!-- Right: §3.6.3 narrative -->
+            <div style="display:flex; flex-direction:column; gap:0.52em; padding-top:0.1em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">El sistema monitorea su estado f(t) continuamente — desviación D = |f(t) − μ| sobre umbral activa el ciclo autónomo sin esperar intervención humana <strong>[85]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">P(V|E)</strong>: probabilidad de explotación de vulnerabilidad V dadas condiciones del entorno E — el sistema aprende adaptativamente de incidentes pasados <strong>[85]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Optimización de respuesta: min<sub>a</sub> R(a) + C(a) — minimiza simultáneamente riesgo R y costo de implementación C de la acción de recuperación <strong>[85]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Reinforcement learning</strong>: Q(s,a) = r + γ·max Q(s', a') — el agente mejora su política de respuesta con cada incidente gestionado</p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">MTTD y MTTR</span> como KPIs cuantificables — permiten medir la mejora continua de la postura de seguridad a lo largo del tiempo</p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.6.3</p>
+            </div>
           </div>
-        </div>
-        <p class="fragment positive" style="font-size:0.7em; margin-top:0.5em;">SentinelOne, Darktrace y CrowdStrike Falcon ya implementan remediación autónoma en producción.</p>
-        <aside class="notes">Ali et al. 2025 sección 3.5. El patrón suggest→approve→learn es la respuesta al problema de integración con sistemas legacy. No reemplaza los SIEMs existentes — actúa como capa de inteligencia encima. XAI es lo que hace ese loop auditable ante el regulador.</aside>
+          <aside class="notes">§3.6.3. Self-healing no es solo detección automática — es el ciclo completo de 4 estados operando autónomamente. La función de optimización min R(a)+C(a) es clave: no siempre la acción más segura es la óptima si tiene un costo operacional prohibitivo. El RL permite que el sistema aprenda qué acciones funcionan mejor en su entorno específico.</aside>
+        </section>
+
       </section>
 
-      <!-- §3.6d: XAI + SOCs -->
+      <!-- §3.6.4-5 XAI + SOCs: single slide -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Emergente</span></div>
-        <h2>XAI y SOCs aumentados</h2>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; margin-top:0.4em; font-size:0.7em;">
-          <div>
-            <p style="font-weight:700; color:var(--primary); margin-bottom:0.3em;">Explainable AI (XAI)</p>
-            <div class="fragment card" style="margin-bottom:0.4em;">
-              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">SHAP · LIME</p>
-              <p class="muted" style="font-size:0.82em;">Atribuyen importancia de features a cada predicción individual. "Esta sesión fue bloqueada porque el entropy del payload supera 7.2 y el destino AS nunca fue visto en 90 días."</p>
-            </div>
-            <div class="fragment card">
-              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">Accountability regulatoria</p>
-              <p class="muted" style="font-size:0.82em;">GDPR Art. 22 requiere explicación de decisiones automatizadas. XAI convierte el modelo en sistema auditable — crítico para banca, salud e infraestructura crítica.</p>
-            </div>
+        <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--positive); background:rgba(0,255,136,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Tendencias</span></div>
+        <h2 style="margin-bottom:0.3em;">XAI y SOCs aumentados</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9em; font-size:0.71em;">
+
+          <div style="display:flex; flex-direction:column; gap:0.45em;">
+            <div style="font-weight:700; color:var(--primary); font-size:0.9em; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.1em;">Explainable AI — §3.6.4</div>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">SHAP</strong>: φ<sub>j</sub>(f) distribuye la predicción entre features usando teoría de juegos cooperativos — cada feature recibe su contribución exacta <strong>[86]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">LIME</strong>: aproxima f localmente con modelo interpretable g(z) = β<sub>0</sub> + Σ β<sub>j</sub>z<sub>j</sub> — explicación comprensible para cualquier modelo <strong>[86]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Confianza: C(f(x)) = P(Y=1|X=x) · Importance(x) — el modelo comunica certeza junto con la explicación</p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">GDPR Art. 22</span>: XAI convierte el modelo en sistema legalmente auditable en banca, salud e infraestructura crítica</p>
           </div>
-          <div>
-            <p style="font-weight:700; color:var(--primary); margin-bottom:0.3em;">AI-Augmented SOCs</p>
-            <div class="fragment card" style="margin-bottom:0.4em;">
-              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">Triaje automatizado</p>
-              <p class="muted" style="font-size:0.82em;">AI maneja el 80–90% de alertas L1: correlación, priorización, descarte de falsos positivos. El analista humano recibe solo lo que requiere juicio contextual.</p>
-            </div>
-            <div class="fragment card">
-              <p style="font-weight:700; font-size:0.88em; margin-bottom:0.1em;">El perfil del analista cambia</p>
-              <p class="muted" style="font-size:0.82em;">Menos analistas L1, más ingenieros de modelos. El trabajo evoluciona de investigar alertas a supervisar sistemas que investigan por sí mismos.</p>
-            </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.45em;">
+            <div style="font-weight:700; color:var(--primary); font-size:0.9em; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.1em;">AI-Augmented SOCs — §3.6.5</div>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Postura de seguridad: S = f(A<sub>1</sub>, A<sub>2</sub>, …, A<sub>n</sub>) — visión unificada de todas las fuentes de datos y herramientas del SOC <strong>[87]</strong></p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">Eficiencia: E = T<sub>a</sub>/T<sub>total</sub> · 100% — fracción del tiempo operacional que AI automatiza, liberando al analista</p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">RL para SOCs</strong>: Q(s,a) = r + γ·max Q(s', a') — el agente aprende qué acciones minimizan el riesgo en cada contexto</p>
+            <p class="fragment muted" style="margin:0; font-size:0.88em;">El analista <span class="positive">supervisa modelos</span>, no investiga alertas — el perfil del SOC evoluciona de L1 a ingeniería de inteligencia</p>
           </div>
+
         </div>
-        <p class="fragment muted" style="font-size:0.52em; margin-top:0.3em;">Ali et al. 2025 §3.6.4–3.6.5</p>
-        <aside class="notes">§3.6.4-3.6.5 Ali et al. 2025. XAI y SOCs aumentados son las tendencias con mayor impacto directo en el trabajo del analista. XAI resuelve el problema de accountability. El SOC del futuro no reemplaza al analista — cambia el perfil: el analista supervisa modelos más que investiga alertas individuales.</aside>
+        <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.3em;">Ali et al. 2025 §3.6.4–3.6.5</p>
+        <aside class="notes">§3.6.4-5. XAI y SOCs son el cierre natural de la narrativa de Act II: las tecnologías de AI son efectivas (§3.4), pero para ser adoptadas necesitan ser explicables (XAI) y operacionalmente integrables (SOCs aumentados). Estos dos temas resuelven el problema de confianza institucional que bloquea la adopción.</aside>
       </section>
 
       <!-- ==================== ACT III ==================== -->
