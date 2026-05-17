@@ -1287,79 +1287,171 @@ El diagrama está vacío. Pausa breve. "Vamos a construir esto juntos, capa por 
       </section>
 
       <!-- §3.5 — Desafíos y limitaciones -->
-      <!-- §3.5a: Adversarial attacks -->
+
+      <!-- Adversarial Attacks: A/B -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
-        <h2>Adversarial attacks: engañar al modelo</h2>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8em; margin-top:0.4em; font-size:0.7em;">
-          <div>
-            <div class="fragment card" style="margin-bottom:0.5em;">
-              <p style="font-weight:700; color:var(--accent); margin-bottom:0.15em;">FGSM — Fast Gradient Sign Method</p>
-              <code class="eq">x' = x + ε · sign(∇ₓ J(θ, x, y))</code>
-              <p class="muted" style="font-size:0.82em; margin-top:0.2em;">1 perturbación mínima puede cegar un detector. Imperceptible para humanos, devastador para el modelo.</p>
+
+        <!-- SLIDE A: arquitectura dos carriles -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.25em;">Adversarial Attacks: anatomía</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:0.67em; width:88%; margin:0 auto;">
+
+            <div class="fragment" data-fragment-index="0" style="border:1px solid rgba(255,51,102,0.4); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(255,51,102,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Evasion Attack — inferencia</div>
+              <div style="display:flex; flex-direction:column; gap:3px; padding:0.4em 0.5em;">
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:var(--primary);">Clean Input <em>x</em></div>
+                <div style="text-align:center; color:var(--text-dim); font-size:0.85em;">+ perturbación imperceptible</div>
+                <div style="border:1px solid rgba(255,51,102,0.4); border-radius:4px; padding:0.18em 0.4em; text-align:center; color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.88em;">x' = x + ε·sign(∇<sub>x</sub>L)</div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:1px solid rgba(255,165,0,0.4); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:#ffa500;">Adversarial Input x'</div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:#ffa500; font-weight:700;">AI Model f<sub>θ</sub></div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:1px solid rgba(255,51,102,0.5); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:var(--accent); font-weight:700;">❌ Bypass / False Negative</div>
+              </div>
             </div>
-            <div class="fragment card">
-              <p style="font-weight:700; color:var(--accent); margin-bottom:0.15em;">Data poisoning</p>
-              <p class="muted" style="font-size:0.82em;">Inyección de muestras maliciosas durante el entrenamiento. El modelo aprende a ignorar exactamente los ataques que el adversario planea lanzar.</p>
+
+            <div class="fragment" data-fragment-index="1" style="border:1px solid rgba(255,51,102,0.4); border-radius:6px; overflow:hidden;">
+              <div style="background:rgba(255,51,102,0.12); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Data Poisoning — entrenamiento</div>
+              <div style="display:flex; flex-direction:column; gap:3px; padding:0.4em 0.5em;">
+                <div style="border:1px solid rgba(0,212,255,0.3); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:var(--primary);">Training Dataset D</div>
+                <div style="text-align:center; color:var(--text-dim); font-size:0.85em;">+ muestras maliciosas inyectadas</div>
+                <div style="border:1px solid rgba(255,51,102,0.4); border-radius:4px; padding:0.18em 0.4em; text-align:center; color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.88em;">D' ⊂ D → boundary distorted</div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:1px solid rgba(255,165,0,0.4); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:#ffa500;">Compromised Training</div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:#ffa500; font-weight:700;">AI Model f<sub>θ</sub> (sesgado)</div>
+                <div style="text-align:center; color:var(--text-dim);">▼</div>
+                <div style="border:1px solid rgba(255,51,102,0.5); border-radius:4px; padding:0.2em 0.4em; text-align:center; color:var(--accent); font-weight:700;">❌ Ignora amenazas reales</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="fragment" data-fragment-index="2" style="margin:5px auto 0; width:88%; border:2px solid rgba(0,255,136,0.4); border-radius:6px; overflow:hidden; font-size:0.67em;">
+            <div style="background:rgba(0,255,136,0.08); padding:0.15em 0.5em; font-weight:700; font-size:0.82em; color:var(--positive); text-transform:uppercase; letter-spacing:0.05em; text-align:center;">Defensa: Adversarial Training</div>
+            <div style="display:flex; align-items:center; justify-content:center; gap:1em; padding:0.3em 0.5em; flex-wrap:wrap;">
+              <code style="font-size:0.85em; background:transparent; border:none; color:var(--positive);">min<sub>θ</sub> 𝔼[max<sub>‖δ‖≤ε</sub> L(θ, x+δ, y)]</code>
+              <span style="color:var(--text-dim);">→</span>
+              <span style="color:var(--positive); font-weight:600;">Modelo robusto ✅</span>
+              <span style="color:var(--text-dim);">pero:</span>
+              <span class="danger">trade-off accuracy ↔ resilience</span>
             </div>
           </div>
-          <div class="fragment" style="display:flex; flex-direction:column; gap:0.5em; justify-content:center;">
-            <div class="card" style="border-color:rgba(255,51,102,0.3);">
-              <p style="font-weight:700; color:var(--text); font-size:0.88em; margin-bottom:0.2em;">La carrera armamentista</p>
-              <p class="muted" style="font-size:0.8em;">Cada mejora defensiva expone nueva superficie de ataque. Los modelos más precisos son los más susceptibles a perturbaciones adversariales.</p>
+          <p class="fragment muted" style="font-size:0.52em; text-align:right; margin-top:0.3em; width:88%; margin-left:auto; margin-right:auto;">Ali et al. 2025 §3.5.1</p>
+          <aside class="notes">§3.5.1. Evasión en inferencia: FGSM usa el gradiente de la función de pérdida — 1 perturbación imperceptible puede reducir accuracy de 99% a menos del 30%. Poisoning en entrenamiento: el adversario corrompe el dataset para que el modelo aprenda a ignorar exactamente los ataques planeados. Adversarial training es la defensa más robusta pero penaliza accuracy en inputs limpios.</aside>
+        </section>
+
+        <!-- SLIDE B: compacto izquierda + §3.5.1 narrativa derecha -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.3em;">Adversarial Attacks</h2>
+          <div style="display:grid; grid-template-columns:34% 66%; gap:1em; align-items:start; font-size:0.72em;">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px;">
+                <div style="border:1px solid rgba(255,51,102,0.35); border-radius:4px; padding:0.25em; text-align:center; color:var(--accent); font-size:0.78em;">Evasion<br><span style="font-size:0.82em; color:var(--text-dim);">Inferencia</span></div>
+                <div style="border:1px solid rgba(255,51,102,0.35); border-radius:4px; padding:0.25em; text-align:center; color:var(--accent); font-size:0.78em;">Poisoning<br><span style="font-size:0.82em; color:var(--text-dim);">Entrenamiento</span></div>
+              </div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:2px solid rgba(255,165,0,0.7); border-radius:4px; padding:0.3em; text-align:center; color:#ffa500; font-weight:700; font-size:0.85em; box-shadow:0 0 8px rgba(255,165,0,0.2);">AI Model f<sub>θ</sub></div>
+              <div style="text-align:center; color:var(--text-dim);">▼</div>
+              <div style="border:1px solid rgba(255,51,102,0.4); border-radius:4px; padding:0.22em; text-align:center; color:var(--accent); font-size:0.78em;">❌ Wrong Output</div>
+              <div style="text-align:center; color:var(--text-dim); font-size:0.85em;">▼ defensa</div>
+              <div style="border:1px solid rgba(0,255,136,0.35); border-radius:4px; padding:0.22em; text-align:center; color:var(--positive); font-size:0.78em;">Adversarial Training ✅</div>
             </div>
-            <div class="card" style="border-color:rgba(0,255,136,0.25);">
-              <p style="font-weight:700; color:var(--positive); font-size:0.88em; margin-bottom:0.2em;">Adversarial training</p>
-              <p class="muted" style="font-size:0.8em;">Respuesta: entrenar con ejemplos adversariales generados. Aumenta robustez pero introduce el trade-off accuracy vs. resilience.</p>
+            <div style="display:flex; flex-direction:column; gap:0.52em; padding-top:0.1em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Manipulación estratégica de inputs para engañar al modelo — la perturbación δ es <strong style="color:var(--text);">imperceptible para humanos</strong> pero devastadora para el detector <strong>[75,76]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Evasión</strong>: FGSM calcula el gradiente de la función de pérdida y añade ruido mínimo — puede reducir accuracy de 99% a &lt;30% con 1 perturbación <strong>[75]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Data poisoning</strong>: el adversario inyecta muestras corruptas D'⊂D — el modelo aprende a ignorar exactamente los ataques que se planean lanzar <strong>[77,78]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">PGD</strong> extiende FGSM iterativamente refinando δ dentro de una bola p-norm — imperceptibilidad máxima garantizada <strong>[75]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">Adversarial training</span>: incluir ejemplos adversariales en el entrenamiento — introduce trade-off <span class="danger">accuracy ↔ resilience</span> <strong>[75]</strong></p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.5.1</p>
             </div>
           </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.52em; margin-top:0.4em;">Ali et al. 2025 §3.5.1</p>
-        <aside class="notes">§3.5.1 Ali et al. 2025. El problema fundamental: los modelos de ML optimizan una función de pérdida sobre una distribución de entrenamiento. Un atacante que conoce esa función puede construir inputs que maximizan el error del modelo. FGSM es la técnica más documentada — puede reducir la accuracy de un detector de malware del 99% al 30% con una perturbación invisible al ojo humano.</aside>
+          <aside class="notes">§3.5.1: FGSM y PGD son las técnicas documentadas en el paper. El trade-off accuracy vs resilience es el problema fundamental — un modelo adversarialmente robusto puede tener menor accuracy en inputs limpios. Gradient masking y randomized smoothing son alternativas defensivas mencionadas.</aside>
+        </section>
+
       </section>
 
-      <!-- §3.5b: Privacy, Bias, Explainability -->
+      <!-- Otros Desafíos: 4 sub-slides verticales -->
       <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
-        <h2>Privacidad, sesgo y explicabilidad</h2>
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.6em; margin-top:0.4em; font-size:0.67em;">
-          <div class="fragment card">
-            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-lock"></i> Data Privacy</p>
-            <p class="muted" style="font-size:0.85em;">Los modelos requieren datos sensibles de red y comportamiento. GDPR limita uso de PII en entrenamiento. Federated Learning como respuesta parcial — el modelo viaja al dato, no al revés.</p>
-          </div>
-          <div class="fragment card">
-            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-scale"></i> Bias & Fairness</p>
-            <p class="muted" style="font-size:0.85em;">Datasets históricos amplifican sesgos: geografía, protocolo, industria. Un modelo sesgado produce falsos positivos sistemáticos sobre poblaciones subrepresentadas en el entrenamiento.</p>
-          </div>
-          <div class="fragment card">
-            <p style="font-weight:700; color:var(--accent); margin-bottom:0.2em;"><i class="ti ti-eye"></i> Explainability</p>
-            <p class="muted" style="font-size:0.85em;">¿Por qué el modelo bloqueó esa sesión? Reguladores y analistas exigen justificación auditable. Black boxes no son aceptables en decisiones con impacto legal o de negocio.</p>
-          </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.52em; margin-top:0.5em; text-align:center;">Ali et al. 2025 §3.5.2–3.5.4</p>
-        <aside class="notes">§3.5.2-3.5.4 Ali et al. 2025. Tres desafíos que convergen en el mismo problema: la confianza institucional en el sistema. Un modelo que no puede explicar sus decisiones, que discrimina, o que requiere datos legalmente no compartibles no es desplegable en producción — independientemente de su accuracy técnica.</aside>
-      </section>
 
-      <!-- §3.5c: Fusion with existing systems -->
-      <section>
-        <div style="margin-bottom:0.5em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
-        <h2>Integración con sistemas existentes</h2>
-        <div style="font-size:0.7em; width:88%; margin:0.4em auto 0;">
-          <div class="fragment card" style="margin-bottom:0.45em;">
-            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">El problema del legacy</p>
-            <p class="muted" style="font-size:0.85em;">SIEMs de 10+ años, firewalls con APIs propietarias, EDRs sin telemetría estructurada. Los modelos de AI requieren datos normalizados — la realidad operativa es heterogénea y ruidosa.</p>
+        <!-- Data Privacy & Security -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.3em;">Data Privacy &amp; Security</h2>
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1em; align-items:start; font-size:0.72em;">
+            <div style="border:2px dashed rgba(136,136,153,0.35); border-radius:8px; min-height:210px; display:flex; align-items:center; justify-content:center; padding:1em; color:var(--text-dim); font-size:0.82em; text-align:center; line-height:1.5;">
+              [PLACEHOLDER]<br>screenshot de paper sobre<br>Data Privacy en AI / Cybersecurity
+            </div>
+            <div style="display:flex; flex-direction:column; gap:0.52em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Los modelos requieren datos sensibles de red y comportamiento — la privacidad del dato está en tensión directa con la efectividad del modelo <strong>[79]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Federated Learning</strong>: el modelo viaja al dato, no al revés — cada cliente entrena localmente y comparte solo parámetros θ <strong>[79]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Differential Privacy</strong>: añade ruido calibrado a los updates — garantiza que ningún dato individual sea inferible del modelo <strong>[79]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Homomorphic Encryption</strong>: E(f(D)) = f(E(D)) — computación sobre datos cifrados sin exponer plaintext <strong>[79]</strong></p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.5.2</p>
+            </div>
           </div>
-          <div class="fragment card" style="margin-bottom:0.45em;">
-            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">La capa de orquestación — SOAR</p>
-            <p class="muted" style="font-size:0.85em;">Security Orchestration, Automation and Response como puente. Normaliza eventos de múltiples fuentes, expone APIs estandarizadas, permite que los modelos actúen sobre infraestructura heterogénea sin reemplazarla.</p>
+          <aside class="notes">§3.5.2. El dilema: los mejores modelos necesitan los datos más sensibles. Federated Learning es la respuesta más deployable hoy. Differential Privacy y Homomorphic Encryption son el futuro de privacy-preserving AI en ciberseguridad.</aside>
+        </section>
+
+        <!-- Bias & Fairness -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.3em;">Bias &amp; Fairness</h2>
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1em; align-items:start; font-size:0.72em;">
+            <div style="border:2px dashed rgba(136,136,153,0.35); border-radius:8px; min-height:210px; display:flex; align-items:center; justify-content:center; padding:1em; color:var(--text-dim); font-size:0.82em; text-align:center; line-height:1.5;">
+              [PLACEHOLDER]<br>screenshot de paper sobre<br>Bias &amp; Fairness en AI / Cybersecurity
+            </div>
+            <div style="display:flex; flex-direction:column; gap:0.52em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Datasets históricos amplifican sesgos — un modelo entrenado en tráfico de una región puede etiquetar como anómalo el tráfico legítimo de otra <strong>[80]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Equalized odds</strong>: tasa de verdaderos positivos y falsos positivos debe ser igual entre subgrupos — el modelo no puede discriminar por atributos sensibles <strong>[80]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Fair representation learning</strong>: entrenamiento con representaciones invariantes al atributo sensible — minimiza I(Z; A) <strong>[80]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="danger">Riesgo real</span>: un modelo sesgado en infraestructura crítica crea zonas de protección desigual con consecuencias legales y éticas <strong>[80]</strong></p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.5.3</p>
+            </div>
           </div>
-          <div class="fragment card">
-            <p style="font-weight:700; color:var(--primary); margin-bottom:0.1em;">Modelo de adopción realista</p>
-            <p class="muted" style="font-size:0.85em;">AI augmenta — no reemplaza. Capa de inteligencia encima de la infraestructura existente. El analista retiene la decisión final; AI provee contexto, priorización y automatización de tareas L1.</p>
+          <aside class="notes">§3.5.3. El sesgo en ciberseguridad tiene consecuencias asimétricas: los grupos subrepresentados en el entrenamiento reciben menos protección efectiva. Equalized odds y fair representation learning son las técnicas documentadas en el paper.</aside>
+        </section>
+
+        <!-- Explainability & Transparency -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.3em;">Explainability &amp; Transparency</h2>
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1em; align-items:start; font-size:0.72em;">
+            <div style="border:2px dashed rgba(136,136,153,0.35); border-radius:8px; min-height:210px; display:flex; align-items:center; justify-content:center; padding:1em; color:var(--text-dim); font-size:0.82em; text-align:center; line-height:1.5;">
+              [PLACEHOLDER]<br>screenshot de paper sobre<br>XAI en Cybersecurity
+            </div>
+            <div style="display:flex; flex-direction:column; gap:0.52em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Deep learning es un <strong style="color:var(--text);">black box</strong> — analistas y reguladores exigen saber por qué el modelo bloqueó una conexión o identificó una amenaza <strong>[72]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">XAI</strong> busca representar la relación entre inputs x y predicciones f<sub>θ</sub>(x) de forma comprensible — explicaciones locales y globales <strong>[72]</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">SHAP / LIME</strong>: atribuyen la predicción a features individuales — <em>"bloqueé esta IP porque su entropía de puertos es 3σ sobre la media"</em></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><span class="positive">GDPR Art. 22</span>: decisiones automatizadas con impacto legal requieren explicación — XAI convierte el modelo en sistema auditable ante reguladores</p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.5.4</p>
+            </div>
           </div>
-        </div>
-        <p class="fragment muted" style="font-size:0.52em; margin-top:0.4em;">Ali et al. 2025 §3.5.5</p>
-        <aside class="notes">§3.5.5 Ali et al. 2025. El desafío de integración es el más subestimado. El mayor obstáculo para adoptar AI en ciberseguridad no es técnico — es operacional. El patrón de adopción exitoso es incremental: AI como capa de inteligencia encima de lo existente, no como sustituto.</aside>
+          <aside class="notes">§3.5.4. La falta de explicabilidad es el mayor obstáculo para adopción en sectores regulados: banca, salud, infraestructura crítica. XAI no es solo ético — es un requisito legal en muchos contextos de despliegue.</aside>
+        </section>
+
+        <!-- Fusion with Existing Systems -->
+        <section>
+          <div style="margin-bottom:0.3em;"><span style="font-size:0.58em; font-weight:700; color:var(--accent); background:rgba(255,51,102,0.1); padding:0.2em 0.7em; border-radius:3px; letter-spacing:0.08em; text-transform:uppercase;">Desafíos</span></div>
+          <h2 style="margin-bottom:0.3em;">Fusion with Existing Systems</h2>
+          <div style="display:grid; grid-template-columns:40% 60%; gap:1em; align-items:start; font-size:0.72em;">
+            <div style="border:2px dashed rgba(136,136,153,0.35); border-radius:8px; min-height:210px; display:flex; align-items:center; justify-content:center; padding:1em; color:var(--text-dim); font-size:0.82em; text-align:center; line-height:1.5;">
+              [PLACEHOLDER]<br>screenshot de paper / noticia sobre<br>integración de AI en SOCs existentes
+            </div>
+            <div style="display:flex; flex-direction:column; gap:0.52em;">
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">SIEMs de 10+ años, firewalls con APIs propietarias, EDRs sin telemetría estructurada — el mayor obstáculo para adoptar AI no es técnico, es <strong style="color:var(--text);">operacional</strong></p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">SOAR como middleware</strong>: normaliza eventos heterogéneos y expone APIs estandarizadas — los modelos actúan sobre infraestructura legacy sin reemplazarla</p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;"><strong style="color:var(--text);">Modelo de adopción realista</strong>: AI augmenta al analista — provee contexto, priorización y automatización L1 mientras el humano retiene las decisiones críticas</p>
+              <p class="fragment muted" style="margin:0; font-size:0.88em;">Implementación <span class="positive">incremental</span>: capa de inteligencia <em>encima</em> de lo existente — reduce riesgo y acorta el tiempo a valor</p>
+              <p class="fragment muted" style="font-size:0.52em; text-align:right; margin:0.3em 0 0;">Ali et al. 2025 §3.5.5</p>
+            </div>
+          </div>
+          <aside class="notes">§3.5.5. El patrón exitoso documentado es siempre incremental: SOAR como middleware, AI como capa encima de la infraestructura existente. La resistencia organizacional y la heterogeneidad del legacy son más difíciles de superar que los retos técnicos.</aside>
+        </section>
+
       </section>
 
       <!-- §3.6 — Tendencias emergentes -->
